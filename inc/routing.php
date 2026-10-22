@@ -11,14 +11,43 @@ add_action('init',static function ():void {
         'menu_icon'=>'dashicons-layout','supports'=>['title']
     ]);
 });
-add_action('after_switch_theme',static function ():void {bng_seed_sections();flush_rewrite_rules();});
-function bng_seed_sections():void {
-    foreach(array_slice(bng_sections(),1) as $slug) {
-        if(bng_section_id($slug,'ru'))continue;
-        wp_insert_post(['post_type'=>'bng_section','post_status'=>'publish','post_name'=>$slug,
-            'post_title'=>(string)(bng_labels('ru')[$slug]??$slug)],true);
+
+/**
+ * Create only missing managed screens when an administrator opens wp-admin.
+ * Existing legacy records, ACF content, and client edits are left untouched.
+ * No CLI seeding command or public rewrite rules are needed.
+ */
+add_action('admin_init', static function (): void {
+    if (!current_user_can('edit_pages')) return;
+
+    $front_id = (int) get_option('page_on_front');
+    if (get_option('show_on_front') !== 'page' || !$front_id) {
+        $home = get_page_by_path('home', OBJECT, 'page');
+        if (!$home) $home = get_page_by_path('glavnaya', OBJECT, 'page');
+        if (!$home) $home = get_page_by_path('главная', OBJECT, 'page');
+        $front_id = $home instanceof WP_Post ? (int) $home->ID : wp_insert_post([
+            'post_type' => 'page',
+            'post_status' => 'publish',
+            'post_title' => 'Главная',
+            'post_name' => 'home',
+        ], true);
+        if (!is_wp_error($front_id) && $front_id) {
+            update_option('show_on_front', 'page');
+            update_option('page_on_front', (int) $front_id);
+        }
     }
-}
+
+    $labels = bng_labels('ru');
+    foreach (array_slice(bng_sections(), 1) as $slug) {
+        if (bng_section_id($slug)) continue;
+        wp_insert_post([
+            'post_type' => 'bng_section',
+            'post_status' => 'publish',
+            'post_name' => $slug,
+            'post_title' => (string) ($labels[$slug] ?? $slug),
+        ], true);
+    }
+}, 20);
 
 /** Keep imported legacy -en posts for rollback, but present one row per section. */
 add_action('pre_get_posts', static function (WP_Query $query): void {

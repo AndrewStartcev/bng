@@ -1,0 +1,50 @@
+/*
+ * BNG source inline rules mapped to the WordPress markup.
+ * Values below are taken from the original <header>, <main> and home screen.
+ * Responsive mobile navigation is retained rather than copying broken mobile.
+ */
+body{background:#ffffff}
+.site-header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid rgba(18,23,29,.14)}
+.site-header__inner{min-height:0;max-width:1180px;padding:26px 32px 16px;gap:28px;flex-wrap:wrap}
+.site-header__brand{display:flex;gap:12px;margin-right:auto;color:#12171D}
+.site-header__mark-image{width:34px;height:34px}
+.site-header__brand-name{font-family:"PT Serif",Georgia,serif;font-size:21px;font-weight:700;letter-spacing:.16em}
+.site-header__brand-name small{font-family:"PT Sans",system-ui,sans-serif;font-size:9.5px;letter-spacing:.3em;color:#6E747A;margin-top:4px}
+.site-header__nav{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-left:0}
+.site-header__nav a{font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:0 0 3px;border-bottom:2px solid transparent}
+.site-header__nav a:hover,.site-header__nav a.is-active{color:#5A3D96;border-bottom-color:#7C5CBF}
+.running-head{font-size:10.5px;letter-spacing:.2em;padding:18px 0;color:#6E747A;border-bottom:1px solid rgba(18,23,29,.14)}
+.home-hero{margin-top:40px;padding:80px 64px;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:56px;align-items:end;background:#12171D;color:#fff}
+.home-hero .kicker{font-size:10.5px;letter-spacing:.24em;margin-bottom:28px;color:#9AA0A6}
+.home-hero h1{font-family:"PT Serif",Georgia,serif;font-size:clamp(38px,4.6vw,64px);font-weight:400;line-height:1.08;letter-spacing:-.01em;margin:0}
+.home-hero__side>p{font-size:17px;line-height:1.6;color:#D8DBDE;margin:0 0 32px;text-wrap:pretty}
+.button-group{gap:14px}
+.home-hero .button{font-family:"PT Sans",system-ui,sans-serif;font-size:12px;letter-spacing:.16em;padding:15px 26px;border:1px solid #7C5CBF;background:#7C5CBF;color:#fff}
+.home-hero .button:hover{background:#6B4BAE;border-color:#6B4BAE}
+.home-hero .button--outline-light{border-color:rgba(255,255,255,.4);background:transparent;color:#fff}
+.home-hero .button--outline-light:hover{background:rgba(255,255,255,.09)}
+.hero-video{height:420px;margin:56px 0 0;padding:0;border:1px solid rgba(18,23,29,.16);position:relative}
+.hero-video video,.hero-video__poster,.hero-video__empty{display:block;height:100%;width:100%;object-fit:cover;background:#12171D;aspect-ratio:auto}
+.stream-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:28px;margin-top:72px}
+.stream-list__item{align-items:stretch;gap:18px;padding-top:22px;border-top:1px solid rgba(18,23,29,.18);color:#12171D}
+.stream-list__symbol{width:64px;min-height:64px;border:2px solid #12171D}
+.stream-list__name{font-family:"PT Serif",Georgia,serif;font-size:19px}
+.home-position{margin-top:80px;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:56px;align-items:start}
+.home-position h2{font-family:"PT Serif",Georgia,serif;font-size:30px;font-weight:400;line-height:1.15}
+.home-position .lead{font-size:19px;line-height:1.6}
+@media(min-width:769px){
+  .site-header__nav{display:flex;position:static;max-height:none;padding:0;box-shadow:none;overflow:visible}
+  .site-header__toggle{display:none}
+}
+@media(max-width:768px){
+  .site-header__inner{padding:16px 20px;min-height:72px;gap:12px}
+  .site-header__nav{display:none}
+  .site-header__nav.is-open{display:flex;position:absolute}
+  .home-hero{padding:36px 28px;grid-template-columns:1fr;gap:25px}
+  .hero-video{height:auto;aspect-ratio:16/9}
+}
+@media(max-width:480px){
+  .site-header__inner{padding:14px 16px}
+  .home-hero{padding:34px 22px;margin-top:20px}
+  .home-position{grid-template-columns:1fr}
+}

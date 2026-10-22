@@ -11,11 +11,26 @@ add_action('after_setup_theme', static function (): void {
 add_action('wp_enqueue_scripts', static function (): void {
     $css_path = get_template_directory() . '/assets/css/main.css';
     $js_path = get_template_directory() . '/assets/js/main.js';
+    // Source design system first, then the existing BNG components and exact source layout overrides.
+    $source_css_path = get_template_directory() . '/assets/css/client-base.css';
+    wp_enqueue_style(
+        'bng-client-base',
+        get_template_directory_uri() . '/assets/css/client-base.css',
+        [],
+        file_exists($source_css_path) ? (string) filemtime($source_css_path) : wp_get_theme()->get('Version')
+    );
     wp_enqueue_style(
         'bng-main',
         get_template_directory_uri() . '/assets/css/main.css',
-        [],
+        ['bng-client-base'],
         file_exists($css_path) ? (string) filemtime($css_path) : wp_get_theme()->get('Version')
+    );
+    $layout_path = get_template_directory() . '/assets/css/client-layout.css';
+    wp_enqueue_style(
+        'bng-client-layout',
+        get_template_directory_uri() . '/assets/css/client-layout.css',
+        ['bng-main'],
+        file_exists($layout_path) ? (string) filemtime($layout_path) : wp_get_theme()->get('Version')
     );
     wp_enqueue_script(
         'bng-main',
