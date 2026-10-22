@@ -122,35 +122,40 @@ add_action('acf/init', static function (): void {
             'icon_url'=>'dashicons-admin-site-alt3'
         ]);
     }
-    if (!function_exists('acf_add_local_field_group')) return;
 
-    foreach (array_keys(bng_editor_layout()) as $section) {
-        $post_id = $section === 'home' ? (int) get_option('page_on_front') : bng_section_id($section);
-        if ($section !== 'home' && !$post_id) continue;
-        foreach (['ru'=>'🇷🇺 Контент — Русский','en'=>'🇬🇧 Content — English'] as $lang=>$title) {
-            $location = $section === 'home'
-                ? [[['param'=>'page_type','operator'=>'==','value'=>'front_page']]]
-                : [[['param'=>'post','operator'=>'==','value'=>(string) $post_id]]];
-            acf_add_local_field_group([
-                'key'=>'group_bng_' . $section . '_' . $lang,
-                'title'=>$title,'fields'=>bng_editor_fields($section,$lang),
-                'location'=>$location,'position'=>'normal','menu_order'=>$lang === 'ru' ? 0 : 10,'style'=>'default',
-                'label_placement'=>'top','instruction_placement'=>'label',
-                'active'=>true
-            ]);
-        }
-    }
-    acf_add_local_field_group([
-        'key'=>'group_bng_options','title'=>'BNG — общие настройки',
-        'fields'=>[
-            ['key'=>'field_bng_logo','label'=>'Логотип','name'=>'bng_logo','type'=>'image',
-             'return_format'=>'id','wrapper'=>['width'=>'50']],
-            ['key'=>'field_bng_contact_email','label'=>'Контактный email',
-             'name'=>'bng_contact_email','type'=>'email','wrapper'=>['width'=>'50']],
-        ],
-        'location'=>[[['param'=>'options_page','operator'=>'==','value'=>'bng-settings']]]
-    ]);
 });
+
+
+/**
+ * Portable location matcher for ACF Local JSON.
+ * Section fields belong to the existing canonical CPT record, including legacy -ru slugs.
+ * The rule never relies on deployment-specific numeric post IDs stored in JSON.
+ */
+add_filter('acf/location/rule_types', static function (array $choices): array {
+    $choices['BNG']['bng_section'] = 'Раздел BNG';
+    return $choices;
+});
+add_filter('acf/location/rule_values/bng_section', static function (array $choices): array {
+    foreach (array_slice(bng_sections(), 1) as $section) {
+        $labels = bng_labels('ru');
+        $choices[$section] = $labels[$section] ?? $section;
+    }
+    return $choices;
+});
+add_filter('acf/location/rule_match/bng_section', static function ($match, array $rule, array $options): bool {
+    $section = (string) ($rule['value'] ?? '');
+    if (!in_array($section, array_slice(bng_sections(), 1), true)) {
+        return false;
+    }
+    $raw_post_id = (string) ($options['post_id'] ?? '');
+    if (!preg_match('/^(?:post_)?([0-9]+)$/', $raw_post_id, $id_match)) {
+        return false;
+    }
+    $post_id = (int) $id_match[1];
+    $is_match = $post_id > 0 && get_post_type($post_id) === 'bng_section'
+        && $post_id === bng_section_id($section);
+    return ($rule['operator'] ?? '==') === '!=' ? !$is_match : $is_match;
+}, 10, 3);
 
 /** Preload original rows into an empty repeater without overwriting saved data. */
 add_filter('acf/load_value',static function ($value,$post_id,$field) {
