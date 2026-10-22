@@ -946,7 +946,7 @@ if (window.BNG_WP_COPY) {
 class Component extends DCLogic {
   state = {
     page: this.props.startPage || 'home',
-    lang: 'ru',
+    lang: window.BNG_INITIAL_LANG === 'en' ? 'en' : 'ru',
     seg: 'all',
     openProduct: null,
     stream: null
@@ -987,12 +987,6 @@ class Component extends DCLogic {
     if (event && event.preventDefault) event.preventDefault();
     if (locale !== 'ru' && locale !== 'en') return;
     this.setState({ lang: locale });
-    if (typeof window !== 'undefined') {
-      const next = new URL(window.location.href);
-      if (locale === 'en') next.searchParams.set('lang', 'en');
-      else next.searchParams.delete('lang');
-      window.history.replaceState(window.history.state, '', next.pathname + next.search + next.hash);
-    }
   }
 
   nav(page) {
@@ -1078,17 +1072,15 @@ class Component extends DCLogic {
       tick: active === o.stream ? STREAM_COLOR[o.stream] : 'rgba(18,23,29,0.3)'
     }));
 
-    const hv = (this.props.heroVideo ?? 'https://www.youtube.com/watch?v=91HaSIVhwIQ&t=4s').trim();
-    let embed = '';
-    const yt = hv.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/);
-    const vm = hv.match(/vimeo\.com\/(?:video\/)?(\d+)/);
-    if (yt) embed = 'https://www.youtube.com/embed/' + yt[1] + '?autoplay=1&mute=1&loop=1&playlist=' + yt[1] + '&controls=0&rel=0&playsinline=1' + (typeof window !== 'undefined' && /^https?:/.test(window.location.origin) ? '&origin=' + encodeURIComponent(window.location.origin) : '');
-    else if (vm) embed = 'https://player.vimeo.com/video/' + vm[1] + '?autoplay=1&muted=1&loop=1&background=1';
+    const homeMedia = (window.BNG_WP_MEDIA && window.BNG_WP_MEDIA[lang]) || {};
+    const hv = homeMedia.video || '';
+    const heroPoster = homeMedia.poster || '';
     return {
       t: t, accent: accent, mapSrc: (window.__resources && window.__resources.depositMap) || 'deposit-map-ru.html',
       fitMap: (e) => { try { const fr = e.target; const h = fr.contentDocument.body.scrollHeight; if (h > 100) fr.style.height = h + 'px'; } catch (err) {} },
-      heroVideo: hv, heroEmbed: embed, heroWatch: yt ? 'https://www.youtube.com/watch?v=' + yt[1] : hv, heroControls: !!this.props.heroControls,
-      heroIsEmbed: !!embed, heroIsFile: !!hv && !embed, heroIsEmpty: !hv,
+      heroVideo: hv, heroPoster: heroPoster, heroControls: true,
+      heroIsEmbed: false, heroIsFile: !!hv, heroIsEmpty: !hv && !heroPoster, heroHasPoster: !!heroPoster && !hv,
+
       isHome: page === 'home', isProducts: page === 'products', isRock: page === 'rock',
       isFlow: page === 'flowsheet', isEvidence: page === 'evidence', isNews: page === 'news', isMilestones: page === 'milestones', isCompany: page === 'company',
       runHeadLeft: t.head[page], runHeadRight: String(idx + 1).padStart(2, '0') + ' / 08',
