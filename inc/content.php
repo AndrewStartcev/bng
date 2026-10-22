@@ -43,9 +43,12 @@ function bng_field(string $name, $default = '', $object = null) {
     return $value === false || $value === null || $value === '' ? $default : $value;
 }
 
-function bng_section_id(string $section, string $lang): int {
-    $post = get_page_by_path($section . '-' . $lang, OBJECT, 'bng_section');
-    return $post instanceof WP_Post ? (int) $post->ID : 0;
+function bng_section_id(string $section, string $lang = 'ru'): int {
+    foreach ([$section . '-ru', $section] as $path) {
+        $post = get_page_by_path($path, OBJECT, 'bng_section');
+        if ($post instanceof WP_Post) return (int) $post->ID;
+    }
+    return 0;
 }
 
 function bng_section_slug(): string {

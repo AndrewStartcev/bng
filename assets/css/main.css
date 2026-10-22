@@ -257,3 +257,8 @@ h3{font-size:clamp(19px,1.8vw,24px)}
 
 .site-header__mark-image{display:block;width:36px;height:36px;flex:none;object-fit:contain}
 @media(max-width:360px){.site-header__mark-image{width:28px;height:28px}}
+
+/* Shared SPA shell; existing section typography/layout untouched. */
+.bng-screen[hidden]{display:none!important}
+.site-header__language button{appearance:none;border:0;background:none;color:inherit;font:inherit;padding:4px 2px;cursor:pointer}
+.site-header__language button[aria-pressed="true"]{color:var(--bng-purple);font-weight:700}
