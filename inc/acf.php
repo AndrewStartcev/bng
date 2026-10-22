@@ -179,3 +179,45 @@ add_filter('acf/load_value',static function ($value,$post_id,$field) {
     }
     return $rows;
 },10,3);
+
+/**
+ * Repair imported home repeaters that had a saved row count but no row values.
+ * Run during an admin visit, after the managed front page has been created.
+ * Never overwrite a card that contains an editor-supplied value.
+ */
+add_action('admin_init', static function (): void {
+    if (!current_user_can('edit_pages') || !function_exists('update_field')) return;
+    $post_id = (int) get_option('page_on_front');
+    if (!$post_id || get_post_type($post_id) !== 'page') return;
+    foreach (['ru', 'en'] as $locale) {
+        $name = 'bng_' . $locale . '_home_cells';
+        $original = bng_source()['copy'][$locale]['home']['cells'] ?? [];
+        if (!is_array($original) || !$original) continue;
+
+        // Count-only legacy data can exist after the repeater was first saved:
+        // row count exists, but individual c0/c1 fields have never been populated.
+        $has_content = false;
+        $raw_count = (int) get_post_meta($post_id, $name, true);
+        foreach (range(0, max(count($original), $raw_count) - 1) as $row) {
+            foreach (['c0', 'c1'] as $column) {
+                $stored = get_post_meta($post_id, $name . '_' . $row . '_' . $column, true);
+                if (is_scalar($stored) && trim((string) $stored) !== '') {
+                    $has_content = true;
+                    break 2;
+                }
+            }
+        }
+        if ($has_content) continue;
+
+        $rows = [];
+        foreach ($original as $entry) {
+            $cells = is_array($entry) ? array_values($entry) : [(string) $entry];
+            $rows[] = [
+                'field_bng_' . $locale . '_home_cells_0' => (string) ($cells[0] ?? ''),
+                'field_bng_' . $locale . '_home_cells_1' => (string) ($cells[1] ?? ''),
+            ];
+        }
+        // ACF writes both the subfield values and their reference metadata.
+        update_field('field_bng_' . $locale . '_home_cells', $rows, $post_id);
+    }
+}, 30);
