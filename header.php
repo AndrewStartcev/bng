@@ -4,12 +4,12 @@ $ru=bng_labels('ru');$en=bng_labels('en');$logo=(int)bng_field('bng_logo',0,'opt
 ?>
 <!doctype html><html <?php language_attributes(); ?>><head><meta charset="<?php bloginfo('charset'); ?>"><meta name="viewport" content="width=device-width, initial-scale=1"><?php wp_head(); ?></head>
 <body <?php body_class('bng-site'); ?>><?php wp_body_open(); ?>
-<a class="skip-link" href="#content">К содержимому</a>
+<a class="skip-link" href="#content" data-bng-i18n-ru="К содержимому" data-bng-i18n-en="Skip to content">К содержимому</a>
 <header class="site-header"><div class="container site-header__inner">
 <a class="site-header__brand" href="<?php echo esc_url(home_url('/')); ?>" data-bng-target="home" aria-label="BNG Elements">
 <?php if($logo): echo wp_get_attachment_image($logo,'full',false,['class'=>'site-header__logo','alt'=>'BNG Elements']); else: ?>
 <img class="site-header__mark-image" src="<?php echo esc_url(get_template_directory_uri().'/assets/images/bng-logo.svg'); ?>" width="36" height="36" alt="">
-<span class="site-header__brand-name"><?php echo esc_html(bng_copy('','ru')['brand']??'БНГ'); ?><small><?php echo esc_html(bng_copy('','ru')['descriptor']??'ЭЛЕМЕНТС'); ?></small></span>
+<span class="site-header__brand-name"><span data-bng-i18n-ru="<?php echo esc_attr(bng_copy('','ru')['brand']??'БНГ'); ?>" data-bng-i18n-en="<?php echo esc_attr(bng_copy('','en')['brand']??'BNG'); ?>"><?php echo esc_html(bng_copy('','ru')['brand']??'БНГ'); ?></span><small data-bng-i18n-ru="<?php echo esc_attr(bng_copy('','ru')['descriptor']??'ЭЛЕМЕНТС'); ?>" data-bng-i18n-en="<?php echo esc_attr(bng_copy('','en')['descriptor']??'ELEMENTS'); ?>"><?php echo esc_html(bng_copy('','ru')['descriptor']??'ЭЛЕМЕНТС'); ?></small></span>
 <?php endif; ?></a>
 <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="bng-nav"><span data-bng-i18n-ru="Меню" data-bng-i18n-en="Menu">Меню</span><span aria-hidden="true">☰</span></button>
 <nav class="site-header__nav" id="bng-nav" aria-label="Main navigation">

@@ -33,7 +33,7 @@ function bng_editor_fields(string $section, string $lang): array {
                 $subfields = [];
                 foreach ($sample as $n => $item) {
                     $text = (string) $item;
-                    $type = mb_strlen($text) > 85 ? 'textarea' : 'text';
+                    $type = (function_exists('mb_strlen') ? mb_strlen($text) : strlen($text)) > 85 ? 'textarea' : 'text';
                     $subfields[] = [
                         'key' => 'field_bng_' . $lang . '_' . $section . '_' . $key . '_' . $n,
                         'name' => 'c' . $n,
@@ -50,7 +50,7 @@ function bng_editor_fields(string $section, string $lang): array {
                     'button_label' => 'Добавить строку', 'sub_fields' => $subfields,
                 ];
             } else {
-                $long = mb_strlen((string) $value) > 140;
+                $long = (function_exists('mb_strlen') ? mb_strlen((string) $value) : strlen((string) $value)) > 140;
                 $fields[] = [
                     'key' => 'field_bng_' . $lang . '_' . $section . '_' . $key,
                     'name' => $field_name, 'label' => $label,
