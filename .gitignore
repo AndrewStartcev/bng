@@ -1,2 +1,8 @@
 # Client-provided source files are kept outside the deployable WordPress theme.
 /resourse/
+
+# Local development and editor artefacts
+/.idea/
+/.vscode/
+.DS_Store
+*.log

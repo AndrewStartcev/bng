@@ -1,0 +1,29 @@
+name: BNG theme checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: none
+      - name: PHP syntax
+        run: find . -type f -name '*.php' -not -path './resourse/*' -print0 | xargs -0 -n1 php -l
+      - name: Client data validation
+        run: |
+          php -r '
+            $data = json_decode(file_get_contents("data/source-content.json"), true);
+            if (!is_array($data) || count($data["products"] ?? []) !== 10) exit(1);
+            foreach (["ru", "en"] as $lang) {
+              if (empty($data["copy"][$lang]["home"]["title"])) exit(1);
+              foreach (["products", "rock", "flow", "evidence", "milestones", "news", "company"] as $key) {
+                if (empty($data["copy"][$lang][$key])) exit(1);
+              }
+            }
+            echo "RU/EN sections and 10 products OK\n";
+          '

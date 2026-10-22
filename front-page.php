@@ -2,18 +2,62 @@
 defined('ABSPATH') || exit;
 get_header();
 $lang = bng_language();
-$title = bng_field('hero_heading_' . $lang, $lang === 'en' ? 'BNG Elements' : 'БНГ ЭЛЕМЕНТС', get_option('page_on_front'));
-$intro = bng_field('hero_text_' . $lang, '', get_option('page_on_front'));
-$video_id = (int) bng_field('hero_video', 0, get_option('page_on_front'));
-$video_src = $video_id ? wp_get_attachment_url($video_id) : '';
+$home = bng_copy('home', $lang);
+$front_id = (int) get_option('page_on_front');
+$title = (string) bng_field('hero_heading_' . $lang, $home['title'] ?? 'BNG Elements', $front_id);
+$subtitle = (string) bng_field('hero_text_' . $lang, $home['sub'] ?? '', $front_id);
+$video_id = (int) bng_field('hero_video', 0, $front_id);
+$video = $video_id ? wp_get_attachment_url($video_id) : '';
+$poster_id = (int) bng_field('hero_poster', 0, $front_id);
+$poster = $poster_id ? wp_get_attachment_url($poster_id) : '';
+$source = bng_source();
 ?>
-<main id="content">
-<section class="hero"><div class="container hero__grid">
-<div class="hero__copy"><span class="eyebrow">BNG ELEMENTS</span><h1><?php echo esc_html($title); ?></h1><?php if($intro): ?><p><?php echo esc_html($intro); ?></p><?php endif; ?><a class="button" href="<?php echo esc_url(bng_url('products',$lang)); ?>"><?php echo esc_html($lang === 'en' ? 'Explore products' : 'Смотреть продукты'); ?> ↗</a></div>
-<div class="hero__media"><?php if($video_src): ?><video playsinline muted autoplay loop preload="metadata"><source src="<?php echo esc_url($video_src); ?>" type="video/mp4"></video><?php else: ?><div class="hero__placeholder"><span>BNG ELEMENTS</span><small><?php echo esc_html($lang==='en'?'Presentation video':'Презентационное видео'); ?></small></div><?php endif; ?></div>
-</div></section>
-<section class="section"><div class="container"><div class="section__heading"><span class="eyebrow">BNG ELEMENTS</span><h2><?php echo esc_html($lang === 'en' ? 'Explore our company' : 'Направления деятельности'); ?></h2></div><div class="section-grid">
-<?php foreach(array_slice(bng_labels($lang),1,true) as $slug=>$label): ?><a class="section-card" href="<?php echo esc_url(bng_url($slug,$lang)); ?>"><span class="section-card__index">0<?php echo esc_html(array_search($slug,array_keys(bng_labels($lang)),true)); ?></span><h3><?php echo esc_html($label); ?></h3><span class="section-card__arrow" aria-hidden="true">↗</span></a><?php endforeach; ?>
-</div></div></section>
+<main id="content" class="bng-main">
+    <div class="container">
+        <div class="running-head"><span><?php echo esc_html(bng_copy('', $lang)['head']['home'] ?? 'BNG Elements'); ?></span><span>01 / 08</span></div>
+        <section class="home-hero">
+            <div>
+                <span class="kicker"><?php echo esc_html($home['kicker'] ?? 'BNG Elements'); ?></span>
+                <h1><?php echo esc_html($title); ?></h1>
+            </div>
+            <div class="home-hero__side">
+                <p><?php echo esc_html($subtitle); ?></p>
+                <div class="button-group">
+                    <a class="button" href="<?php echo esc_url(bng_url('products', $lang)); ?>"><?php echo esc_html($home['cta1'] ?? 'Products'); ?></a>
+                    <a class="button button--outline-light" href="<?php echo esc_url(bng_url('evidence', $lang)); ?>"><?php echo esc_html($home['cta2'] ?? 'Evidence'); ?></a>
+                </div>
+            </div>
+        </section>
+        <figure class="hero-video">
+            <?php if ($video) : ?>
+                <video muted autoplay loop playsinline preload="metadata"<?php if ($poster) : ?> poster="<?php echo esc_url($poster); ?>"<?php endif; ?>><source src="<?php echo esc_url($video); ?>" type="<?php echo esc_attr(get_post_mime_type($video_id) ?: 'video/mp4'); ?>"></video>
+            <?php elseif ($poster) : ?>
+                <?php echo wp_get_attachment_image($poster_id, 'full', false, ['class' => 'hero-video__poster']); ?>
+            <?php else : ?>
+                <div class="hero-video__empty"><span class="hero-video__play" aria-hidden="true">▶</span><span>BNG ELEMENTS</span></div>
+            <?php endif; ?>
+            <figcaption><?php echo esc_html($home['figcap'] ?? ''); ?></figcaption>
+        </figure>
+        <section class="stream-list" aria-label="<?php echo esc_attr($lang === 'en' ? 'Mineral streams' : 'Минеральные потоки'); ?>">
+            <?php foreach (($source['buyers'] ?? []) as $symbol => $buyer) : ?>
+                <a class="stream-list__item" href="<?php echo esc_url(bng_url('flowsheet', $lang)); ?>">
+                    <span class="stream-list__symbol"><?php echo esc_html($symbol); ?><small><?php echo esc_html($source['atomic'][$symbol] ?? ''); ?></small></span>
+                    <span class="stream-list__name"><?php echo esc_html(bng_copy('', $lang)['element'][$symbol] ?? $symbol); ?><small><?php echo esc_html($buyer[$lang] ?? ''); ?></small></span>
+                    <span aria-hidden="true">↗</span>
+                </a>
+            <?php endforeach; ?>
+        </section>
+        <section class="home-position">
+            <h2><?php echo esc_html($home['posTitle'] ?? ''); ?></h2>
+            <div>
+                <p class="lead"><?php echo esc_html($home['posBody'] ?? ''); ?></p>
+                <div class="facts-grid">
+                    <?php foreach (($home['cells'] ?? []) as $cell) : ?>
+                        <div class="fact"><span class="fact__label"><?php echo esc_html($cell[0] ?? ''); ?></span><p><?php echo esc_html($cell[1] ?? ''); ?></p></div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
+    </div>
 </main>
 <?php get_footer(); ?>
