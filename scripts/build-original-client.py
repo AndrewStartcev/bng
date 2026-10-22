@@ -24,7 +24,7 @@ EXTENSIONS = {
 }
 
 def bundled_json(content, kind):
-    pattern = r"<script\\s+type=\\\"__bundler/" + kind + r"\\\"\\s*>(.*?)</script>"
+    pattern = r"<script[^>]*__bundler/" + kind + r"[^>]*>(.*?)</script>"
     match = re.search(pattern, content, re.S)
     if not match:
         raise ValueError("Original standalone has no " + kind)
