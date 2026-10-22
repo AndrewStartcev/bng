@@ -53,7 +53,7 @@ add_action('admin_menu', static function (): void {
 }, 999);
 
 add_action('admin_bar_menu', static function ($bar): void {
-    foreach (['customize', 'comments', 'new-post'] as $node) $bar->remove_node($node);
+    foreach (['wp-logo', 'customize', 'comments', 'new-post'] as $node) $bar->remove_node($node);
 }, 999);
 add_action('wp_dashboard_setup', static function (): void {
     remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
