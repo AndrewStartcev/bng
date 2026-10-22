@@ -116,8 +116,10 @@ function bng_editor_fields(string $section, string $lang): array {
 add_action('acf/init', static function (): void {
     if (function_exists('acf_add_options_page')) {
         acf_add_options_page([
-            'page_title'=>'BNG — настройки сайта','menu_title'=>'BNG — настройки',
-            'menu_slug'=>'bng-settings','redirect'=>false
+            'page_title'=>'Общие настройки сайта','menu_title'=>'Сайт',
+            'menu_slug'=>'bng-settings','redirect'=>false,
+            'capability'=>'manage_options','position'=>3,
+            'icon_url'=>'dashicons-admin-site-alt3'
         ]);
     }
     if (!function_exists('acf_add_local_field_group')) return;
