@@ -134,7 +134,7 @@ add_action('acf/init', static function (): void {
             acf_add_local_field_group([
                 'key'=>'group_bng_' . $section . '_' . $lang,
                 'title'=>$title,'fields'=>bng_editor_fields($section,$lang),
-                'location'=>$location,'position'=>'normal','style'=>'default',
+                'location'=>$location,'position'=>'normal','menu_order'=>$lang === 'ru' ? 0 : 10,'style'=>'default',
                 'label_placement'=>'top','instruction_placement'=>'label',
                 'active'=>true
             ]);
