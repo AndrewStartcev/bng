@@ -51,7 +51,7 @@ foreach (['home','products','rock','flowsheet','evidence','milestones','news','c
                 $figure .= '<figcaption>' . esc_html($caption) . '</figcaption>';
             }
             $figure .= '</figure>';
-            $fragment = preg_replace('~<figure class="blueprint"\\b[^>]*>.*?</figure>~s', $figure, $fragment, 1, $replacements);
+            $fragment = preg_replace('~<figure class="blueprint"[^>]*>.*?</figure>~s', $figure, $fragment, 1, $replacements);
             if ($replacements !== 1 || !is_string($fragment)) {
                 status_header(500);
                 wp_die(esc_html__('BNG: original homepage video block was not found.', 'bng'));
