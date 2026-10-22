@@ -1,0 +1,30 @@
+<sc-if value="{{ isNews }}" hint-placeholder-val="{{ false }}">
+      <section>
+        <div style="margin-top:44px;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:56px;align-items:start">
+          <h1 style="font-family:'PT Serif',Georgia,serif;font-weight:400;font-size:clamp(32px,3.4vw,46px);line-height:1.12;margin:0">{{ t.news.title }}</h1>
+          <div class="blueprint" style="padding:26px 24px 28px;display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+            <h3 style="font-family:'PT Serif',Georgia,serif;font-weight:400;font-size:20px;margin:0">{{ t.news.mediaTitle }}</h3>
+            <button sc-camel-on-click="{{ goCompany }}" style="appearance:none;cursor:pointer;font-family:'PT Sans',system-ui,sans-serif;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding:14px 24px;border:1px solid #7C5CBF;background:#7C5CBF;color:#ffffff" style-hover="background:#6B4BAE;border-color:#6B4BAE">{{ t.news.mediaCta }}</button>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:56px;margin-top:56px;align-items:start">
+          <div>
+            <h2 style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#12171D;font-family:'PT Sans',system-ui,sans-serif;margin:0 0 4px">{{ t.news.logTitle }}</h2>
+            <p style="font-size:12.5px;color:#6E747A;margin:0 0 18px">{{ t.news.logNote }}</p>
+            <sc-for list="{{ newsItems }}" as="n" hint-placeholder-count="6">
+              <article style="display:grid;grid-template-columns:140px minmax(0,1fr);gap:24px;padding:22px 0;border-top:1px solid rgba(18,23,29,0.14)">
+                <div>
+                  <div style="font-size:12.5px;color:#12171D">{{ n.date }}</div>
+                  <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#6E747A;margin-top:8px">{{ n.kicker }}</div>
+                </div>
+                <div>
+                  <h3 style="font-family:'PT Serif',Georgia,serif;font-weight:400;font-size:21px;line-height:1.25;margin:0">{{ n.head }}</h3>
+                  <p style="font-size:14.5px;line-height:1.6;color:#3C4247;margin:10px 0 0;text-wrap:pretty">{{ n.body }}</p>
+                </div>
+              </article>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+    </sc-if>

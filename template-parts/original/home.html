@@ -1,0 +1,64 @@
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+      <section>
+        <div style="background:#12171D;color:#ffffff;padding:80px 64px;margin-top:40px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:56px;align-items:end">
+          <div>
+            <p style="margin:0 0 28px;font-size:10.5px;letter-spacing:0.24em;text-transform:uppercase;color:#9AA0A6">{{ t.home.kicker }}</p>
+            <h1 style="font-family:'PT Serif',Georgia,serif;font-weight:400;font-size:clamp(38px,4.6vw,64px);line-height:1.08;letter-spacing:-0.01em;margin:0">{{ t.home.title }}</h1>
+          </div>
+          <div>
+            <p style="font-size:17px;line-height:1.6;color:#D8DBDE;margin:0 0 32px;text-wrap:pretty">{{ t.home.sub }}</p>
+            <div style="display:flex;gap:14px;flex-wrap:wrap">
+              <button sc-camel-on-click="{{ goProducts }}" style="appearance:none;cursor:pointer;font-family:'PT Sans',system-ui,sans-serif;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding:15px 26px;border:1px solid #7C5CBF;background:#7C5CBF;color:#ffffff" style-hover="background:#6B4BAE;border-color:#6B4BAE">{{ t.home.cta1 }}</button>
+              <button sc-camel-on-click="{{ goEvidence }}" style="appearance:none;cursor:pointer;font-family:'PT Sans',system-ui,sans-serif;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding:15px 26px;border:1px solid rgba(255,255,255,0.4);background:transparent;color:#ffffff" style-hover="background:rgba(255,255,255,0.09)">{{ t.home.cta2 }}</button>
+            </div>
+          </div>
+        </div>
+
+        <figure class="blueprint" style="margin:56px 0 0;padding:0;height:420px;position:relative">
+          <sc-if value="{{ heroIsFile }}" hint-placeholder-val="{{ false }}">
+            <video src="{{ heroVideo }}" sc-camel-auto-play="{{ true }}" muted="{{ true }}" loop="{{ true }}" sc-camel-plays-inline="{{ true }}" controls="{{ heroControls }}" style="display:block;width:100%;height:100%;object-fit:cover;background:#12171D"></video>
+          </sc-if>
+          <sc-if value="{{ heroIsEmbed }}" hint-placeholder-val="{{ false }}">
+            <iframe src="{{ heroEmbed }}" title="BNG Elements" sc-camel-referrer-policy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" sc-camel-allow-full-screen="{{ true }}" style="display:block;width:100%;height:100%;border:0;background:#12171D"></iframe>
+          </sc-if>
+          <sc-if value="{{ heroIsEmpty }}" hint-placeholder-val="{{ true }}">
+            <div style="width:100%;height:100%;background:#12171D;color:#D8DBDE;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;box-sizing:border-box">
+              <svg width="44" height="44" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+              <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase">Video slot</div>
+              <div style="font-size:13px;color:#9AA0A6;max-width:46ch;line-height:1.5">Set “Hero video” in Tweaks — an .mp4 URL, or a YouTube / Vimeo link.</div>
+            </div>
+          </sc-if>
+        </figure>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:28px;margin-top:72px">
+          <sc-for list="{{ streamsPlain }}" as="s" hint-placeholder-count="4">
+            <a href="#" sc-camel-on-click="{{ s.go }}" style="text-decoration:none;color:#12171D;display:flex;gap:18px;align-items:stretch;padding-top:22px;border-top:1px solid rgba(18,23,29,0.18)" style-hover="color:#5A3D96">
+              <span style="flex:none;width:64px;min-height:64px;border:2px solid #12171D;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1">
+                <span style="font-family:'PT Serif',Georgia,serif;font-size:24px">{{ s.sym }}</span>
+                <span style="font-size:9px;letter-spacing:0.1em;color:#6E747A;margin-top:4px">{{ s.n }}</span>
+              </span>
+              <span style="display:flex;flex-direction:column;justify-content:space-between">
+                <span style="display:block;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#6E747A">{{ s.label }}</span>
+                <span style="display:block;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#6E747A;margin-top:4px">{{ s.grades }}</span>
+                <span style="display:block;font-family:'PT Serif',Georgia,serif;font-size:19px;margin-top:6px">{{ s.name }}</span>
+              </span>
+            </a>
+          </sc-for>
+        </div>
+
+        <div style="margin-top:80px;display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:56px;align-items:start">
+          <h2 style="font-family:'PT Serif',Georgia,serif;font-weight:400;font-size:30px;line-height:1.15;margin:0">{{ t.home.posTitle }}</h2>
+          <div>
+            <p style="font-size:19px;line-height:1.6;margin:0 0 28px;text-wrap:pretty">{{ t.home.posBody }}</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border-top:1px solid rgba(18,23,29,0.18)">
+              <sc-for list="{{ posCells }}" as="c" hint-placeholder-count="4">
+                <div style="padding:20px 22px 20px 0">
+                  <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#6E747A;margin-bottom:8px">{{ c.k }}</div>
+                  <div style="font-size:14px;line-height:1.5">{{ c.v }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </section>
+    </sc-if>
