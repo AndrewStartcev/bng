@@ -1,40 +1,41 @@
 <?php
+/** Approved BNG client HTML/CSS/JS, extracted into reusable source sections. */
 defined('ABSPATH') || exit;
-get_header();
-?>
-<main id="content" class="bng-main"><div class="container">
-<?php foreach (['ru','en'] as $lang): ?>
-    <?php foreach (bng_sections() as $index=>$slug):
-        $copy=bng_copy($slug,$lang);
-        $post_id=$slug==='home' ? (int)get_option('page_on_front') : bng_section_id($slug,'ru');
-        $template=locate_template('template-parts/sections/'.$slug.'.php');
-    ?>
-        <div class="bng-screen" data-bng-screen="<?php echo esc_attr($slug); ?>" data-bng-lang="<?php echo esc_attr($lang); ?>" lang="<?php echo esc_attr($lang); ?>"<?php if($slug!=='home'||$lang!=='ru'): ?> hidden<?php endif; ?>>
-            <?php if($slug!=='home'): ?>
-                <div class="running-head"><span><?php echo esc_html(bng_copy('',$lang)['head'][$slug]??$slug); ?></span><span><?php echo esc_html(str_pad((string)($index+1),2,'0',STR_PAD_LEFT)); ?> / 08</span></div>
-            <?php endif; ?>
-            <?php if($template)include $template; ?>
-            <?php if($slug!=='home' && $post_id): ?>
-                <?php $body=bng_field('bng_body_'.$lang,($lang==='ru'?bng_field('bng_body','',$post_id):''),$post_id); ?>
-                <?php if($body): ?><section class="section body-copy"><?php echo wp_kses_post($body); ?></section><?php endif; ?>
-                <?php $gallery=bng_field('bng_gallery_'.$lang,bng_field('bng_gallery',[],$post_id),$post_id); ?>
-                <?php if(is_array($gallery) && $gallery): ?><section class="section bng-gallery">
-                    <?php foreach($gallery as $photo):
-                        $id=is_array($photo)?(int)($photo['ID']??0):(int)$photo;
-                        if($id)echo wp_get_attachment_image($id,'large',false,['loading'=>'lazy']);
-                    endforeach; ?>
-                </section><?php endif; ?>
-                <?php $documents=bng_field('bng_documents_'.$lang,bng_field('bng_documents',[],$post_id),$post_id); ?>
-                <?php if(is_array($documents) && $documents): ?><section class="section"><div class="button-group">
-                    <?php foreach($documents as $doc):
-                        $file=$doc['file']??0;$id=is_array($file)?(int)($file['ID']??0):(int)$file;
-                        $url=$id?wp_get_attachment_url($id):false;
-                        if($url): ?><a class="button" href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html($doc['title']??'PDF'); ?> ↗</a><?php endif;
-                    endforeach; ?>
-                </div></section><?php endif; ?>
-            <?php endif; ?>
-        </div>
-    <?php endforeach; ?>
-<?php endforeach; ?>
-</div></main>
-<?php get_footer(); ?>
+$is_en = isset($_GET['lang']) && sanitize_key(wp_unslash($_GET['lang'])) === 'en';
+$original_dir = get_template_directory() . '/assets/original' . ($is_en ? '/en' : '');
+$source = $original_dir . '/page.html';
+if (!is_readable($source)) {
+    status_header(500);
+    wp_die(esc_html__('BNG original client template is missing. Build source assets first.', 'bng'));
+}
+$document = file_get_contents($source);
+foreach (['home','products','rock','flowsheet','evidence','milestones','news','company'] as $part) {
+    $path = $is_en ? $original_dir . '/sections/' . $part . '.html' : get_template_directory() . '/template-parts/original/' . $part . '.html';
+    if (is_readable($path)) {
+        $document = str_replace('<!--BNG_SECTION_' . $part . '-->', file_get_contents($path), $document);
+    }
+}
+$copy = ['ru' => [], 'en' => []];
+foreach (['ru','en'] as $locale) {
+    foreach (bng_sections() as $section) {
+        $key = $section === 'flowsheet' ? 'flow' : $section;
+        $copy[$locale][$key] = bng_copy($section, $locale);
+    }
+}
+$json = wp_json_encode($copy, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+$script = '<script>window.BNG_WP_COPY = ' . ($json ?: '{}') . ';';
+$resource_path = $original_dir . '/resources.json';
+$resources = is_readable($resource_path) ? json_decode(file_get_contents($resource_path), true) : [];
+$script .= 'window.__resources = ' . wp_json_encode((object) $resources, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';</script>';
+ob_start();
+wp_head();
+$head = ob_get_clean();
+ob_start();
+wp_footer();
+$foot = ob_get_clean();
+$document = str_replace(
+    ['__BNG_THEME_URI__','__BNG_WP_HEAD__','__BNG_WP_BRIDGE__','__BNG_WP_FOOT__'],
+    [esc_url(get_template_directory_uri()),$head,$script,$foot],
+    $document
+);
+echo $document; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- approved client HTML and encoded WP values.
