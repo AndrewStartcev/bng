@@ -1,0 +1,35 @@
+name: Restore approved BNG client source
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build-original-client.py'
+      - '.github/workflows/restore-client.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Extract original RU and EN resources and templates
+        run: python3 scripts/build-original-client.py
+      - name: Validate PHP syntax
+        run: |
+          php -l front-page.php
+          php -l inc/setup.php
+      - name: Commit generated approved source assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/original template-parts/original
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+          else
+            git commit -m "build: commit original RU/EN BNG client assets and section templates"
+            git push origin HEAD:main
+          fi
