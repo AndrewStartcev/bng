@@ -16,7 +16,7 @@
 
         <figure class="blueprint" style="margin:56px 0 0;padding:0;height:420px;position:relative">
           <sc-if value="{{ heroIsFile }}" hint-placeholder-val="{{ false }}">
-            <video src="{{ heroVideo }}" sc-camel-poster="{{ heroPoster }}" autoplay muted loop playsinline controls preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;background:#12171D"></video>
+            <video src="{{ heroVideo }}" sc-camel-poster="{{ heroPoster }}" controls playsinline preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;background:#12171D"></video>
           </sc-if>
           <sc-if value="{{ heroHasPoster }}" hint-placeholder-val="{{ false }}">
             <img src="{{ heroPoster }}" alt="BNG Elements" style="display:block;width:100%;height:100%;object-fit:cover;background:#12171D">
