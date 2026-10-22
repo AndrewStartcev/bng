@@ -19,3 +19,14 @@ function bng_seed_sections():void {
             'post_title'=>(string)(bng_labels('ru')[$slug]??$slug)],true);
     }
 }
+
+/** Keep imported legacy -en posts for rollback, but present one row per section. */
+add_action('pre_get_posts', static function (WP_Query $query): void {
+    if (!is_admin() || !$query->is_main_query() || $query->get('post_type') !== 'bng_section') return;
+    $hidden=[];
+    foreach (array_slice(bng_sections(),1) as $slug) {
+        $post=get_page_by_path($slug.'-en',OBJECT,'bng_section');
+        if($post instanceof WP_Post)$hidden[]=(int)$post->ID;
+    }
+    if($hidden)$query->set('post__not_in',array_merge((array)$query->get('post__not_in'),$hidden));
+});

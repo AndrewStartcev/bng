@@ -18,14 +18,36 @@ function bng_source(): array {
 }
 
 function bng_copy(string $section = '', ?string $lang = null): array {
-    $locale = $lang ?: bng_language();
-    $copy = bng_source()['copy'][$locale === 'en' ? 'en' : 'ru'] ?? [];
-    if ($section === '') {
-        return is_array($copy) ? $copy : [];
-    }
+    $locale = $lang === 'en' ? 'en' : 'ru';
+    $copy = bng_source()['copy'][$locale] ?? [];
+    if ($section === '') return is_array($copy) ? $copy : [];
     $key = $section === 'flowsheet' ? 'flow' : $section;
     $part = $copy[$key] ?? [];
-    return is_array($part) ? $part : [];
+    if (!is_array($part)) return [];
+
+    $post_id = $section === 'home' ? (int)get_option('page_on_front') : bng_section_id($section);
+    if (!$post_id || !function_exists('get_field')) return $part;
+    foreach ($part as $field_key => $fallback) {
+        $stored = get_field('bng_' . $locale . '_' . $section . '_' . $field_key, $post_id);
+        if (is_array($fallback) && is_array($stored)) {
+            $rows=[];
+            foreach ($stored as $row) {
+                if (!is_array($row)) { $rows[]=$row; continue; }
+                $cells=array_values($row);
+                $rows[]=isset($row['c0']) && count($row)===1 ? $row['c0'] : $cells;
+            }
+            $part[$field_key]=$rows;
+        } elseif (is_string($fallback) && is_string($stored) && $stored !== '') {
+            $part[$field_key]=$stored;
+        } elseif ($locale === 'ru' && $field_key === 'title' && $section !== 'home') {
+            $part[$field_key]=bng_field('bng_title',$fallback,$post_id);
+        } elseif ($locale === 'ru' && $field_key === 'sub' && $section !== 'home') {
+            $part[$field_key]=bng_field('bng_intro',$fallback,$post_id);
+        } elseif ($section === 'home' && in_array($field_key,['title','sub'],true)) {
+            $part[$field_key]=bng_field($field_key==='title'?'hero_heading_'.$locale:'hero_text_'.$locale,$fallback,$post_id);
+        }
+    }
+    return $part;
 }
 
 function bng_labels(string $lang): array {
@@ -66,9 +88,9 @@ function bng_section_text(string $key, string $fallback = '', int $post_id = 0):
     return (string) bng_field($key, $fallback, $post_id ?: get_queried_object_id());
 }
 
-function bng_spec_files(int $post_id): array {
+function bng_spec_files(int $post_id, string $lang = 'ru'): array {
     $result = [];
-    $rows = bng_field('bng_specifications', [], $post_id);
+    $rows = bng_field('bng_specifications_' . $lang, bng_field('bng_specifications', [], $post_id), $post_id);
     if (!is_array($rows)) {
         return $result;
     }

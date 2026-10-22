@@ -4,9 +4,9 @@ $home = $copy;
 $front_id = (int) get_option('page_on_front');
 $title = (string) bng_field('hero_heading_' . $lang, $home['title'] ?? 'BNG Elements', $front_id);
 $subtitle = (string) bng_field('hero_text_' . $lang, $home['sub'] ?? '', $front_id);
-$video_id = (int) bng_field('hero_video', 0, $front_id);
+$video_id = (int) bng_field('bng_home_video_' . $lang, bng_field('hero_video', 0, $front_id), $front_id);
 $video = $video_id ? wp_get_attachment_url($video_id) : '';
-$poster_id = (int) bng_field('hero_poster', 0, $front_id);
+$poster_id = (int) bng_field('bng_home_poster_' . $lang, bng_field('hero_poster', 0, $front_id), $front_id);
 $poster = $poster_id ? wp_get_attachment_url($poster_id) : '';
 $source = bng_source();
 ?>

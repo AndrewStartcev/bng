@@ -2,7 +2,7 @@
 defined('ABSPATH') || exit;
 $source = bng_source();
 $labels = bng_copy('', $lang);
-$spec_files = bng_spec_files((int) $post_id);
+$spec_files = bng_spec_files((int) $post_id, $lang);
 ?>
 <section class="section product-page">
     <?php bng_render_lead($copy, (int) $post_id); ?>

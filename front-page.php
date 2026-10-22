@@ -15,16 +15,16 @@ get_header();
             <?php endif; ?>
             <?php if($template)include $template; ?>
             <?php if($slug!=='home' && $post_id): ?>
-                <?php $body=bng_field('bng_body','',$post_id); ?>
-                <?php if($body && $lang==='ru'): ?><section class="section body-copy"><?php echo wp_kses_post($body); ?></section><?php endif; ?>
-                <?php $gallery=bng_field('bng_gallery',[],$post_id); ?>
+                <?php $body=bng_field('bng_body_'.$lang,($lang==='ru'?bng_field('bng_body','',$post_id):''),$post_id); ?>
+                <?php if($body): ?><section class="section body-copy"><?php echo wp_kses_post($body); ?></section><?php endif; ?>
+                <?php $gallery=bng_field('bng_gallery_'.$lang,bng_field('bng_gallery',[],$post_id),$post_id); ?>
                 <?php if(is_array($gallery) && $gallery): ?><section class="section bng-gallery">
                     <?php foreach($gallery as $photo):
                         $id=is_array($photo)?(int)($photo['ID']??0):(int)$photo;
                         if($id)echo wp_get_attachment_image($id,'large',false,['loading'=>'lazy']);
                     endforeach; ?>
                 </section><?php endif; ?>
-                <?php $documents=bng_field('bng_documents',[],$post_id); ?>
+                <?php $documents=bng_field('bng_documents_'.$lang,bng_field('bng_documents',[],$post_id),$post_id); ?>
                 <?php if(is_array($documents) && $documents): ?><section class="section"><div class="button-group">
                     <?php foreach($documents as $doc):
                         $file=$doc['file']??0;$id=is_array($file)?(int)($file['ID']??0):(int)$file;
