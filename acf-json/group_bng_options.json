@@ -1,44 +1,44 @@
 {
-    "key": "group_bng_options",
-    "title": "BNG — общие настройки",
-    "fields": [
-        {
-            "key": "field_bng_logo",
-            "label": "Логотип",
-            "name": "bng_logo",
-            "type": "image",
-            "return_format": "id",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_contact_email",
-            "label": "Контактный email",
-            "name": "bng_contact_email",
-            "type": "email",
-            "wrapper": {
-                "width": "50"
-            }
-        }
-    ],
-    "location": [
-        [
-            {
-                "param": "options_page",
-                "operator": "==",
-                "value": "bng-settings"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": true,
-    "description": "",
-    "show_in_rest": 0,
-    "modified": 1792700000
+  "key": "group_bng_options",
+  "title": "BNG — общие настройки",
+  "fields": [
+    {
+      "key": "field_bng_logo",
+      "label": "Логотип",
+      "name": "bng_logo",
+      "type": "image",
+      "return_format": "id",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_contact_email",
+      "label": "Контактный email",
+      "name": "bng_contact_email",
+      "type": "email",
+      "wrapper": {
+        "width": "50"
+      }
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "bng-settings"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1792700000
 }

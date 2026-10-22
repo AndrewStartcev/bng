@@ -1,182 +1,182 @@
 {
-    "key": "group_bng_home_en",
-    "title": "🇬🇧 Content — English",
-    "fields": [
+  "key": "group_bng_home_en",
+  "title": "🇬🇧 Content — English",
+  "fields": [
+    {
+      "key": "field_bng_tab_home_en_0",
+      "type": "tab",
+      "label": "Первый экран",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_en_home_kicker",
+      "name": "bng_en_home_kicker",
+      "label": "Надпись над заголовком",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Kalyumnoye deposit · Synnyr massif · Republic of Buryatia",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_en_home_title",
+      "name": "bng_en_home_title",
+      "label": "Заголовок H1",
+      "type": "text",
+      "rows": 0,
+      "default_value": "One rock. Four markets. Minimal waste.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_en_home_sub",
+      "name": "bng_en_home_sub",
+      "label": "Описание",
+      "type": "textarea",
+      "rows": 4,
+      "default_value": "A primary-rock source of chlorine-free potassium, alumina, silica and iron. Ten products from one flowsheet, produced together — so no single one carries the full production cost alone.",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_bng_en_home_cta1",
+      "name": "bng_en_home_cta1",
+      "label": "Первая кнопка",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Product specifications",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_en_home_cta2",
+      "name": "bng_en_home_cta2",
+      "label": "Вторая кнопка",
+      "type": "text",
+      "rows": 0,
+      "default_value": "What we can evidence",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_tab_home_en_6",
+      "type": "tab",
+      "label": "Видео",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_en_home_figcap",
+      "name": "bng_en_home_figcap",
+      "label": "Подпись к видео",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Kalyumnoye — the ore body reaches surface.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_en_home_video",
+      "name": "bng_home_video_en",
+      "label": "Видеофайл",
+      "type": "file",
+      "return_format": "id",
+      "mime_types": "mp4,webm",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_en_home_poster",
+      "name": "bng_home_poster_en",
+      "label": "Постер видео",
+      "type": "image",
+      "return_format": "id",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_tab_home_en_10",
+      "type": "tab",
+      "label": "Позиционирование",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_en_home_posTitle",
+      "name": "bng_en_home_posTitle",
+      "label": "Заголовок блока",
+      "type": "text",
+      "rows": 0,
+      "default_value": "What BNG Elements is",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_en_home_posBody",
+      "name": "bng_en_home_posBody",
+      "label": "Описание блока",
+      "type": "textarea",
+      "rows": 4,
+      "default_value": "For buyers of chlorine-free potassium, alumina, silica and iron who depend today on converted chemicals and seaborne supply, BNG Elements is a primary-rock source of all four elements at once — because one flowsheet at Kalyumnoye separates a single ore body into four saleable product groups.",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_bng_en_home_cells",
+      "name": "bng_en_home_cells",
+      "label": "Карточки",
+      "type": "repeater",
+      "layout": "row",
+      "button_label": "Добавить строку",
+      "sub_fields": [
         {
-            "key": "field_bng_tab_home_en_0",
-            "type": "tab",
-            "label": "Первый экран",
-            "placement": "left"
+          "key": "field_bng_en_home_cells_0",
+          "name": "c0",
+          "label": "Дата / номер",
+          "type": "text",
+          "rows": 0,
+          "wrapper": {
+            "width": "25"
+          }
         },
         {
-            "key": "field_bng_en_home_kicker",
-            "name": "bng_en_home_kicker",
-            "label": "Надпись над заголовком",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Kalyumnoye deposit · Synnyr massif · Republic of Buryatia",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_en_home_title",
-            "name": "bng_en_home_title",
-            "label": "Заголовок H1",
-            "type": "text",
-            "rows": 0,
-            "default_value": "One rock. Four markets. Minimal waste.",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_en_home_sub",
-            "name": "bng_en_home_sub",
-            "label": "Описание",
-            "type": "textarea",
-            "rows": 4,
-            "default_value": "A primary-rock source of chlorine-free potassium, alumina, silica and iron. Ten products from one flowsheet, produced together — so no single one carries the full production cost alone.",
-            "wrapper": {
-                "width": "100"
-            }
-        },
-        {
-            "key": "field_bng_en_home_cta1",
-            "name": "bng_en_home_cta1",
-            "label": "Первая кнопка",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Product specifications",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_en_home_cta2",
-            "name": "bng_en_home_cta2",
-            "label": "Вторая кнопка",
-            "type": "text",
-            "rows": 0,
-            "default_value": "What we can evidence",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_tab_home_en_6",
-            "type": "tab",
-            "label": "Видео",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_en_home_figcap",
-            "name": "bng_en_home_figcap",
-            "label": "Подпись к видео",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Kalyumnoye — the ore body reaches surface.",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_en_home_video",
-            "name": "bng_home_video_en",
-            "label": "Видеофайл",
-            "type": "file",
-            "return_format": "id",
-            "mime_types": "mp4,webm",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_en_home_poster",
-            "name": "bng_home_poster_en",
-            "label": "Постер видео",
-            "type": "image",
-            "return_format": "id",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_tab_home_en_10",
-            "type": "tab",
-            "label": "Позиционирование",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_en_home_posTitle",
-            "name": "bng_en_home_posTitle",
-            "label": "Заголовок блока",
-            "type": "text",
-            "rows": 0,
-            "default_value": "What BNG Elements is",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_en_home_posBody",
-            "name": "bng_en_home_posBody",
-            "label": "Описание блока",
-            "type": "textarea",
-            "rows": 4,
-            "default_value": "For buyers of chlorine-free potassium, alumina, silica and iron who depend today on converted chemicals and seaborne supply, BNG Elements is a primary-rock source of all four elements at once — because one flowsheet at Kalyumnoye separates a single ore body into four saleable product groups.",
-            "wrapper": {
-                "width": "100"
-            }
-        },
-        {
-            "key": "field_bng_en_home_cells",
-            "name": "bng_en_home_cells",
-            "label": "Карточки",
-            "type": "repeater",
-            "layout": "row",
-            "button_label": "Добавить строку",
-            "sub_fields": [
-                {
-                    "key": "field_bng_en_home_cells_0",
-                    "name": "c0",
-                    "label": "Дата / номер",
-                    "type": "text",
-                    "rows": 0,
-                    "wrapper": {
-                        "width": "25"
-                    }
-                },
-                {
-                    "key": "field_bng_en_home_cells_1",
-                    "name": "c1",
-                    "label": "Заголовок",
-                    "type": "textarea",
-                    "rows": 3,
-                    "wrapper": {
-                        "width": "35"
-                    }
-                }
-            ]
+          "key": "field_bng_en_home_cells_1",
+          "name": "c1",
+          "label": "Заголовок",
+          "type": "textarea",
+          "rows": 3,
+          "wrapper": {
+            "width": "35"
+          }
         }
-    ],
-    "location": [
-        [
-            {
-                "param": "page_type",
-                "operator": "==",
-                "value": "front_page"
-            }
-        ]
-    ],
-    "menu_order": 10,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": true,
-    "description": "",
-    "show_in_rest": 0,
-    "modified": 1792700000
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_type",
+        "operator": "==",
+        "value": "front_page"
+      }
+    ]
+  ],
+  "menu_order": 10,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1792700000
 }

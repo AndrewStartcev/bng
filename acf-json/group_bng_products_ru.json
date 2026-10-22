@@ -1,341 +1,341 @@
 {
-    "key": "group_bng_products_ru",
-    "title": "🇷🇺 Контент — Русский",
-    "fields": [
+  "key": "group_bng_products_ru",
+  "title": "🇷🇺 Контент — Русский",
+  "fields": [
+    {
+      "key": "field_bng_tab_products_ru_0",
+      "type": "tab",
+      "label": "Первый экран",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_products_title",
+      "name": "bng_ru_products_title",
+      "label": "Заголовок H1",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Десять продуктов в четырёх элементных потоках",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_sub",
+      "name": "bng_ru_products_sub",
+      "label": "Описание",
+      "type": "textarea",
+      "rows": 4,
+      "default_value": "Продукты сгруппированы по применению, а не по действующему элементу: и сельское хозяйство, и промышленность опираются на калий- и кремний-содержащие продукты.",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_bng_tab_products_ru_3",
+      "type": "tab",
+      "label": "Статус продукции",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_products_statusLabel",
+      "name": "bng_ru_products_statusLabel",
+      "label": "Короткий статус",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Целевая спецификация",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_statusBody",
+      "name": "bng_ru_products_statusBody",
+      "label": "Описание статуса",
+      "type": "textarea",
+      "rows": 4,
+      "default_value": "Показатели — проектные цели по результатам лабораторных испытаний 2026 года; подтверждение по результатам пилотных испытаний в промышленном масштабе к концу 2027 года. Кремнезем с регулируемой удельной поверхностью — наша ключевая цель, доказуемая к лету 2028 года; доступны три резервных марки. Запуск полевых испытаний диоксида кремния для сельскохозяйственного применения запланирован на конец 2027 года. Возможность выпуска железа пигментного сорта предстоит подтвердить; железорудный концентрат остаётся резервом.",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_bng_tab_products_ru_6",
+      "type": "tab",
+      "label": "Таблица",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_products_filter",
+      "name": "bng_ru_products_filter",
+      "label": "Название фильтра",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Сегмент",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_colProduct",
+      "name": "bng_ru_products_colProduct",
+      "label": "Col Product",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Продукт",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_colFormula",
+      "name": "bng_ru_products_colFormula",
+      "label": "Col Formula",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Формула",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_colSegment",
+      "name": "bng_ru_products_colSegment",
+      "label": "Col Segment",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Сегмент",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_colBuyer",
+      "name": "bng_ru_products_colBuyer",
+      "label": "Col Buyer",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Кто покупает",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_colSheet",
+      "name": "bng_ru_products_colSheet",
+      "label": "Col Sheet",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Спецификация",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_colStatus",
+      "name": "bng_ru_products_colStatus",
+      "label": "Col Status",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Статус",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_colGrades",
+      "name": "bng_ru_products_colGrades",
+      "label": "Col Grades",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Марки",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_download",
+      "name": "bng_ru_products_download",
+      "label": "Надпись на кнопке PDF",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Полная спецификация",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_countLabel",
+      "name": "bng_ru_products_countLabel",
+      "label": "Подпись счётчика",
+      "type": "text",
+      "rows": 0,
+      "default_value": "продуктов показано",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_gradeFoot",
+      "name": "bng_ru_products_gradeFoot",
+      "label": "Примечание под таблицей",
+      "type": "textarea",
+      "rows": 4,
+      "default_value": "Целевые спецификации — проектные значения по выбранной в 2026 году технологии, подлежат подтверждению на опытной установке. Полные листы с методами испытаний, упаковкой и статусом регистрации — по запросу.",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_bng_ru_specs",
+      "name": "bng_specifications_ru",
+      "label": "PDF по коду марки",
+      "type": "repeater",
+      "layout": "row",
+      "button_label": "Добавить спецификацию",
+      "sub_fields": [
         {
-            "key": "field_bng_tab_products_ru_0",
-            "type": "tab",
-            "label": "Первый экран",
-            "placement": "left"
+          "key": "field_bng_ru_spec_code",
+          "name": "code",
+          "label": "Код марки",
+          "type": "text",
+          "required": 1,
+          "wrapper": {
+            "width": "35"
+          }
         },
         {
-            "key": "field_bng_ru_products_title",
-            "name": "bng_ru_products_title",
-            "label": "Заголовок H1",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Десять продуктов в четырёх элементных потоках",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_products_sub",
-            "name": "bng_ru_products_sub",
-            "label": "Описание",
-            "type": "textarea",
-            "rows": 4,
-            "default_value": "Продукты сгруппированы по применению, а не по действующему элементу: и сельское хозяйство, и промышленность опираются на калий- и кремний-содержащие продукты.",
-            "wrapper": {
-                "width": "100"
-            }
-        },
-        {
-            "key": "field_bng_tab_products_ru_3",
-            "type": "tab",
-            "label": "Статус продукции",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_ru_products_statusLabel",
-            "name": "bng_ru_products_statusLabel",
-            "label": "Короткий статус",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Целевая спецификация",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_products_statusBody",
-            "name": "bng_ru_products_statusBody",
-            "label": "Описание статуса",
-            "type": "textarea",
-            "rows": 4,
-            "default_value": "Показатели — проектные цели по результатам лабораторных испытаний 2026 года; подтверждение по результатам пилотных испытаний в промышленном масштабе к концу 2027 года. Кремнезем с регулируемой удельной поверхностью — наша ключевая цель, доказуемая к лету 2028 года; доступны три резервных марки. Запуск полевых испытаний диоксида кремния для сельскохозяйственного применения запланирован на конец 2027 года. Возможность выпуска железа пигментного сорта предстоит подтвердить; железорудный концентрат остаётся резервом.",
-            "wrapper": {
-                "width": "100"
-            }
-        },
-        {
-            "key": "field_bng_tab_products_ru_6",
-            "type": "tab",
-            "label": "Таблица",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_ru_products_filter",
-            "name": "bng_ru_products_filter",
-            "label": "Название фильтра",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Сегмент",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_products_colProduct",
-            "name": "bng_ru_products_colProduct",
-            "label": "Col Product",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Продукт",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_products_colFormula",
-            "name": "bng_ru_products_colFormula",
-            "label": "Col Formula",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Формула",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_products_colSegment",
-            "name": "bng_ru_products_colSegment",
-            "label": "Col Segment",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Сегмент",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_products_colBuyer",
-            "name": "bng_ru_products_colBuyer",
-            "label": "Col Buyer",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Кто покупает",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_products_colSheet",
-            "name": "bng_ru_products_colSheet",
-            "label": "Col Sheet",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Спецификация",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_products_colStatus",
-            "name": "bng_ru_products_colStatus",
-            "label": "Col Status",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Статус",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_products_colGrades",
-            "name": "bng_ru_products_colGrades",
-            "label": "Col Grades",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Марки",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_products_download",
-            "name": "bng_ru_products_download",
-            "label": "Надпись на кнопке PDF",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Полная спецификация",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_products_countLabel",
-            "name": "bng_ru_products_countLabel",
-            "label": "Подпись счётчика",
-            "type": "text",
-            "rows": 0,
-            "default_value": "продуктов показано",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_products_gradeFoot",
-            "name": "bng_ru_products_gradeFoot",
-            "label": "Примечание под таблицей",
-            "type": "textarea",
-            "rows": 4,
-            "default_value": "Целевые спецификации — проектные значения по выбранной в 2026 году технологии, подлежат подтверждению на опытной установке. Полные листы с методами испытаний, упаковкой и статусом регистрации — по запросу.",
-            "wrapper": {
-                "width": "100"
-            }
-        },
-        {
-            "key": "field_bng_ru_specs",
-            "name": "bng_specifications_ru",
-            "label": "PDF по коду марки",
-            "type": "repeater",
-            "layout": "row",
-            "button_label": "Добавить спецификацию",
-            "sub_fields": [
-                {
-                    "key": "field_bng_ru_spec_code",
-                    "name": "code",
-                    "label": "Код марки",
-                    "type": "text",
-                    "required": 1,
-                    "wrapper": {
-                        "width": "35"
-                    }
-                },
-                {
-                    "key": "field_bng_ru_spec_file",
-                    "name": "file",
-                    "label": "PDF",
-                    "type": "file",
-                    "return_format": "id",
-                    "mime_types": "pdf",
-                    "required": 1,
-                    "wrapper": {
-                        "width": "65"
-                    }
-                }
-            ]
-        },
-        {
-            "key": "field_bng_tab_products_ru_19",
-            "type": "tab",
-            "label": "Направления",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_ru_products_cards",
-            "name": "bng_ru_products_cards",
-            "label": "Карточки сегментов",
-            "type": "repeater",
-            "layout": "block",
-            "button_label": "Добавить строку",
-            "sub_fields": [
-                {
-                    "key": "field_bng_ru_products_cards_0",
-                    "name": "c0",
-                    "label": "Дата / номер",
-                    "type": "text",
-                    "rows": 0,
-                    "wrapper": {
-                        "width": "25"
-                    }
-                },
-                {
-                    "key": "field_bng_ru_products_cards_1",
-                    "name": "c1",
-                    "label": "Заголовок",
-                    "type": "text",
-                    "rows": 0,
-                    "wrapper": {
-                        "width": "35"
-                    }
-                },
-                {
-                    "key": "field_bng_ru_products_cards_2",
-                    "name": "c2",
-                    "label": "Описание",
-                    "type": "textarea",
-                    "rows": 3,
-                    "wrapper": {
-                        "width": "40"
-                    }
-                },
-                {
-                    "key": "field_bng_ru_products_cards_3",
-                    "name": "c3",
-                    "label": "Примечание",
-                    "type": "text",
-                    "rows": 0,
-                    "wrapper": {
-                        "width": "40"
-                    }
-                }
-            ]
-        },
-        {
-            "key": "field_bng_tab_products_ru_extra",
-            "label": "Дополнительно",
-            "type": "tab",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_ru_body",
-            "label": "Текст под блоками",
-            "name": "bng_body_ru",
-            "type": "wysiwyg",
-            "toolbar": "basic",
-            "tabs": "visual",
-            "media_upload": 1
-        },
-        {
-            "key": "field_bng_ru_docs",
-            "label": "Дополнительные PDF",
-            "name": "bng_documents_ru",
-            "type": "repeater",
-            "layout": "row",
-            "button_label": "Добавить PDF",
-            "sub_fields": [
-                {
-                    "key": "field_bng_ru_doc_title",
-                    "label": "Название",
-                    "name": "title",
-                    "type": "text",
-                    "wrapper": {
-                        "width": "50"
-                    }
-                },
-                {
-                    "key": "field_bng_ru_doc_file",
-                    "label": "Файл",
-                    "name": "file",
-                    "type": "file",
-                    "return_format": "id",
-                    "mime_types": "pdf",
-                    "wrapper": {
-                        "width": "50"
-                    }
-                }
-            ]
+          "key": "field_bng_ru_spec_file",
+          "name": "file",
+          "label": "PDF",
+          "type": "file",
+          "return_format": "id",
+          "mime_types": "pdf",
+          "required": 1,
+          "wrapper": {
+            "width": "65"
+          }
         }
-    ],
-    "location": [
-        [
-            {
-                "param": "bng_section",
-                "operator": "==",
-                "value": "products"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": true,
-    "description": "",
-    "show_in_rest": 0,
-    "modified": 1792700000
+      ]
+    },
+    {
+      "key": "field_bng_tab_products_ru_19",
+      "type": "tab",
+      "label": "Направления",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_products_cards",
+      "name": "bng_ru_products_cards",
+      "label": "Карточки сегментов",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Добавить строку",
+      "sub_fields": [
+        {
+          "key": "field_bng_ru_products_cards_0",
+          "name": "c0",
+          "label": "Дата / номер",
+          "type": "text",
+          "rows": 0,
+          "wrapper": {
+            "width": "25"
+          }
+        },
+        {
+          "key": "field_bng_ru_products_cards_1",
+          "name": "c1",
+          "label": "Заголовок",
+          "type": "text",
+          "rows": 0,
+          "wrapper": {
+            "width": "35"
+          }
+        },
+        {
+          "key": "field_bng_ru_products_cards_2",
+          "name": "c2",
+          "label": "Описание",
+          "type": "textarea",
+          "rows": 3,
+          "wrapper": {
+            "width": "40"
+          }
+        },
+        {
+          "key": "field_bng_ru_products_cards_3",
+          "name": "c3",
+          "label": "Примечание",
+          "type": "text",
+          "rows": 0,
+          "wrapper": {
+            "width": "40"
+          }
+        }
+      ]
+    },
+    {
+      "key": "field_bng_tab_products_ru_extra",
+      "label": "Дополнительно",
+      "type": "tab",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_body",
+      "label": "Текст под блоками",
+      "name": "bng_body_ru",
+      "type": "wysiwyg",
+      "toolbar": "basic",
+      "tabs": "visual",
+      "media_upload": 1
+    },
+    {
+      "key": "field_bng_ru_docs",
+      "label": "Дополнительные PDF",
+      "name": "bng_documents_ru",
+      "type": "repeater",
+      "layout": "row",
+      "button_label": "Добавить PDF",
+      "sub_fields": [
+        {
+          "key": "field_bng_ru_doc_title",
+          "label": "Название",
+          "name": "title",
+          "type": "text",
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_bng_ru_doc_file",
+          "label": "Файл",
+          "name": "file",
+          "type": "file",
+          "return_format": "id",
+          "mime_types": "pdf",
+          "wrapper": {
+            "width": "50"
+          }
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "bng_section",
+        "operator": "==",
+        "value": "products"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1792700000
 }

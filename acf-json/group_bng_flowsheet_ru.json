@@ -1,327 +1,327 @@
 {
-    "key": "group_bng_flowsheet_ru",
-    "title": "🇷🇺 Контент — Русский",
-    "fields": [
+  "key": "group_bng_flowsheet_ru",
+  "title": "🇷🇺 Контент — Русский",
+  "fields": [
+    {
+      "key": "field_bng_tab_flowsheet_ru_0",
+      "type": "tab",
+      "label": "Первый экран",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_flowsheet_title",
+      "name": "bng_ru_flowsheet_title",
+      "label": "Заголовок H1",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Одна схема, четыре группы продуктов одновременно",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_flowsheet_sub",
+      "name": "bng_ru_flowsheet_sub",
+      "label": "Описание",
+      "type": "textarea",
+      "rows": 4,
+      "default_value": "Все четыре продукта выпускаются одновременно, в пропорциях, которые задаёт химико-технологический процесс. Выберите элемент, чтобы проследить его поток до покупателя.",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_bng_tab_flowsheet_ru_3",
+      "type": "tab",
+      "label": "Исходное сырьё",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_flowsheet_pick",
+      "name": "bng_ru_flowsheet_pick",
+      "label": "Pick",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Поток",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_flowsheet_feedKicker",
+      "name": "bng_ru_flowsheet_feedKicker",
+      "label": "Feed Kicker",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Сырьё",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_flowsheet_feed",
+      "name": "bng_ru_flowsheet_feed",
+      "label": "Feed",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Сыннырит",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_flowsheet_feedNote",
+      "name": "bng_ru_flowsheet_feedNote",
+      "label": "Feed Note",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Одно рудное тело, Калюмное. Серно-кислое разложение — не конверсия по Мангейму и не процесс Байера.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_flowsheet_all",
+      "name": "bng_ru_flowsheet_all",
+      "label": "All",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Все четыре",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_tab_flowsheet_ru_9",
+      "type": "tab",
+      "label": "Технологии",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_flowsheet_routesTitle",
+      "name": "bng_ru_flowsheet_routesTitle",
+      "label": "Routes Title",
+      "type": "text",
+      "rows": 0,
+      "default_value": "С 2018 года исследованы три схемы. Ни одна не оказалась оптимальной. Четвёртая, итоговая схема разработана в 2026 году",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_flowsheet_routesRec",
+      "name": "bng_ru_flowsheet_routesRec",
+      "label": "Routes Rec",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Рекомендована",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_flowsheet_routesSelected",
+      "name": "bng_ru_flowsheet_routesSelected",
+      "label": "Routes Selected",
+      "type": "text",
+      "rows": 0,
+      "default_value": "По итогам этих работ в 2026 году в качестве четвёртой, итоговой схемы выбрано серно-кислое разложение.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_flowsheet_routes",
+      "name": "bng_ru_flowsheet_routes",
+      "label": "Технологические схемы",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Добавить строку",
+      "sub_fields": [
         {
-            "key": "field_bng_tab_flowsheet_ru_0",
-            "type": "tab",
-            "label": "Первый экран",
-            "placement": "left"
+          "key": "field_bng_ru_flowsheet_routes_0",
+          "name": "c0",
+          "label": "Дата / номер",
+          "type": "text",
+          "rows": 0,
+          "wrapper": {
+            "width": "25"
+          }
         },
         {
-            "key": "field_bng_ru_flowsheet_title",
-            "name": "bng_ru_flowsheet_title",
-            "label": "Заголовок H1",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Одна схема, четыре группы продуктов одновременно",
-            "wrapper": {
-                "width": "50"
-            }
+          "key": "field_bng_ru_flowsheet_routes_1",
+          "name": "c1",
+          "label": "Заголовок",
+          "type": "text",
+          "rows": 0,
+          "wrapper": {
+            "width": "35"
+          }
         },
         {
-            "key": "field_bng_ru_flowsheet_sub",
-            "name": "bng_ru_flowsheet_sub",
-            "label": "Описание",
-            "type": "textarea",
-            "rows": 4,
-            "default_value": "Все четыре продукта выпускаются одновременно, в пропорциях, которые задаёт химико-технологический процесс. Выберите элемент, чтобы проследить его поток до покупателя.",
-            "wrapper": {
-                "width": "100"
-            }
+          "key": "field_bng_ru_flowsheet_routes_2",
+          "name": "c2",
+          "label": "Описание",
+          "type": "textarea",
+          "rows": 3,
+          "wrapper": {
+            "width": "40"
+          }
         },
         {
-            "key": "field_bng_tab_flowsheet_ru_3",
-            "type": "tab",
-            "label": "Исходное сырьё",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_ru_flowsheet_pick",
-            "name": "bng_ru_flowsheet_pick",
-            "label": "Pick",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Поток",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_flowsheet_feedKicker",
-            "name": "bng_ru_flowsheet_feedKicker",
-            "label": "Feed Kicker",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Сырьё",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_flowsheet_feed",
-            "name": "bng_ru_flowsheet_feed",
-            "label": "Feed",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Сыннырит",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_flowsheet_feedNote",
-            "name": "bng_ru_flowsheet_feedNote",
-            "label": "Feed Note",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Одно рудное тело, Калюмное. Серно-кислое разложение — не конверсия по Мангейму и не процесс Байера.",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_flowsheet_all",
-            "name": "bng_ru_flowsheet_all",
-            "label": "All",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Все четыре",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_tab_flowsheet_ru_9",
-            "type": "tab",
-            "label": "Технологии",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_ru_flowsheet_routesTitle",
-            "name": "bng_ru_flowsheet_routesTitle",
-            "label": "Routes Title",
-            "type": "text",
-            "rows": 0,
-            "default_value": "С 2018 года исследованы три схемы. Ни одна не оказалась оптимальной. Четвёртая, итоговая схема разработана в 2026 году",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_flowsheet_routesRec",
-            "name": "bng_ru_flowsheet_routesRec",
-            "label": "Routes Rec",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Рекомендована",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_flowsheet_routesSelected",
-            "name": "bng_ru_flowsheet_routesSelected",
-            "label": "Routes Selected",
-            "type": "text",
-            "rows": 0,
-            "default_value": "По итогам этих работ в 2026 году в качестве четвёртой, итоговой схемы выбрано серно-кислое разложение.",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_flowsheet_routes",
-            "name": "bng_ru_flowsheet_routes",
-            "label": "Технологические схемы",
-            "type": "repeater",
-            "layout": "block",
-            "button_label": "Добавить строку",
-            "sub_fields": [
-                {
-                    "key": "field_bng_ru_flowsheet_routes_0",
-                    "name": "c0",
-                    "label": "Дата / номер",
-                    "type": "text",
-                    "rows": 0,
-                    "wrapper": {
-                        "width": "25"
-                    }
-                },
-                {
-                    "key": "field_bng_ru_flowsheet_routes_1",
-                    "name": "c1",
-                    "label": "Заголовок",
-                    "type": "text",
-                    "rows": 0,
-                    "wrapper": {
-                        "width": "35"
-                    }
-                },
-                {
-                    "key": "field_bng_ru_flowsheet_routes_2",
-                    "name": "c2",
-                    "label": "Описание",
-                    "type": "textarea",
-                    "rows": 3,
-                    "wrapper": {
-                        "width": "40"
-                    }
-                },
-                {
-                    "key": "field_bng_ru_flowsheet_routes_3",
-                    "name": "c3",
-                    "label": "Примечание",
-                    "type": "text",
-                    "rows": 0,
-                    "wrapper": {
-                        "width": "40"
-                    }
-                }
-            ]
-        },
-        {
-            "key": "field_bng_ru_flowsheet_routesNote",
-            "name": "bng_ru_flowsheet_routesNote",
-            "label": "Routes Note",
-            "type": "textarea",
-            "rows": 4,
-            "default_value": "Почему щелочная схема: любую соль калия можно получить кислотной нейтрализацией поташного раствора после второй стадии карбонизации, так что линейка следует за рынком; щелочные потоки не требуют дорогого кислотостойкого оборудования; капзатраты в 1,5–2,0 раза ниже по сравнению с традиционной подземной добычей калия; технология глубоко проработана на нефелинах; рудные тела известняка — в 5 и 20 км, а пылеугольное топливо позволяет разместить производство на месторождении; гидроксид алюминия — полуфабрикат с своим рынком сбыта.",
-            "wrapper": {
-                "width": "100"
-            }
-        },
-        {
-            "key": "field_bng_tab_flowsheet_ru_15",
-            "type": "tab",
-            "label": "Результаты",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_ru_flowsheet_givesTitle",
-            "name": "bng_ru_flowsheet_givesTitle",
-            "label": "Gives Title",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Что даёт связанность",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_flowsheet_gives",
-            "name": "bng_ru_flowsheet_gives",
-            "label": "Преимущества процесса",
-            "type": "repeater",
-            "layout": "row",
-            "button_label": "Добавить строку",
-            "sub_fields": [
-                {
-                    "key": "field_bng_ru_flowsheet_gives_0",
-                    "name": "c0",
-                    "label": "Текст",
-                    "type": "text",
-                    "rows": 0,
-                    "wrapper": {
-                        "width": "100"
-                    }
-                }
-            ]
-        },
-        {
-            "key": "field_bng_ru_flowsheet_costsTitle",
-            "name": "bng_ru_flowsheet_costsTitle",
-            "label": "Costs Title",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Чего она требует",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_flowsheet_costs",
-            "name": "bng_ru_flowsheet_costs",
-            "label": "Ограничения",
-            "type": "repeater",
-            "layout": "row",
-            "button_label": "Добавить строку",
-            "sub_fields": [
-                {
-                    "key": "field_bng_ru_flowsheet_costs_0",
-                    "name": "c0",
-                    "label": "Текст",
-                    "type": "text",
-                    "rows": 0,
-                    "wrapper": {
-                        "width": "100"
-                    }
-                }
-            ]
-        },
-        {
-            "key": "field_bng_tab_flowsheet_ru_extra",
-            "label": "Дополнительно",
-            "type": "tab",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_ru_body",
-            "label": "Текст под блоками",
-            "name": "bng_body_ru",
-            "type": "wysiwyg",
-            "toolbar": "basic",
-            "tabs": "visual",
-            "media_upload": 1
-        },
-        {
-            "key": "field_bng_ru_docs",
-            "label": "Дополнительные PDF",
-            "name": "bng_documents_ru",
-            "type": "repeater",
-            "layout": "row",
-            "button_label": "Добавить PDF",
-            "sub_fields": [
-                {
-                    "key": "field_bng_ru_doc_title",
-                    "label": "Название",
-                    "name": "title",
-                    "type": "text",
-                    "wrapper": {
-                        "width": "50"
-                    }
-                },
-                {
-                    "key": "field_bng_ru_doc_file",
-                    "label": "Файл",
-                    "name": "file",
-                    "type": "file",
-                    "return_format": "id",
-                    "mime_types": "pdf",
-                    "wrapper": {
-                        "width": "50"
-                    }
-                }
-            ]
+          "key": "field_bng_ru_flowsheet_routes_3",
+          "name": "c3",
+          "label": "Примечание",
+          "type": "text",
+          "rows": 0,
+          "wrapper": {
+            "width": "40"
+          }
         }
-    ],
-    "location": [
-        [
-            {
-                "param": "bng_section",
-                "operator": "==",
-                "value": "flowsheet"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": true,
-    "description": "",
-    "show_in_rest": 0,
-    "modified": 1792700000
+      ]
+    },
+    {
+      "key": "field_bng_ru_flowsheet_routesNote",
+      "name": "bng_ru_flowsheet_routesNote",
+      "label": "Routes Note",
+      "type": "textarea",
+      "rows": 4,
+      "default_value": "Почему щелочная схема: любую соль калия можно получить кислотной нейтрализацией поташного раствора после второй стадии карбонизации, так что линейка следует за рынком; щелочные потоки не требуют дорогого кислотостойкого оборудования; капзатраты в 1,5–2,0 раза ниже по сравнению с традиционной подземной добычей калия; технология глубоко проработана на нефелинах; рудные тела известняка — в 5 и 20 км, а пылеугольное топливо позволяет разместить производство на месторождении; гидроксид алюминия — полуфабрикат с своим рынком сбыта.",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_bng_tab_flowsheet_ru_15",
+      "type": "tab",
+      "label": "Результаты",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_flowsheet_givesTitle",
+      "name": "bng_ru_flowsheet_givesTitle",
+      "label": "Gives Title",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Что даёт связанность",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_flowsheet_gives",
+      "name": "bng_ru_flowsheet_gives",
+      "label": "Преимущества процесса",
+      "type": "repeater",
+      "layout": "row",
+      "button_label": "Добавить строку",
+      "sub_fields": [
+        {
+          "key": "field_bng_ru_flowsheet_gives_0",
+          "name": "c0",
+          "label": "Текст",
+          "type": "text",
+          "rows": 0,
+          "wrapper": {
+            "width": "100"
+          }
+        }
+      ]
+    },
+    {
+      "key": "field_bng_ru_flowsheet_costsTitle",
+      "name": "bng_ru_flowsheet_costsTitle",
+      "label": "Costs Title",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Чего она требует",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_flowsheet_costs",
+      "name": "bng_ru_flowsheet_costs",
+      "label": "Ограничения",
+      "type": "repeater",
+      "layout": "row",
+      "button_label": "Добавить строку",
+      "sub_fields": [
+        {
+          "key": "field_bng_ru_flowsheet_costs_0",
+          "name": "c0",
+          "label": "Текст",
+          "type": "text",
+          "rows": 0,
+          "wrapper": {
+            "width": "100"
+          }
+        }
+      ]
+    },
+    {
+      "key": "field_bng_tab_flowsheet_ru_extra",
+      "label": "Дополнительно",
+      "type": "tab",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_body",
+      "label": "Текст под блоками",
+      "name": "bng_body_ru",
+      "type": "wysiwyg",
+      "toolbar": "basic",
+      "tabs": "visual",
+      "media_upload": 1
+    },
+    {
+      "key": "field_bng_ru_docs",
+      "label": "Дополнительные PDF",
+      "name": "bng_documents_ru",
+      "type": "repeater",
+      "layout": "row",
+      "button_label": "Добавить PDF",
+      "sub_fields": [
+        {
+          "key": "field_bng_ru_doc_title",
+          "label": "Название",
+          "name": "title",
+          "type": "text",
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_bng_ru_doc_file",
+          "label": "Файл",
+          "name": "file",
+          "type": "file",
+          "return_format": "id",
+          "mime_types": "pdf",
+          "wrapper": {
+            "width": "50"
+          }
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "bng_section",
+        "operator": "==",
+        "value": "flowsheet"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1792700000
 }

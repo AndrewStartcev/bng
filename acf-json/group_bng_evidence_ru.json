@@ -1,243 +1,243 @@
 {
-    "key": "group_bng_evidence_ru",
-    "title": "🇷🇺 Контент — Русский",
-    "fields": [
+  "key": "group_bng_evidence_ru",
+  "title": "🇷🇺 Контент — Русский",
+  "fields": [
+    {
+      "key": "field_bng_tab_evidence_ru_0",
+      "type": "tab",
+      "label": "Первый экран",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_evidence_title",
+      "name": "bng_ru_evidence_title",
+      "label": "Заголовок H1",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Что можно утверждать сегодня и что предстоит подтвердить",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_evidence_sub",
+      "name": "bng_ru_evidence_sub",
+      "label": "Описание",
+      "type": "textarea",
+      "rows": 4,
+      "default_value": "Производственная компания сильна ровно настолько, насколько сильны доказательства за каждым утверждением. Оба блока опубликованы, чтобы покупатель и инвестор видели актуальную картину и статус.",
+      "wrapper": {
+        "width": "100"
+      }
+    },
+    {
+      "key": "field_bng_tab_evidence_ru_3",
+      "type": "tab",
+      "label": "Подтверждено",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_evidence_nowTitle",
+      "name": "bng_ru_evidence_nowTitle",
+      "label": "Now Title",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Доказуемо сейчас",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_evidence_nowNote",
+      "name": "bng_ru_evidence_nowNote",
+      "label": "Now Note",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Задокументировано, утверждено или защищено.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_evidence_provable",
+      "name": "bng_ru_evidence_provable",
+      "label": "Подтверждённые факты",
+      "type": "repeater",
+      "layout": "row",
+      "button_label": "Добавить строку",
+      "sub_fields": [
         {
-            "key": "field_bng_tab_evidence_ru_0",
-            "type": "tab",
-            "label": "Первый экран",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_ru_evidence_title",
-            "name": "bng_ru_evidence_title",
-            "label": "Заголовок H1",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Что можно утверждать сегодня и что предстоит подтвердить",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_evidence_sub",
-            "name": "bng_ru_evidence_sub",
-            "label": "Описание",
-            "type": "textarea",
-            "rows": 4,
-            "default_value": "Производственная компания сильна ровно настолько, насколько сильны доказательства за каждым утверждением. Оба блока опубликованы, чтобы покупатель и инвестор видели актуальную картину и статус.",
-            "wrapper": {
-                "width": "100"
-            }
-        },
-        {
-            "key": "field_bng_tab_evidence_ru_3",
-            "type": "tab",
-            "label": "Подтверждено",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_ru_evidence_nowTitle",
-            "name": "bng_ru_evidence_nowTitle",
-            "label": "Now Title",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Доказуемо сейчас",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_evidence_nowNote",
-            "name": "bng_ru_evidence_nowNote",
-            "label": "Now Note",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Задокументировано, утверждено или защищено.",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_evidence_provable",
-            "name": "bng_ru_evidence_provable",
-            "label": "Подтверждённые факты",
-            "type": "repeater",
-            "layout": "row",
-            "button_label": "Добавить строку",
-            "sub_fields": [
-                {
-                    "key": "field_bng_ru_evidence_provable_0",
-                    "name": "c0",
-                    "label": "Текст",
-                    "type": "text",
-                    "rows": 0,
-                    "wrapper": {
-                        "width": "100"
-                    }
-                }
-            ]
-        },
-        {
-            "key": "field_bng_tab_evidence_ru_7",
-            "type": "tab",
-            "label": "Предстоит доказать",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_ru_evidence_earnTitle",
-            "name": "bng_ru_evidence_earnTitle",
-            "label": "Earn Title",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Требует доказательств до заявления",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_evidence_earnNote",
-            "name": "bng_ru_evidence_earnNote",
-            "label": "Earn Note",
-            "type": "text",
-            "rows": 0,
-            "default_value": "С указанием даты, когда ожидается доказательство.",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_evidence_earned",
-            "name": "bng_ru_evidence_earned",
-            "label": "Требуют подтверждения",
-            "type": "repeater",
-            "layout": "row",
-            "button_label": "Добавить строку",
-            "sub_fields": [
-                {
-                    "key": "field_bng_ru_evidence_earned_0",
-                    "name": "c0",
-                    "label": "Дата / номер",
-                    "type": "textarea",
-                    "rows": 3,
-                    "wrapper": {
-                        "width": "25"
-                    }
-                },
-                {
-                    "key": "field_bng_ru_evidence_earned_1",
-                    "name": "c1",
-                    "label": "Заголовок",
-                    "type": "text",
-                    "rows": 0,
-                    "wrapper": {
-                        "width": "35"
-                    }
-                }
-            ]
-        },
-        {
-            "key": "field_bng_tab_evidence_ru_11",
-            "type": "tab",
-            "label": "Техническое досье",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_ru_evidence_dossierTitle",
-            "name": "bng_ru_evidence_dossierTitle",
-            "label": "Dossier Title",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Цифры — в техническом досье.",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_evidence_dossierBody",
-            "name": "bng_ru_evidence_dossierBody",
-            "label": "Dossier Body",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Рудное тело, технологическая схема и линейка продуктов в более подробном техническом формате. Выдаётся нумерованными экземплярами.",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_ru_evidence_dossierCta",
-            "name": "bng_ru_evidence_dossierCta",
-            "label": "Dossier Cta",
-            "type": "text",
-            "rows": 0,
-            "default_value": "Запросить копию",
-            "wrapper": {
-                "width": "50"
-            }
-        },
-        {
-            "key": "field_bng_tab_evidence_ru_extra",
-            "label": "Дополнительно",
-            "type": "tab",
-            "placement": "left"
-        },
-        {
-            "key": "field_bng_ru_body",
-            "label": "Текст под блоками",
-            "name": "bng_body_ru",
-            "type": "wysiwyg",
-            "toolbar": "basic",
-            "tabs": "visual",
-            "media_upload": 1
-        },
-        {
-            "key": "field_bng_ru_docs",
-            "label": "Дополнительные PDF",
-            "name": "bng_documents_ru",
-            "type": "repeater",
-            "layout": "row",
-            "button_label": "Добавить PDF",
-            "sub_fields": [
-                {
-                    "key": "field_bng_ru_doc_title",
-                    "label": "Название",
-                    "name": "title",
-                    "type": "text",
-                    "wrapper": {
-                        "width": "50"
-                    }
-                },
-                {
-                    "key": "field_bng_ru_doc_file",
-                    "label": "Файл",
-                    "name": "file",
-                    "type": "file",
-                    "return_format": "id",
-                    "mime_types": "pdf",
-                    "wrapper": {
-                        "width": "50"
-                    }
-                }
-            ]
+          "key": "field_bng_ru_evidence_provable_0",
+          "name": "c0",
+          "label": "Текст",
+          "type": "text",
+          "rows": 0,
+          "wrapper": {
+            "width": "100"
+          }
         }
-    ],
-    "location": [
-        [
-            {
-                "param": "bng_section",
-                "operator": "==",
-                "value": "evidence"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": true,
-    "description": "",
-    "show_in_rest": 0,
-    "modified": 1792700000
+      ]
+    },
+    {
+      "key": "field_bng_tab_evidence_ru_7",
+      "type": "tab",
+      "label": "Предстоит доказать",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_evidence_earnTitle",
+      "name": "bng_ru_evidence_earnTitle",
+      "label": "Earn Title",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Требует доказательств до заявления",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_evidence_earnNote",
+      "name": "bng_ru_evidence_earnNote",
+      "label": "Earn Note",
+      "type": "text",
+      "rows": 0,
+      "default_value": "С указанием даты, когда ожидается доказательство.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_evidence_earned",
+      "name": "bng_ru_evidence_earned",
+      "label": "Требуют подтверждения",
+      "type": "repeater",
+      "layout": "row",
+      "button_label": "Добавить строку",
+      "sub_fields": [
+        {
+          "key": "field_bng_ru_evidence_earned_0",
+          "name": "c0",
+          "label": "Дата / номер",
+          "type": "textarea",
+          "rows": 3,
+          "wrapper": {
+            "width": "25"
+          }
+        },
+        {
+          "key": "field_bng_ru_evidence_earned_1",
+          "name": "c1",
+          "label": "Заголовок",
+          "type": "text",
+          "rows": 0,
+          "wrapper": {
+            "width": "35"
+          }
+        }
+      ]
+    },
+    {
+      "key": "field_bng_tab_evidence_ru_11",
+      "type": "tab",
+      "label": "Техническое досье",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_evidence_dossierTitle",
+      "name": "bng_ru_evidence_dossierTitle",
+      "label": "Dossier Title",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Цифры — в техническом досье.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_evidence_dossierBody",
+      "name": "bng_ru_evidence_dossierBody",
+      "label": "Dossier Body",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Рудное тело, технологическая схема и линейка продуктов в более подробном техническом формате. Выдаётся нумерованными экземплярами.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_evidence_dossierCta",
+      "name": "bng_ru_evidence_dossierCta",
+      "label": "Dossier Cta",
+      "type": "text",
+      "rows": 0,
+      "default_value": "Запросить копию",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_tab_evidence_ru_extra",
+      "label": "Дополнительно",
+      "type": "tab",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_body",
+      "label": "Текст под блоками",
+      "name": "bng_body_ru",
+      "type": "wysiwyg",
+      "toolbar": "basic",
+      "tabs": "visual",
+      "media_upload": 1
+    },
+    {
+      "key": "field_bng_ru_docs",
+      "label": "Дополнительные PDF",
+      "name": "bng_documents_ru",
+      "type": "repeater",
+      "layout": "row",
+      "button_label": "Добавить PDF",
+      "sub_fields": [
+        {
+          "key": "field_bng_ru_doc_title",
+          "label": "Название",
+          "name": "title",
+          "type": "text",
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_bng_ru_doc_file",
+          "label": "Файл",
+          "name": "file",
+          "type": "file",
+          "return_format": "id",
+          "mime_types": "pdf",
+          "wrapper": {
+            "width": "50"
+          }
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "bng_section",
+        "operator": "==",
+        "value": "evidence"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1792700000
 }
