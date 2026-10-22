@@ -1078,6 +1078,7 @@ class Component extends DCLogic {
     return {
       t: t, accent: accent, mapSrc: (window.__resources && window.__resources.depositMap) || 'deposit-map-ru.html',
       fitMap: (e) => { try { const fr = e.target; const h = fr.contentDocument.body.scrollHeight; if (h > 100) fr.style.height = h + 'px'; } catch (err) {} },
+      emptyVideoText: lang === 'ru' ? 'Видео загружается через ACF на главной странице' : 'Upload a video in the homepage ACF fields',
       heroVideo: hv, heroPoster: heroPoster, heroControls: true,
       heroIsEmbed: false, heroIsFile: !!hv, heroIsEmpty: !hv && !heroPoster, heroHasPoster: !!heroPoster && !hv,
 
