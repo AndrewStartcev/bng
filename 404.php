@@ -1,0 +1,1 @@
+<?php get_header(); ?><main id="content" class="section"><div class="container"><h1>404</h1><p><?php echo esc_html(bng_language()==='en'?'Page not found':'Страница не найдена'); ?></p><a class="button" href="<?php echo esc_url(bng_url()); ?>"><?php echo esc_html(bng_language()==='en'?'Home':'На главную'); ?></a></div></main><?php get_footer(); ?>
