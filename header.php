@@ -21,7 +21,7 @@ $current = bng_section_slug();
             <?php if ($logo_id) : ?>
                 <?php echo wp_get_attachment_image($logo_id, 'full', false, ['class' => 'site-header__logo', 'alt' => 'BNG Elements']); ?>
             <?php else : ?>
-                <span class="site-header__mark" aria-hidden="true">◉</span>
+                <img class="site-header__mark-image" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/bng-logo.svg'); ?>" width="36" height="36" alt="" aria-hidden="true">
                 <span class="site-header__brand-name"><?php echo esc_html(bng_copy('', $lang)['brand'] ?? 'БНГ'); ?><small><?php echo esc_html(bng_copy('', $lang)['descriptor'] ?? 'ЭЛЕМЕНТС'); ?></small></span>
             <?php endif; ?>
         </a>
