@@ -622,6 +622,11 @@ textarea.input { min-height: 90px; resize: vertical; }
           <a href="#" sc-camel-on-click="{{ n.go }}" style="text-decoration:none;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding-bottom:3px;color:{{ n.color }};border-bottom:2px solid {{ n.mark }}">{{ n.label }}</a>
         </sc-for>
       </nav>
+      <div role="group" aria-label="Language / Язык" style="display:flex;align-items:center;gap:8px;font-family:'PT Sans',system-ui,sans-serif;font-size:12px;letter-spacing:0.12em;margin-left:auto;white-space:nowrap">
+        <button type="button" sc-camel-on-click="{{ setRussian }}" aria-label="Русская версия" aria-pressed="{{ isRussian }}" style="cursor:pointer;border:0;border-bottom:2px solid {{ ruLanguageBorder }};padding:3px 0;background:transparent;font:inherit;color:{{ ruLanguageColor }}">RU</button>
+        <span style="color:#9AA0A6" aria-hidden="true">/</span>
+        <button type="button" sc-camel-on-click="{{ setEnglish }}" aria-label="English version" aria-pressed="{{ isEnglish }}" style="cursor:pointer;border:0;border-bottom:2px solid {{ enLanguageBorder }};padding:3px 0;background:transparent;font:inherit;color:{{ enLanguageColor }}">EN</button>
+      </div>
     </div>
   </header>
 
@@ -978,6 +983,18 @@ class Component extends DCLogic {
   }
 
 
+  switchLanguage(locale, event) {
+    if (event && event.preventDefault) event.preventDefault();
+    if (locale !== 'ru' && locale !== 'en') return;
+    this.setState({ lang: locale });
+    if (typeof window !== 'undefined') {
+      const next = new URL(window.location.href);
+      if (locale === 'en') next.searchParams.set('lang', 'en');
+      else next.searchParams.delete('lang');
+      window.history.replaceState(window.history.state, '', next.pathname + next.search + next.hash);
+    }
+  }
+
   nav(page) {
     return (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ page: page }); if (typeof window !== 'undefined') window.scrollTo(0, 0); };
   }
@@ -1103,6 +1120,13 @@ class Component extends DCLogic {
       newsItems: t.news.items.map((n) => ({ date: n[0], kicker: n[1], head: n[2], body: n[3] })),
       newsAhead: t.news.ahead.map((n) => ({ when: n[0], what: n[1] })),
       navItems: navItems, streamsPlain: streamsPlain,
+      setRussian: (event) => this.switchLanguage('ru', event),
+      setEnglish: (event) => this.switchLanguage('en', event),
+      isRussian: lang === 'ru', isEnglish: lang === 'en',
+      ruLanguageColor: lang === 'ru' ? '#12171D' : '#6E747A',
+      enLanguageColor: lang === 'en' ? '#12171D' : '#6E747A',
+      ruLanguageBorder: lang === 'ru' ? accent : 'transparent',
+      enLanguageBorder: lang === 'en' ? accent : 'transparent',
       goHome: this.nav('home'), goProducts: this.nav('products'), goEvidence: this.nav('evidence'), goCompany: this.nav('company'),
       posCells: t.home.cells.map((c) => ({ k: c[0], v: c[1] })),
       segFilters: segFilters, rows: rows,
