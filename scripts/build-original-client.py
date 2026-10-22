@@ -24,7 +24,7 @@ EXTENSIONS = {
 }
 
 def bundled_json(content, kind):
-    pattern = r'<script\\s+type=["\\\']__bundler/' + kind + r'["\\\']\\s*>(.*?)</script>'
+    pattern = r'<script\s+type=["\\']__bundler/' + kind + r'["\\']\s*>(.*?)</script>'
     match = re.search(pattern, content, re.S)
     if not match:
         raise ValueError("Original standalone has no " + kind)
@@ -55,8 +55,8 @@ def extract(locale):
         template = template.replace(uid, url)
 
     # Only URL resolution + WordPress data hooks change; the client CSS and markup remain untouched.
-    template = template.replace("const lang = '" + locale + "';\\n    const path",
-                                "const lang = this.state.lang;\\n    const path")
+    template = template.replace("const lang = '" + locale + "';\n    const path",
+                                "const lang = this.state.lang;\n    const path")
     for domain in ["'https://' + DOMAIN['ru'] + path", "'https://' + DOMAIN['en'] + path",
                    "'https://' + DOMAIN.ru + path", "'https://' + DOMAIN.en + path"]:
         template = template.replace(domain, "window.location.origin + path")
@@ -73,11 +73,11 @@ def extract(locale):
     if anchor not in template:
         raise ValueError("Cannot locate client component data hook")
     template = template.replace(anchor, bridge + anchor, 1)
-    template = template.replace("</head>", "__BNG_WP_HEAD__\\n</head>", 1)
-    template = template.replace("<body>", '<body class="bng-original">\\n__BNG_WP_BRIDGE__', 1)
-    template = template.replace("</body>", "__BNG_WP_FOOT__\\n</body>", 1)
+    template = template.replace("</head>", "__BNG_WP_HEAD__\n</head>", 1)
+    template = template.replace("<body>", '<body class="bng-original">\n__BNG_WP_BRIDGE__', 1)
+    template = template.replace("</body>", "__BNG_WP_FOOT__\n</body>", 1)
 
-    pattern = r'<sc-if\\b[^>]*value="\\{\\{ is(Home|Products|Rock|Flow|Evidence|Milestones|News|Company) \\}\\}"[^>]*>'
+    pattern = r'<sc-if\b[^>]*value="\{\{ is(Home|Products|Rock|Flow|Evidence|Milestones|News|Company) \}\}"[^>]*>'
     matches = list(re.finditer(pattern, template))
     if len(matches) != 8:
         raise ValueError("Expected eight original client sections, got " + str(len(matches)))
