@@ -28,7 +28,7 @@ def bundled_json(content, kind):
     match = re.search(pattern, content, re.S)
     if not match:
         raise ValueError("Original standalone has no " + kind)
-    return json.loads(html.unescape(match.group(1)))
+    return json.loads(match.group(1))
 
 def extract(locale):
     name = "BNG Elements " + locale.upper() + " - standalone.html"
