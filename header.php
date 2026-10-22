@@ -13,7 +13,7 @@ $ru=bng_labels('ru');$en=bng_labels('en');$logo=(int)bng_field('bng_logo',0,'opt
 <?php endif; ?></a>
 <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="bng-nav"><span data-bng-i18n-ru="Меню" data-bng-i18n-en="Menu">Меню</span><span aria-hidden="true">☰</span></button>
 <nav class="site-header__nav" id="bng-nav" aria-label="Main navigation">
-<?php foreach($ru as $slug=>$label): ?>
+<?php foreach(['home','rock','evidence','flowsheet','products','milestones','news','company'] as $slug): $label=$ru[$slug]??$slug; ?>
 <a href="<?php echo esc_url(home_url('/')); ?>" data-bng-target="<?php echo esc_attr($slug); ?>" data-bng-i18n-ru="<?php echo esc_attr($label); ?>" data-bng-i18n-en="<?php echo esc_attr($en[$slug]??$label); ?>"<?php if($slug==='home'): ?> class="is-active" aria-current="page"<?php endif; ?>><?php echo esc_html($label); ?></a>
 <?php endforeach; ?></nav>
 <div class="site-header__language"><button type="button" data-bng-lang-button="ru" aria-pressed="true">RU</button><span>/</span><button type="button" data-bng-lang-button="en" aria-pressed="false">EN</button></div>
