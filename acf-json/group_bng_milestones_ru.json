@@ -1,0 +1,212 @@
+{
+    "key": "group_bng_milestones_ru",
+    "title": "🇷🇺 Контент — Русский",
+    "fields": [
+        {
+            "key": "field_bng_tab_milestones_ru_0",
+            "type": "tab",
+            "label": "Первый экран",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_ru_milestones_title",
+            "name": "bng_ru_milestones_title",
+            "label": "Заголовок H1",
+            "type": "text",
+            "rows": 0,
+            "default_value": "От лицензии до завода — шаг за шагом, с целевыми сроками",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_milestones_sub",
+            "name": "bng_ru_milestones_sub",
+            "label": "Описание",
+            "type": "textarea",
+            "rows": 4,
+            "default_value": "Что уже сделано и что предстоит сделать. У каждого реализованного шага указан год исполнения. Для необходимых будущих шагов обозначены целевые сроки, на которые мы опираемся, а не твердое обещание.",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_bng_tab_milestones_ru_3",
+            "type": "tab",
+            "label": "Выполнено",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_ru_milestones_doneTitle",
+            "name": "bng_ru_milestones_doneTitle",
+            "label": "Done Title",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Выполнено",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_milestones_done",
+            "name": "bng_ru_milestones_done",
+            "label": "Завершённые этапы",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Добавить строку",
+            "sub_fields": [
+                {
+                    "key": "field_bng_ru_milestones_done_0",
+                    "name": "c0",
+                    "label": "Дата / номер",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "25"
+                    }
+                },
+                {
+                    "key": "field_bng_ru_milestones_done_1",
+                    "name": "c1",
+                    "label": "Заголовок",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "35"
+                    }
+                },
+                {
+                    "key": "field_bng_ru_milestones_done_2",
+                    "name": "c2",
+                    "label": "Описание",
+                    "type": "textarea",
+                    "rows": 3,
+                    "wrapper": {
+                        "width": "40"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_bng_tab_milestones_ru_6",
+            "type": "tab",
+            "label": "Впереди",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_ru_milestones_aheadTitle",
+            "name": "bng_ru_milestones_aheadTitle",
+            "label": "Ahead Title",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Впереди",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_milestones_ahead",
+            "name": "bng_ru_milestones_ahead",
+            "label": "Будущие этапы",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Добавить строку",
+            "sub_fields": [
+                {
+                    "key": "field_bng_ru_milestones_ahead_0",
+                    "name": "c0",
+                    "label": "Дата / номер",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "25"
+                    }
+                },
+                {
+                    "key": "field_bng_ru_milestones_ahead_1",
+                    "name": "c1",
+                    "label": "Заголовок",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "35"
+                    }
+                },
+                {
+                    "key": "field_bng_ru_milestones_ahead_2",
+                    "name": "c2",
+                    "label": "Описание",
+                    "type": "textarea",
+                    "rows": 3,
+                    "wrapper": {
+                        "width": "40"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_bng_tab_milestones_ru_extra",
+            "label": "Дополнительно",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_ru_body",
+            "label": "Текст под блоками",
+            "name": "bng_body_ru",
+            "type": "wysiwyg",
+            "toolbar": "basic",
+            "tabs": "visual",
+            "media_upload": 1
+        },
+        {
+            "key": "field_bng_ru_docs",
+            "label": "Дополнительные PDF",
+            "name": "bng_documents_ru",
+            "type": "repeater",
+            "layout": "row",
+            "button_label": "Добавить PDF",
+            "sub_fields": [
+                {
+                    "key": "field_bng_ru_doc_title",
+                    "label": "Название",
+                    "name": "title",
+                    "type": "text",
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_bng_ru_doc_file",
+                    "label": "Файл",
+                    "name": "file",
+                    "type": "file",
+                    "return_format": "id",
+                    "mime_types": "pdf",
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "bng_section",
+                "operator": "==",
+                "value": "milestones"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1792700000
+}

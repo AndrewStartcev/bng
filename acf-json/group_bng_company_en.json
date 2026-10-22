@@ -1,0 +1,320 @@
+{
+    "key": "group_bng_company_en",
+    "title": "🇬🇧 Content — English",
+    "fields": [
+        {
+            "key": "field_bng_tab_company_en_0",
+            "type": "tab",
+            "label": "Первый экран",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_en_company_title",
+            "name": "bng_en_company_title",
+            "label": "Заголовок H1",
+            "type": "text",
+            "rows": 0,
+            "default_value": "A primary source of valuable elements from a unique ore body",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_en_company_sub",
+            "name": "bng_en_company_sub",
+            "label": "Описание",
+            "type": "text",
+            "rows": 0,
+            "default_value": "We are not asking to be liked — we are asking to be believed.",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_en_company_proof",
+            "name": "bng_en_company_proof",
+            "label": "Proof",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Proof",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_en_company_pillars",
+            "name": "bng_en_company_pillars",
+            "label": "Принципы компании",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Добавить строку",
+            "sub_fields": [
+                {
+                    "key": "field_bng_en_company_pillars_0",
+                    "name": "c0",
+                    "label": "Дата / номер",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "25"
+                    }
+                },
+                {
+                    "key": "field_bng_en_company_pillars_1",
+                    "name": "c1",
+                    "label": "Заголовок",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "35"
+                    }
+                },
+                {
+                    "key": "field_bng_en_company_pillars_2",
+                    "name": "c2",
+                    "label": "Описание",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "40"
+                    }
+                },
+                {
+                    "key": "field_bng_en_company_pillars_3",
+                    "name": "c3",
+                    "label": "Примечание",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "40"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_bng_tab_company_en_5",
+            "type": "tab",
+            "label": "Структура бренда",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_en_company_archTitle",
+            "name": "bng_en_company_archTitle",
+            "label": "Arch Title",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Brand architecture — three application segments",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_en_company_arch",
+            "name": "bng_en_company_arch",
+            "label": "Архитектура бренда",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Добавить строку",
+            "sub_fields": [
+                {
+                    "key": "field_bng_en_company_arch_0",
+                    "name": "c0",
+                    "label": "Дата / номер",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "25"
+                    }
+                },
+                {
+                    "key": "field_bng_en_company_arch_1",
+                    "name": "c1",
+                    "label": "Заголовок",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "35"
+                    }
+                },
+                {
+                    "key": "field_bng_en_company_arch_2",
+                    "name": "c2",
+                    "label": "Описание",
+                    "type": "textarea",
+                    "rows": 3,
+                    "wrapper": {
+                        "width": "40"
+                    }
+                },
+                {
+                    "key": "field_bng_en_company_arch_3",
+                    "name": "c3",
+                    "label": "Примечание",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "40"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_bng_tab_company_en_8",
+            "type": "tab",
+            "label": "О компании",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_en_company_aboutTitle",
+            "name": "bng_en_company_aboutTitle",
+            "label": "About Title",
+            "type": "text",
+            "rows": 0,
+            "default_value": "The company in brief",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_en_company_about",
+            "name": "bng_en_company_about",
+            "label": "Абзацы описания",
+            "type": "repeater",
+            "layout": "row",
+            "button_label": "Добавить строку",
+            "sub_fields": [
+                {
+                    "key": "field_bng_en_company_about_0",
+                    "name": "c0",
+                    "label": "Текст",
+                    "type": "textarea",
+                    "rows": 3,
+                    "wrapper": {
+                        "width": "100"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_bng_tab_company_en_11",
+            "type": "tab",
+            "label": "Контакты",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_en_company_contactTitle",
+            "name": "bng_en_company_contactTitle",
+            "label": "Contact Title",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Contact",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_en_company_contacts",
+            "name": "bng_en_company_contacts",
+            "label": "Контактные данные",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Добавить строку",
+            "sub_fields": [
+                {
+                    "key": "field_bng_en_company_contacts_0",
+                    "name": "c0",
+                    "label": "Дата / номер",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "25"
+                    }
+                },
+                {
+                    "key": "field_bng_en_company_contacts_1",
+                    "name": "c1",
+                    "label": "Заголовок",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "35"
+                    }
+                },
+                {
+                    "key": "field_bng_en_company_contacts_2",
+                    "name": "c2",
+                    "label": "Описание",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "40"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_bng_tab_company_en_extra",
+            "label": "Дополнительно",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_en_body",
+            "label": "Текст под блоками",
+            "name": "bng_body_en",
+            "type": "wysiwyg",
+            "toolbar": "basic",
+            "tabs": "visual",
+            "media_upload": 1
+        },
+        {
+            "key": "field_bng_en_docs",
+            "label": "Дополнительные PDF",
+            "name": "bng_documents_en",
+            "type": "repeater",
+            "layout": "row",
+            "button_label": "Добавить PDF",
+            "sub_fields": [
+                {
+                    "key": "field_bng_en_doc_title",
+                    "label": "Название",
+                    "name": "title",
+                    "type": "text",
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_bng_en_doc_file",
+                    "label": "Файл",
+                    "name": "file",
+                    "type": "file",
+                    "return_format": "id",
+                    "mime_types": "pdf",
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "bng_section",
+                "operator": "==",
+                "value": "company"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1792700000
+}

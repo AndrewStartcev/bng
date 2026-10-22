@@ -1,0 +1,273 @@
+{
+    "key": "group_bng_news_ru",
+    "title": "🇷🇺 Контент — Русский",
+    "fields": [
+        {
+            "key": "field_bng_tab_news_ru_0",
+            "type": "tab",
+            "label": "Первый экран",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_ru_news_title",
+            "name": "bng_ru_news_title",
+            "label": "Заголовок H1",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Сообщения компании",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_news_sub",
+            "name": "bng_ru_news_sub",
+            "label": "Описание",
+            "type": "textarea",
+            "rows": 4,
+            "default_value": "Только датированные записи. Ничего не объявляется до того, как за этим появится документ, результат или подписанное соглашение, а то, что впереди, указано датой, а не обещанием.",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_bng_tab_news_ru_3",
+            "type": "tab",
+            "label": "Публикации",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_ru_news_logTitle",
+            "name": "bng_ru_news_logTitle",
+            "label": "Log Title",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Сообщения",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_news_logNote",
+            "name": "bng_ru_news_logNote",
+            "label": "Log Note",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Сначала новые.",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_news_items",
+            "name": "bng_ru_news_items",
+            "label": "Публикации",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Добавить строку",
+            "sub_fields": [
+                {
+                    "key": "field_bng_ru_news_items_0",
+                    "name": "c0",
+                    "label": "Дата / номер",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "25"
+                    }
+                },
+                {
+                    "key": "field_bng_ru_news_items_1",
+                    "name": "c1",
+                    "label": "Заголовок",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "35"
+                    }
+                },
+                {
+                    "key": "field_bng_ru_news_items_2",
+                    "name": "c2",
+                    "label": "Описание",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "40"
+                    }
+                },
+                {
+                    "key": "field_bng_ru_news_items_3",
+                    "name": "c3",
+                    "label": "Примечание",
+                    "type": "textarea",
+                    "rows": 3,
+                    "wrapper": {
+                        "width": "40"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_bng_tab_news_ru_7",
+            "type": "tab",
+            "label": "В планах",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_ru_news_aheadTitle",
+            "name": "bng_ru_news_aheadTitle",
+            "label": "Ahead Title",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Запланировано",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_news_aheadNote",
+            "name": "bng_ru_news_aheadNote",
+            "label": "Ahead Note",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Даты, которые мы держим.",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_news_ahead",
+            "name": "bng_ru_news_ahead",
+            "label": "Будущие этапы",
+            "type": "repeater",
+            "layout": "row",
+            "button_label": "Добавить строку",
+            "sub_fields": [
+                {
+                    "key": "field_bng_ru_news_ahead_0",
+                    "name": "c0",
+                    "label": "Дата / номер",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "25"
+                    }
+                },
+                {
+                    "key": "field_bng_ru_news_ahead_1",
+                    "name": "c1",
+                    "label": "Заголовок",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "35"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_bng_tab_news_ru_11",
+            "type": "tab",
+            "label": "Контакты для прессы",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_ru_news_mediaTitle",
+            "name": "bng_ru_news_mediaTitle",
+            "label": "Media Title",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Запросы прессы и аналитиков",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_news_mediaBody",
+            "name": "bng_ru_news_mediaBody",
+            "label": "Media Body",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Каждое внешнее заявление согласует один человек. Цифры с сайта перед публикацией следует сверять с техническим досье.",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_news_mediaCta",
+            "name": "bng_ru_news_mediaCta",
+            "label": "Media Cta",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Связаться с нами",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_tab_news_ru_extra",
+            "label": "Дополнительно",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_ru_body",
+            "label": "Текст под блоками",
+            "name": "bng_body_ru",
+            "type": "wysiwyg",
+            "toolbar": "basic",
+            "tabs": "visual",
+            "media_upload": 1
+        },
+        {
+            "key": "field_bng_ru_docs",
+            "label": "Дополнительные PDF",
+            "name": "bng_documents_ru",
+            "type": "repeater",
+            "layout": "row",
+            "button_label": "Добавить PDF",
+            "sub_fields": [
+                {
+                    "key": "field_bng_ru_doc_title",
+                    "label": "Название",
+                    "name": "title",
+                    "type": "text",
+                    "wrapper": {
+                        "width": "50"
+                    }
+                },
+                {
+                    "key": "field_bng_ru_doc_file",
+                    "label": "Файл",
+                    "name": "file",
+                    "type": "file",
+                    "return_format": "id",
+                    "mime_types": "pdf",
+                    "wrapper": {
+                        "width": "50"
+                    }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "bng_section",
+                "operator": "==",
+                "value": "news"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1792700000
+}

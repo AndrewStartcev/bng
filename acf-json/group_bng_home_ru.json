@@ -1,0 +1,182 @@
+{
+    "key": "group_bng_home_ru",
+    "title": "🇷🇺 Контент — Русский",
+    "fields": [
+        {
+            "key": "field_bng_tab_home_ru_0",
+            "type": "tab",
+            "label": "Первый экран",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_ru_home_kicker",
+            "name": "bng_ru_home_kicker",
+            "label": "Надпись над заголовком",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Калюмное месторождение · Сыннырский массив · Республика Бурятия",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_home_title",
+            "name": "bng_ru_home_title",
+            "label": "Заголовок H1",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Одна порода. Четыре рынка. Минимум отходов.",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_home_sub",
+            "name": "bng_ru_home_sub",
+            "label": "Описание",
+            "type": "textarea",
+            "rows": 4,
+            "default_value": "Первичный источник бесхлорного калия, глинозёма, кремнезёма и железа. Десять продуктов из одной технологической схемы, выпускаемых одновременно — поэтому ни один из них не несёт полную себестоимость производства.",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_bng_ru_home_cta1",
+            "name": "bng_ru_home_cta1",
+            "label": "Первая кнопка",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Продуктовые спецификации",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_home_cta2",
+            "name": "bng_ru_home_cta2",
+            "label": "Вторая кнопка",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Доказательная база",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_tab_home_ru_6",
+            "type": "tab",
+            "label": "Видео",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_ru_home_figcap",
+            "name": "bng_ru_home_figcap",
+            "label": "Подпись к видео",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Калюмное — рудное тело выходит на поверхность.",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_home_video",
+            "name": "bng_home_video_ru",
+            "label": "Видеофайл",
+            "type": "file",
+            "return_format": "id",
+            "mime_types": "mp4,webm",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_home_poster",
+            "name": "bng_home_poster_ru",
+            "label": "Постер видео",
+            "type": "image",
+            "return_format": "id",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_tab_home_ru_10",
+            "type": "tab",
+            "label": "Позиционирование",
+            "placement": "left"
+        },
+        {
+            "key": "field_bng_ru_home_posTitle",
+            "name": "bng_ru_home_posTitle",
+            "label": "Заголовок блока",
+            "type": "text",
+            "rows": 0,
+            "default_value": "Что такое БНГ Элементс",
+            "wrapper": {
+                "width": "50"
+            }
+        },
+        {
+            "key": "field_bng_ru_home_posBody",
+            "name": "bng_ru_home_posBody",
+            "label": "Описание блока",
+            "type": "textarea",
+            "rows": 4,
+            "default_value": "Для покупателей бесхлорного калия, глинозёма, кремнезёма и железа, которые сегодня зависят от конверсии химического сырья и морских поставок, БНГ Элементс — первичный рудный источник всех четырёх элементов сразу: одна схема на Калюмном разделяет одно рудное тело на четыре группы товарных продуктов.",
+            "wrapper": {
+                "width": "100"
+            }
+        },
+        {
+            "key": "field_bng_ru_home_cells",
+            "name": "bng_ru_home_cells",
+            "label": "Карточки",
+            "type": "repeater",
+            "layout": "row",
+            "button_label": "Добавить строку",
+            "sub_fields": [
+                {
+                    "key": "field_bng_ru_home_cells_0",
+                    "name": "c0",
+                    "label": "Дата / номер",
+                    "type": "text",
+                    "rows": 0,
+                    "wrapper": {
+                        "width": "25"
+                    }
+                },
+                {
+                    "key": "field_bng_ru_home_cells_1",
+                    "name": "c1",
+                    "label": "Заголовок",
+                    "type": "textarea",
+                    "rows": 3,
+                    "wrapper": {
+                        "width": "35"
+                    }
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1792700000
+}
