@@ -186,6 +186,76 @@
       }
     },
     {
+      "key": "field_bng_ru_products_segAll",
+      "name": "bng_ru_products_segAll",
+      "label": "Кнопка «Все продукты»",
+      "type": "text",
+      "default_value": "Все продукты",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_segAgro",
+      "name": "bng_ru_products_segAgro",
+      "label": "Фильтр «Агро»",
+      "type": "text",
+      "default_value": "Агро",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_segChemicals",
+      "name": "bng_ru_products_segChemicals",
+      "label": "Фильтр «Химикаты»",
+      "type": "text",
+      "default_value": "Химикаты",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_segMetals",
+      "name": "bng_ru_products_segMetals",
+      "label": "Фильтр «Металлы»",
+      "type": "text",
+      "default_value": "Металлы",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_pendingLabel",
+      "name": "bng_ru_products_pendingLabel",
+      "label": "Марки в подготовке",
+      "type": "text",
+      "default_value": "готовится",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_gradeNoFile",
+      "name": "bng_ru_products_gradeNoFile",
+      "label": "Кнопка неподготовленной спецификации",
+      "type": "text",
+      "default_value": "Спецификация готовится",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_ru_products_noGradesNote",
+      "name": "bng_ru_products_noGradesNote",
+      "label": "Примечание при отсутствии спецификации",
+      "type": "text",
+      "default_value": "Спецификация готовится — полевые испытания с 1 кв. 2028 года.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
       "key": "field_bng_ru_product_catalog",
       "name": "bng_ru_products_catalog",
       "label": "Каталог — 10 продуктов, марки и характеристики",
@@ -509,5 +579,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1793020000
+  "modified": 1793120000
 }
