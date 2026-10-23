@@ -55,9 +55,22 @@ $script = '<script>window.BNG_WP_COPY = ' . ($json ?: '{}') . ';';
 $script .= 'window.BNG_WP_MEDIA = ' . wp_json_encode($media, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_ROCK_MEDIA = ' . wp_json_encode($rock_media, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_INITIAL_LANG = ' . wp_json_encode($is_en ? 'en' : 'ru') . ';';
-$resource_path = $original_dir . '/resources.json';
-$resources = is_readable($resource_path) ? json_decode(file_get_contents($resource_path), true) : [];
-$script .= 'window.__resources = ' . wp_json_encode((object) $resources, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';</script>';
+// Client map is an original self-contained HTML/SVG embed, not a WordPress page.
+$resources = [];
+$map_urls = [];
+foreach (['ru', 'en'] as $locale) {
+    $locale_path = $original_dir . ($locale === 'en' ? '/en' : '') . '/resources.json';
+    $manifest = is_readable($locale_path) ? json_decode((string) file_get_contents($locale_path), true) : [];
+    if (!is_array($manifest)) $manifest = [];
+    foreach ($manifest as $key => $url) {
+        if (!is_string($url)) continue;
+        $manifest[$key] = str_replace('__BNG_THEME_URI__', get_template_directory_uri(), $url);
+    }
+    $resources[$locale] = $manifest;
+    $map_urls[$locale] = $manifest['depositMap'] ?? '';
+}
+$script .= 'window.BNG_MAP_URLS = ' . wp_json_encode($map_urls, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
+$script .= 'window.__resources = ' . wp_json_encode((object) $resources['ru'], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';</script>';
 ob_start();
 wp_head();
 $head = ob_get_clean();
