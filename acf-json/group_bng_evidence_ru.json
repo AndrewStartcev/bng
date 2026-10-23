@@ -33,7 +33,7 @@
     {
       "key": "field_bng_tab_evidence_ru_3",
       "type": "tab",
-      "label": "Подтверждено",
+      "label": "Подтверждённые факты",
       "placement": "left"
     },
     {
@@ -81,7 +81,7 @@
     {
       "key": "field_bng_tab_evidence_ru_7",
       "type": "tab",
-      "label": "Предстоит доказать",
+      "label": "Ожидаемые доказательства",
       "placement": "left"
     },
     {
@@ -239,5 +239,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1793000000
+  "modified": 1793050000
 }
