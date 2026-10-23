@@ -76,11 +76,17 @@
           <p style="font-size:15px;line-height:1.6;color:#12171D;margin:24px 0 0;max-width:80ch;text-wrap:pretty">{{ t.flow.routesSelected }}</p>
         </div>
 
-        <div class="bng-flow-results" style="margin-top:56px;display:grid;grid-template-columns:minmax(0,1fr);gap:56px;align-items:start">
+        <div class="bng-flow-results" style="margin-top:56px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:start">
           <div>
             <h2 style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#6E747A;font-family:'PT Sans',system-ui,sans-serif;margin:0 0 20px">{{ t.flow.givesTitle }}</h2>
             <sc-for list="{{ flowGives }}" as="g" hint-placeholder-count="3">
               <div style="font-size:14.5px;line-height:1.55;color:#3C4247;padding:14px 0;border-top:1px solid rgba(18,23,29,0.14)">{{ g }}</div>
+            </sc-for>
+          </div>
+          <div>
+            <h2 style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#6E747A;font-family:'PT Sans',system-ui,sans-serif;margin:0 0 20px">{{ t.flow.costsTitle }}</h2>
+            <sc-for list="{{ flowCosts }}" as="c" hint-placeholder-count="3">
+              <div style="font-size:14.5px;line-height:1.55;color:#3C4247;padding:14px 0;border-top:1px solid rgba(18,23,29,0.14)">{{ c }}</div>
             </sc-for>
           </div>
         </div>
