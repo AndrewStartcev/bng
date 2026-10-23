@@ -410,3 +410,95 @@ add_action('admin_init', static function (): void {
         }
     }
 }, 70);
+
+/**
+ * Flowsheet: seed all original RU/EN fields, routes, benefits and constraints,
+ * as well as the four nested ACF stream/product lists.
+ * Never overwrite existing editorial content. Mark seeded repeaters so
+ * a deliberate deletion in the editor does not trigger re-import.
+ */
+add_action('admin_init', static function (): void {
+    if (!current_user_can('edit_pages') || !function_exists('update_field')) return;
+    $post_id = bng_section_id('flowsheet');
+    if (!$post_id) return;
+    $defaults = bng_source()['copy'] ?? [];
+    $path = get_template_directory() . '/data/flowsheet-streams.json';
+    $stream_defaults = is_readable($path) ? json_decode((string) file_get_contents($path), true) : [];
+    foreach (['ru', 'en'] as $lang) {
+        $fields = $defaults[$lang]['flow'] ?? [];
+        if (!is_array($fields)) continue;
+        foreach ($fields as $suffix => $default) {
+            $meta = 'bng_' . $lang . '_flowsheet_' . $suffix;
+            $key = 'field_bng_' . $lang . '_flowsheet_' . $suffix;
+            if (!is_array($default)) {
+                if (!metadata_exists('post', $post_id, $meta)) {
+                    update_field($key, (string) $default, $post_id);
+                }
+                continue;
+            }
+            $marker = '_bng_flowsheet_seeded_' . $lang . '_' . $suffix;
+            if (metadata_exists('post', $post_id, $marker)) continue;
+            $count = (int) get_post_meta($post_id, $meta, true);
+            $filled = false;
+            for ($i = 0; $i < max($count, count($default)); $i++) {
+                for ($col = 0; $col < ($suffix === 'routes' ? 4 : 1); $col++) {
+                    $value = get_post_meta($post_id, $meta . '_' . $i . '_c' . $col, true);
+                    if (is_scalar($value) && trim((string) $value) !== '') {
+                        $filled = true;
+                        break 2;
+                    }
+                }
+            }
+            if (!$filled) {
+                $rows = [];
+                foreach ($default as $entry) {
+                    $cells = is_array($entry) ? array_values($entry) : [(string) $entry];
+                    $row = [];
+                    foreach ($cells as $i => $cell) {
+                        $row[$key . '_' . $i] = (string) $cell;
+                    }
+                    $rows[] = $row;
+                }
+                update_field($key, $rows, $post_id);
+            }
+            update_post_meta($post_id, $marker, '1');
+        }
+
+        $name = 'bng_' . $lang . '_flowsheet_streams';
+        $marker = '_bng_flowsheet_streams_seeded_' . $lang;
+        if (metadata_exists('post', $post_id, $marker)) continue;
+        $entries = is_array($stream_defaults[$lang] ?? null) ? $stream_defaults[$lang] : [];
+        $count = (int) get_post_meta($post_id, $name, true);
+        $filled = false;
+        for ($i = 0; $i < max($count, count($entries)); $i++) {
+            $value = get_post_meta($post_id, $name . '_' . $i . '_symbol', true);
+            if (is_scalar($value) && trim((string) $value) !== '') {
+                $filled = true;
+                break;
+            }
+        }
+        if (!$filled && $entries) {
+            $rows = [];
+            foreach ($entries as $entry) {
+                $prefix = 'field_bng_' . $lang . '_flowsheet_stream_';
+                $products = [];
+                foreach (($entry['products'] ?? []) as $product) {
+                    $products[] = [
+                        $prefix . 'product_formula' => (string) ($product['formula'] ?? ''),
+                        $prefix . 'product_name' => (string) ($product['name'] ?? ''),
+                    ];
+                }
+                $rows[] = [
+                    $prefix . 'symbol' => (string) ($entry['symbol'] ?? ''),
+                    $prefix . 'atomic' => (string) ($entry['atomic'] ?? ''),
+                    $prefix . 'name' => (string) ($entry['name'] ?? ''),
+                    $prefix . 'count' => (string) ($entry['count'] ?? ''),
+                    $prefix . 'buyers' => (string) ($entry['buyers'] ?? ''),
+                    $prefix . 'products' => $products,
+                ];
+            }
+            update_field('field_bng_' . $lang . '_flowsheet_streams', $rows, $post_id);
+        }
+        update_post_meta($post_id, $marker, '1');
+    }
+}, 80);
