@@ -1224,7 +1224,8 @@ class Component extends DCLogic {
     const segFilters = ['all', 'agro', 'chemicals', 'metals'].map((k) => {
       const on = this.state.seg === k;
       const SEG_COLOR = { agro: STREAM_COLOR.K, chemicals: STREAM_COLOR.Si, metals: STREAM_COLOR.Al, all: '#12171D' };
-      return { label: t.seg[k], bg: on ? '#12171D' : 'transparent', fg: on ? '#ffffff' : '#3C4247',
+      const filterLabels = { all: 'segAll', agro: 'segAgro', chemicals: 'segChemicals', metals: 'segMetals' };
+      return { label: t.products[filterLabels[k]] || t.seg[k], bg: on ? '#12171D' : 'transparent', fg: on ? '#ffffff' : '#3C4247',
         border: on ? '#12171D' : 'rgba(18,23,29,0.22)', line: SEG_COLOR[k], go: () => this.setState({ seg: k }) };
     });
 
@@ -1238,10 +1239,10 @@ class Component extends DCLogic {
         name: String(p.name || ''), buyer: String(p.buyer || ''), status: String(p.status || ''),
         formula: String(p.formula || ''), code: String(p.code || ''),
         stream: String(p.stream || ''), color: STREAM_COLOR[p.stream] || '#7C5CBF',
-        segLabel: t.seg[p.seg] || String(p.seg || ''),
+        segLabel: t.products[{ agro: 'segAgro', chemicals: 'segChemicals', metals: 'segMetals' }[p.seg]] || t.seg[p.seg] || String(p.seg || ''),
         open: open, hasGrades: grades.length > 0, noGrades: grades.length === 0,
-        note: GRADE_NOTE[lang],
-        gradesLabel: grades.length ? gradeWord(grades.length) : (lang === 'ru' ? 'готовится' : 'in preparation'),
+        note: t.products.noGradesNote || GRADE_NOTE[lang],
+        gradesLabel: grades.length ? gradeWord(grades.length) : t.products.pendingLabel,
         chev: open ? '▲' : '▼', bg: open ? '#F7F7F8' : 'transparent',
         toggle: () => this.setState({ openProduct: open ? null : p.code }),
         grades: grades.map((g) => {
@@ -1259,7 +1260,7 @@ class Component extends DCLogic {
             btnBorder: has ? '#7C5CBF' : 'rgba(18,23,29,0.22)',
             btnBg: has ? '#7C5CBF' : 'transparent', btnFg: has ? '#ffffff' : '#8A8F94',
             btnHover: has ? '#6B4BAE' : 'transparent', btnPe: has ? 'auto' : 'none',
-            btnLabel: has ? t.products.download : (lang === 'ru' ? 'Спецификация готовится' : 'Spec sheet in preparation')
+            btnLabel: has ? t.products.download : t.products.gradeNoFile
           };
         })
       };
