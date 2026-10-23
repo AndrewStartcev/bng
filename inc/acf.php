@@ -601,3 +601,57 @@ add_action('admin_init', static function (): void {
         update_post_meta($post_id, $marker, '1');
     }
 }, 90);
+
+/**
+ * Milestones: import the complete approved RU/EN timeline to the canonical
+ * bng_section record. Existing editor content remains authoritative.
+ * Repair legacy repeaters with empty saved rows once; never re-seed deliberate
+ * deletions after an import marker has been recorded.
+ */
+add_action('admin_init', static function (): void {
+    if (!current_user_can('edit_pages') || !function_exists('update_field')) return;
+    $post_id = bng_section_id('milestones');
+    if (!$post_id) return;
+    $copy = bng_source()['copy'] ?? [];
+    foreach (['ru', 'en'] as $locale) {
+        $fields = $copy[$locale]['milestones'] ?? [];
+        if (!is_array($fields)) continue;
+        foreach ($fields as $slug => $default) {
+            $name = 'bng_' . $locale . '_milestones_' . $slug;
+            $key = 'field_bng_' . $locale . '_milestones_' . $slug;
+            if (!is_array($default)) {
+                if (!metadata_exists('post', $post_id, $name)) {
+                    update_field($key, (string) $default, $post_id);
+                }
+                continue;
+            }
+
+            $marker = '_bng_milestones_seeded_' . $locale . '_' . $slug;
+            if (metadata_exists('post', $post_id, $marker)) continue;
+            $saved_count = (int) get_post_meta($post_id, $name, true);
+            $has_editor_values = false;
+            for ($i = 0; $i < max($saved_count, count($default)); $i++) {
+                foreach (['c0', 'c1', 'c2'] as $column) {
+                    $stored = get_post_meta($post_id, $name . '_' . $i . '_' . $column, true);
+                    if (is_scalar($stored) && trim((string) $stored) !== '') {
+                        $has_editor_values = true;
+                        break 2;
+                    }
+                }
+            }
+            if (!$has_editor_values) {
+                $rows = [];
+                foreach ($default as $entry) {
+                    $parts = is_array($entry) ? array_values($entry) : [(string) $entry];
+                    $rows[] = [
+                        $key . '_0' => (string) ($parts[0] ?? ''),
+                        $key . '_1' => (string) ($parts[1] ?? ''),
+                        $key . '_2' => (string) ($parts[2] ?? ''),
+                    ];
+                }
+                if (!update_field($key, $rows, $post_id)) continue;
+            }
+            update_post_meta($post_id, $marker, '1');
+        }
+    }
+}, 100);
