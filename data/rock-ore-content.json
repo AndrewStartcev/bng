@@ -1,0 +1,54 @@
+{
+  "ru": [
+    {
+      "formula": "SiO₂",
+      "name": "кремний",
+      "percentage": 55,
+      "display": "55%"
+    },
+    {
+      "formula": "Al₂O₃",
+      "name": "алюминий",
+      "percentage": 23,
+      "display": "23%"
+    },
+    {
+      "formula": "K₂O",
+      "name": "калий",
+      "percentage": 18,
+      "display": "18%"
+    },
+    {
+      "formula": "Fe₂O₃",
+      "name": "железо",
+      "percentage": 2,
+      "display": "2%"
+    }
+  ],
+  "en": [
+    {
+      "formula": "SiO₂",
+      "name": "silicon",
+      "percentage": 55,
+      "display": "55%"
+    },
+    {
+      "formula": "Al₂O₃",
+      "name": "aluminium",
+      "percentage": 23,
+      "display": "23%"
+    },
+    {
+      "formula": "K₂O",
+      "name": "potassium",
+      "percentage": 18,
+      "display": "18%"
+    },
+    {
+      "formula": "Fe₂O₃",
+      "name": "iron",
+      "percentage": 2,
+      "display": "2%"
+    }
+  ]
+}
