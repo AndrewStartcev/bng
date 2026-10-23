@@ -1288,7 +1288,7 @@ class Component extends DCLogic {
     const hv = homeMedia.video || '';
     const heroPoster = homeMedia.poster || '';
     return {
-      t: t, accent: accent, mapSrc: (window.__resources && window.__resources.depositMap) || 'deposit-map-ru.html',
+      t: t, accent: accent, mapSrc: (window.BNG_MAP_URLS && window.BNG_MAP_URLS[lang]) || (window.__resources && window.__resources.depositMap) || '',
       fitMap: (e) => { try { const fr = e.target; const h = fr.contentDocument.body.scrollHeight; if (h > 100) fr.style.height = h + 'px'; } catch (err) {} },
       playVideoLabel: lang === 'ru' ? 'Смотреть видео' : 'Watch video',
       playHomeVideo: (event) => {
