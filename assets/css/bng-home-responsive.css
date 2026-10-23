@@ -6,9 +6,11 @@
 .bng-original .bng-home-play-icon:before{content:"";width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:19px solid #fff;transform:translateX(3px)}
 .bng-original .bng-home-play:hover .bng-home-play-icon,.bng-original .bng-home-play:focus-visible .bng-home-play-icon{transform:scale(1.08);background:rgba(124,92,191,.9)}
 .bng-original .bng-home-play:focus-visible{outline:2px solid #7C5CBF;outline-offset:4px}
-.bng-original .bng-home-video-frame.is-playing .bng-home-play{opacity:0;pointer-events:none}
+.bng-original .bng-home-video-frame.is-playing .bng-home-play{top:18px;right:18px;left:auto;transform:none;opacity:1;pointer-events:auto;flex-direction:row;gap:8px;padding:8px 12px;border:1px solid rgba(255,255,255,.65);border-radius:30px;background:rgba(18,23,29,.82);font-size:10px}
+.bng-original .bng-home-video-frame.is-playing .bng-home-play-icon{width:22px;height:22px;border:0;background:transparent;box-shadow:none;backdrop-filter:none}
+.bng-original .bng-home-video-frame.is-playing .bng-home-play-icon:before{width:11px;height:15px;border:0;background:linear-gradient(90deg,#fff 0 35%,transparent 35% 65%,#fff 65% 100%);transform:none}
 .bng-original .bng-home-video-frame:not(.is-playing) .bng-home-video{filter:brightness(.78)}
-.bng-original .bng-home-video-frame:has(video:playing) .bng-home-play{opacity:0;pointer-events:none}
+.bng-original .bng-home-video-frame video{cursor:pointer}
 @media(max-width:1024px){
   .bng-original .bng-home-hero{padding:60px 36px!important;gap:32px!important}
   .bng-original .bng-home-positioning{gap:32px!important;grid-template-columns:minmax(0,260px) minmax(0,1fr)!important}
