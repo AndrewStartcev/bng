@@ -50,6 +50,35 @@ foreach (['ru', 'en'] as $locale) {
         $rock_media[$locale][$slot] = $id ? (string) wp_get_attachment_image_url($id, 'large') : '';
     }
 }
+// The SVG remains the untouched original; only the six bottom information
+// cards and their source note are editable through ACF.
+$map_data_path = get_template_directory() . '/data/rock-map-content.json';
+$map_defaults = is_readable($map_data_path)
+    ? json_decode((string) file_get_contents($map_data_path), true) : [];
+$map_content = [];
+foreach (['ru','en'] as $locale) {
+    $data = is_array($map_defaults[$locale] ?? null) ? $map_defaults[$locale] : [];
+    $cards = (array) ($data['cards'] ?? []);
+    if ($rock_post_id && function_exists('get_field')) {
+        $edited = get_field('bng_' . $locale . '_rock_map_cards', $rock_post_id);
+        if (is_array($edited) && count($edited) === 6) {
+            $cards = array_map(static function (array $row): array {
+                return [
+                    (string) ($row['label'] ?? ''),
+                    (string) ($row['title'] ?? ''),
+                    (string) ($row['distance'] ?? ''),
+                    (string) ($row['note'] ?? ''),
+                ];
+            }, $edited);
+        }
+    }
+    $footnote = (string) ($data['footnote'] ?? '');
+    if ($rock_post_id && function_exists('get_field')) {
+        $saved = get_field('bng_' . $locale . '_rock_map_footnote', $rock_post_id);
+        if (is_string($saved) && $saved !== '') $footnote = $saved;
+    }
+    $map_content[$locale] = ['cards' => $cards, 'footnote' => $footnote];
+}
 $json = wp_json_encode($copy, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
 $script = '<script>window.BNG_WP_COPY = ' . ($json ?: '{}') . ';';
 $script .= 'window.BNG_WP_MEDIA = ' . wp_json_encode($media, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
@@ -70,6 +99,7 @@ foreach (['ru', 'en'] as $locale) {
     $map_urls[$locale] = $manifest['depositMap'] ?? '';
 }
 $script .= 'window.BNG_MAP_URLS = ' . wp_json_encode($map_urls, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
+$script .= 'window.BNG_MAP_CONTENT = ' . wp_json_encode($map_content, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.__resources = ' . wp_json_encode((object) $resources['ru'], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';</script>';
 ob_start();
 wp_head();
