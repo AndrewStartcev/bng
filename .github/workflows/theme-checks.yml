@@ -16,6 +16,8 @@ jobs:
         run: find . -type f -name '*.php' -not -path './resourse/*' -print0 | xargs -0 -n1 php -l
       - name: JavaScript syntax and RU EN switch regression
         run: python3 scripts/check-client-js.py
+      - name: Process flowsheet RU EN ACF completeness
+        run: python3 scripts/check-flowsheet.py
       - name: Evidence ACF and original content validation
         run: python3 scripts/check-evidence.py
       - name: Client data validation
