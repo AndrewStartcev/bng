@@ -221,3 +221,34 @@
   .bng-original .bng-evidence-dossier{padding:28px 20px!important}
   .bng-original .bng-evidence-dossier button{width:100%;text-align:center}
 }
+
+/* Process schematic: preserve client's layout/typography; adapt only the grid. */
+.bng-original .bng-flowsheet,.bng-original .bng-flowsheet > div{min-width:0}
+.bng-original .bng-flow-streams > div{min-width:0}
+.bng-original .bng-flow-tabs{row-gap:10px!important}
+@media(max-width:1024px){
+ .bng-original .bng-flow-intro{gap:32px!important}
+ .bng-original .bng-flow-feed{gap:26px!important;padding:26px!important}
+ .bng-original .bng-flow-streams{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .bng-original .bng-flow-route-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .bng-original .bng-flow-results{gap:32px!important}
+}
+@media(max-width:768px){
+ .bng-original .bng-flow-intro{grid-template-columns:minmax(0,1fr)!important;gap:18px!important;margin-top:30px!important}
+ .bng-original .bng-flow-tabs{gap:8px!important;margin-top:30px!important}
+ .bng-original .bng-flow-tabs > span:first-child{width:100%!important;margin-bottom:6px}
+ .bng-original .bng-flow-tabs button{padding:9px 12px 8px!important}
+ .bng-original .bng-flow-feed{grid-template-columns:minmax(0,1fr)!important;gap:26px!important;padding:22px!important;margin-top:20px!important}
+ .bng-original .bng-flow-connectors{display:none!important}
+ .bng-original .bng-flow-streams{grid-template-columns:repeat(2,minmax(0,1fr))!important;margin-top:20px}
+ .bng-original .bng-flow-routes{margin-top:48px!important}
+ .bng-original .bng-flow-route-cards{grid-template-columns:minmax(0,1fr)!important}
+ .bng-original .bng-flow-results{grid-template-columns:minmax(0,1fr)!important;gap:28px!important;margin-top:44px!important}
+}
+@media(max-width:480px){
+ .bng-original .bng-flow-feed{padding:20px 16px!important}
+ .bng-original .bng-flow-feed > div:first-child > div:nth-child(2){font-size:29px!important}
+ .bng-original .bng-flow-streams{grid-template-columns:minmax(0,1fr)!important;gap:14px!important}
+ .bng-original .bng-flow-tabs button{font-size:10px!important;letter-spacing:.05em!important}
+ .bng-original .bng-flow-routes{margin-top:40px!important}
+}
