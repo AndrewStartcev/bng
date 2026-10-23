@@ -186,6 +186,76 @@
       }
     },
     {
+      "key": "field_bng_en_products_segAll",
+      "name": "bng_en_products_segAll",
+      "label": "All products filter",
+      "type": "text",
+      "default_value": "All products",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_en_products_segAgro",
+      "name": "bng_en_products_segAgro",
+      "label": "Agro filter",
+      "type": "text",
+      "default_value": "Agro",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_en_products_segChemicals",
+      "name": "bng_en_products_segChemicals",
+      "label": "Chemicals filter",
+      "type": "text",
+      "default_value": "Chemicals",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_en_products_segMetals",
+      "name": "bng_en_products_segMetals",
+      "label": "Metals filter",
+      "type": "text",
+      "default_value": "Metals",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_en_products_pendingLabel",
+      "name": "bng_en_products_pendingLabel",
+      "label": "Grades in preparation",
+      "type": "text",
+      "default_value": "in preparation",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_en_products_gradeNoFile",
+      "name": "bng_en_products_gradeNoFile",
+      "label": "Unavailable specification label",
+      "type": "text",
+      "default_value": "Spec sheet in preparation",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_bng_en_products_noGradesNote",
+      "name": "bng_en_products_noGradesNote",
+      "label": "No-specification note",
+      "type": "text",
+      "default_value": "Specification sheet in preparation — field trials from Q1 2028.",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
       "key": "field_bng_en_product_catalog",
       "name": "bng_en_products_catalog",
       "label": "Products, grades and technical specifications",
@@ -509,5 +579,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1793090000
+  "modified": 1793120000
 }
