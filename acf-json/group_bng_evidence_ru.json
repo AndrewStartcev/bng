@@ -39,7 +39,7 @@
     {
       "key": "field_bng_ru_evidence_nowTitle",
       "name": "bng_ru_evidence_nowTitle",
-      "label": "Now Title",
+      "label": "Заголовок подтверждённых фактов",
       "type": "text",
       "rows": 0,
       "default_value": "Доказуемо сейчас",
@@ -50,7 +50,7 @@
     {
       "key": "field_bng_ru_evidence_nowNote",
       "name": "bng_ru_evidence_nowNote",
-      "label": "Now Note",
+      "label": "Описание подтверждённых фактов",
       "type": "text",
       "rows": 0,
       "default_value": "Задокументировано, утверждено или защищено.",
@@ -61,17 +61,17 @@
     {
       "key": "field_bng_ru_evidence_provable",
       "name": "bng_ru_evidence_provable",
-      "label": "Подтверждённые факты",
+      "label": "Подтверждённые факты (нумерация автоматическая)",
       "type": "repeater",
-      "layout": "row",
+      "layout": "block",
       "button_label": "Добавить строку",
       "sub_fields": [
         {
           "key": "field_bng_ru_evidence_provable_0",
           "name": "c0",
-          "label": "Текст",
-          "type": "text",
-          "rows": 0,
+          "label": "Полный текст факта",
+          "type": "textarea",
+          "rows": 3,
           "wrapper": {
             "width": "100"
           }
@@ -87,7 +87,7 @@
     {
       "key": "field_bng_ru_evidence_earnTitle",
       "name": "bng_ru_evidence_earnTitle",
-      "label": "Earn Title",
+      "label": "Заголовок ожидающих подтверждения",
       "type": "text",
       "rows": 0,
       "default_value": "Требует доказательств до заявления",
@@ -98,7 +98,7 @@
     {
       "key": "field_bng_ru_evidence_earnNote",
       "name": "bng_ru_evidence_earnNote",
-      "label": "Earn Note",
+      "label": "Описание ожидающих подтверждения",
       "type": "text",
       "rows": 0,
       "default_value": "С указанием даты, когда ожидается доказательство.",
@@ -109,29 +109,29 @@
     {
       "key": "field_bng_ru_evidence_earned",
       "name": "bng_ru_evidence_earned",
-      "label": "Требуют подтверждения",
+      "label": "Что необходимо подтвердить",
       "type": "repeater",
-      "layout": "row",
+      "layout": "block",
       "button_label": "Добавить строку",
       "sub_fields": [
         {
           "key": "field_bng_ru_evidence_earned_0",
           "name": "c0",
-          "label": "Дата / номер",
+          "label": "Утверждение / доказательство",
           "type": "textarea",
           "rows": 3,
           "wrapper": {
-            "width": "25"
+            "width": "75"
           }
         },
         {
           "key": "field_bng_ru_evidence_earned_1",
           "name": "c1",
-          "label": "Заголовок",
+          "label": "Срок подтверждения",
           "type": "text",
           "rows": 0,
           "wrapper": {
-            "width": "35"
+            "width": "25"
           }
         }
       ]
@@ -145,7 +145,7 @@
     {
       "key": "field_bng_ru_evidence_dossierTitle",
       "name": "bng_ru_evidence_dossierTitle",
-      "label": "Dossier Title",
+      "label": "Заголовок технического досье",
       "type": "text",
       "rows": 0,
       "default_value": "Цифры — в техническом досье.",
@@ -156,18 +156,18 @@
     {
       "key": "field_bng_ru_evidence_dossierBody",
       "name": "bng_ru_evidence_dossierBody",
-      "label": "Dossier Body",
-      "type": "text",
-      "rows": 0,
+      "label": "Описание технического досье",
+      "type": "textarea",
+      "rows": 3,
       "default_value": "Рудное тело, технологическая схема и линейка продуктов в более подробном техническом формате. Выдаётся нумерованными экземплярами.",
       "wrapper": {
-        "width": "50"
+        "width": "100"
       }
     },
     {
       "key": "field_bng_ru_evidence_dossierCta",
       "name": "bng_ru_evidence_dossierCta",
-      "label": "Dossier Cta",
+      "label": "Текст кнопки запроса",
       "type": "text",
       "rows": 0,
       "default_value": "Запросить копию",
@@ -239,5 +239,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1792700000
+  "modified": 1793000000
 }
