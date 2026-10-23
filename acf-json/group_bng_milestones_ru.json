@@ -39,7 +39,7 @@
     {
       "key": "field_bng_ru_milestones_doneTitle",
       "name": "bng_ru_milestones_doneTitle",
-      "label": "Done Title",
+      "label": "Подпись выполненных этапов",
       "type": "text",
       "rows": 0,
       "default_value": "Выполнено",
@@ -50,15 +50,15 @@
     {
       "key": "field_bng_ru_milestones_done",
       "name": "bng_ru_milestones_done",
-      "label": "Завершённые этапы",
+      "label": "Завершённые этапы (по порядку)",
       "type": "repeater",
       "layout": "block",
-      "button_label": "Добавить строку",
+      "button_label": "Добавить этап",
       "sub_fields": [
         {
           "key": "field_bng_ru_milestones_done_0",
           "name": "c0",
-          "label": "Дата / номер",
+          "label": "Год или целевой срок",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -68,21 +68,21 @@
         {
           "key": "field_bng_ru_milestones_done_1",
           "name": "c1",
-          "label": "Заголовок",
+          "label": "Название этапа",
           "type": "text",
           "rows": 0,
           "wrapper": {
-            "width": "35"
+            "width": "75"
           }
         },
         {
           "key": "field_bng_ru_milestones_done_2",
           "name": "c2",
-          "label": "Описание",
+          "label": "Полное описание",
           "type": "textarea",
           "rows": 3,
           "wrapper": {
-            "width": "40"
+            "width": "100"
           }
         }
       ]
@@ -96,7 +96,7 @@
     {
       "key": "field_bng_ru_milestones_aheadTitle",
       "name": "bng_ru_milestones_aheadTitle",
-      "label": "Ahead Title",
+      "label": "Подпись предстоящих этапов",
       "type": "text",
       "rows": 0,
       "default_value": "Впереди",
@@ -107,15 +107,15 @@
     {
       "key": "field_bng_ru_milestones_ahead",
       "name": "bng_ru_milestones_ahead",
-      "label": "Будущие этапы",
+      "label": "Будущие этапы (по порядку)",
       "type": "repeater",
       "layout": "block",
-      "button_label": "Добавить строку",
+      "button_label": "Добавить этап",
       "sub_fields": [
         {
           "key": "field_bng_ru_milestones_ahead_0",
           "name": "c0",
-          "label": "Дата / номер",
+          "label": "Год или целевой срок",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -125,21 +125,21 @@
         {
           "key": "field_bng_ru_milestones_ahead_1",
           "name": "c1",
-          "label": "Заголовок",
+          "label": "Название этапа",
           "type": "text",
           "rows": 0,
           "wrapper": {
-            "width": "35"
+            "width": "75"
           }
         },
         {
           "key": "field_bng_ru_milestones_ahead_2",
           "name": "c2",
-          "label": "Описание",
+          "label": "Полное описание",
           "type": "textarea",
           "rows": 3,
           "wrapper": {
-            "width": "40"
+            "width": "100"
           }
         }
       ]
@@ -208,5 +208,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1792700000
+  "modified": 1792761234
 }
