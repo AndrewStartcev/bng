@@ -610,30 +610,33 @@ textarea.input { min-height: 90px; resize: vertical; }
 
   <header style="position:sticky;top:0;z-index:20;background:#ffffff;border-bottom:1px solid rgba(18,23,29,0.14)">
     <div class="bng-client-header-inner" style="max-width:1180px;margin:0 auto;padding:26px 32px 16px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
-      <a href="#" sc-camel-on-click="{{ goHome }}" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#12171D;margin-right:auto">
+      <a class="bng-client-brand" href="#" sc-camel-on-click="{{ goHome }}" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#12171D;margin-right:auto">
         <img src="__BNG_THEME_URI__/assets/original/9f8dff93-28d0-4962-90bd-b69f2fd5a6fa.svg" alt="BNG Elements" width="34" height="34" style="display:block;width:34px;height:34px">
         <span style="display:flex;flex-direction:column;line-height:1">
           <span style="font-family:'PT Serif',Georgia,serif;font-weight:700;font-size:21px;letter-spacing:0.16em">{{ t.brand }}</span>
           <span style="font-size:9.5px;letter-spacing:0.3em;color:#6E747A;margin-top:4px">{{ t.descriptor }}</span>
         </span>
       </a>
-      <nav class="bng-client-nav" style="display:flex;align-items:center;gap:26px;flex-wrap:wrap">
+      <nav id="bng-primary-navigation" class="bng-client-nav" data-open="{{ menuOpen }}" aria-label="{{ mobileMenuLabel }}" style="display:flex;align-items:center;gap:26px;flex-wrap:wrap">
         <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
           <a href="#" sc-camel-on-click="{{ n.go }}" style="text-decoration:none;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding-bottom:3px;color:{{ n.color }};border-bottom:2px solid {{ n.mark }}">{{ n.label }}</a>
         </sc-for>
       </nav>
-      <div role="group" aria-label="Language / Язык" style="display:flex;align-items:center;gap:8px;font-family:'PT Sans',system-ui,sans-serif;font-size:12px;letter-spacing:0.12em;margin-left:auto;white-space:nowrap">
+      <div class="bng-client-language" role="group" aria-label="Language / Язык" style="display:flex;align-items:center;gap:8px;font-family:'PT Sans',system-ui,sans-serif;font-size:12px;letter-spacing:0.12em;margin-left:auto;white-space:nowrap">
         <button type="button" sc-camel-on-click="{{ setRussian }}" aria-label="Русская версия" aria-pressed="{{ isRussian }}" style="cursor:pointer;border:0;border-bottom:2px solid {{ ruLanguageBorder }};padding:3px 0;background:transparent;font:inherit;color:{{ ruLanguageColor }}">RU</button>
         <span style="color:#9AA0A6" aria-hidden="true">/</span>
         <button type="button" sc-camel-on-click="{{ setEnglish }}" aria-label="English version" aria-pressed="{{ isEnglish }}" style="cursor:pointer;border:0;border-bottom:2px solid {{ enLanguageBorder }};padding:3px 0;background:transparent;font:inherit;color:{{ enLanguageColor }}">EN</button>
       </div>
+      <button type="button" class="bng-mobile-toggle" sc-camel-on-click="{{ toggleMenu }}" aria-controls="bng-primary-navigation" aria-expanded="{{ menuOpen }}" aria-label="{{ mobileMenuLabel }}">
+        <span class="bng-mobile-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
     </div>
   </header>
 
   <main class="bng-client-main" style="flex:1;max-width:1180px;width:100%;margin:0 auto;padding:0 32px 110px">
-    <div style="display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid rgba(18,23,29,0.14);font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#6E747A">
-      <span>{{ runHeadLeft }}</span>
-      <span>{{ runHeadRight }}</span>
+    <div class="bng-section-rubric" style="display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid rgba(18,23,29,0.14);font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#6E747A">
+      <span class="bng-section-rubric-title">{{ runHeadLeft }}</span>
+      <span class="bng-section-rubric-count">{{ runHeadRight }}</span>
     </div>
 
     <!--BNG_SECTION_home-->
@@ -1151,7 +1154,8 @@ class Component extends DCLogic {
     lang: window.BNG_INITIAL_LANG === 'en' ? 'en' : 'ru',
     seg: 'all',
     openProduct: null,
-    stream: null
+    stream: null,
+    menuOpen: false
   };
 
   componentDidMount() {
@@ -1192,7 +1196,7 @@ class Component extends DCLogic {
   }
 
   nav(page) {
-    return (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ page: page }); if (typeof window !== 'undefined') window.scrollTo(0, 0); };
+    return (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ page: page, menuOpen: false }); if (typeof window !== 'undefined') window.scrollTo(0, 0); };
   }
 
   renderVals() {
@@ -1344,6 +1348,12 @@ class Component extends DCLogic {
       newsItems: t.news.items.map((n) => ({ date: n[0], kicker: n[1], head: n[2], body: n[3] })),
       newsAhead: t.news.ahead.map((n) => ({ when: n[0], what: n[1] })),
       navItems: navItems, streamsPlain: streamsPlain,
+      menuOpen: !!this.state.menuOpen,
+      mobileMenuLabel: lang === 'ru' ? 'Меню сайта' : 'Site menu',
+      toggleMenu: (event) => {
+        if (event && event.preventDefault) event.preventDefault();
+        this.setState({ menuOpen: !this.state.menuOpen });
+      },
       setRussian: (event) => this.switchLanguage('ru', event),
       setEnglish: (event) => this.switchLanguage('en', event),
       isRussian: lang === 'ru', isEnglish: lang === 'en',
