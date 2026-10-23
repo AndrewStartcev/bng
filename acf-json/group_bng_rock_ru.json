@@ -172,6 +172,48 @@
       "preview_size": "medium"
     },
     {
+      "key": "field_bng_tab_rock_ru_photos",
+      "type": "tab",
+      "label": "Фотографии",
+      "placement": "left"
+    },
+    {
+      "key": "field_bng_ru_rock_photo_core",
+      "name": "bng_ru_rock_photo_core",
+      "label": "Керн и буровая площадка",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
+      "key": "field_bng_ru_rock_photo_hand",
+      "name": "bng_ru_rock_photo_hand",
+      "label": "Образец сыннырита в руке",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
+      "key": "field_bng_ru_rock_photo_plant",
+      "name": "bng_ru_rock_photo_plant",
+      "label": "Опытная установка",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "wrapper": {
+        "width": "33"
+      }
+    },
+    {
       "key": "field_bng_tab_rock_ru_extra",
       "label": "Дополнительно",
       "type": "tab",
@@ -235,5 +277,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1792700000
+  "modified": 1792760000
 }
