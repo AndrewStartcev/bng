@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "source": "data/source-content.json",
+  "products": 10,
+  "grades": "source-content.json:grades",
+  "languages": [
+    "ru",
+    "en"
+  ]
+}
