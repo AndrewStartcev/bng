@@ -1363,6 +1363,13 @@ class Component extends DCLogic {
       mobileCompanyName: (t.company.contacts && t.company.contacts[3] && t.company.contacts[3][1]) || (lang === 'ru' ? 'БНГ Элементс · ООО «Байкал Недра Гео»' : 'BNG Elements'),
       toggleMenu: (event) => {
         if (event && event.preventDefault) event.preventDefault();
+        if (typeof document !== 'undefined') {
+          const header = document.querySelector('.bng-client-header-inner');
+          if (header) {
+            const bottom = Math.round(header.getBoundingClientRect().bottom);
+            document.documentElement.style.setProperty('--bng-mobile-header-height', bottom + 'px');
+          }
+        }
         this.setState({ menuOpen: !this.state.menuOpen });
       },
       setRussian: (event) => this.switchLanguage('ru', event),
