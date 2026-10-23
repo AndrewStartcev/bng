@@ -1,21 +1,37 @@
 <sc-if value="{{ isCompany }}" hint-placeholder-val="{{ false }}">
-      <section>
-        <div style="margin-top:44px">
+      <section class="bng-company">
+        <div class="bng-company-intro" style="margin-top:44px">
           <h1 style="font-family:'PT Serif',Georgia,serif;font-weight:400;font-size:clamp(32px,3.4vw,46px);line-height:1.12;margin:0">{{ t.company.title }}</h1>
+          <p style="font-size:16px;line-height:1.6;color:#3C4247;margin:16px 0 0;max-width:70ch">{{ t.company.sub }}</p>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:52px">
+        <div class="bng-company-pillars" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:52px">
           <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
             <div class="blueprint" style="padding:26px 24px 28px;display:flex;flex-direction:column;gap:12px">
               <div style="font-family:'PT Serif',Georgia,serif;font-size:13px;color:#6E747A">{{ p.n }}</div>
               <h3 style="font-family:'PT Serif',Georgia,serif;font-weight:400;font-size:24px;margin:0">{{ p.title }}</h3>
               <p style="font-size:14px;line-height:1.55;color:#3C4247;margin:0">{{ p.body }}</p>
+              <div style="margin-top:auto;padding-top:12px;border-top:1px solid rgba(18,23,29,.14)"><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#6E747A;margin-bottom:6px">{{ t.company.proof }}</div><p style="font-size:12.5px;line-height:1.55;color:#3C4247;margin:0">{{ p.proof }}</p></div>
             </div>
           </sc-for>
         </div>
 
 
-        <div style="margin-top:76px;display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:56px;align-items:start">
+        <div class="bng-company-architecture" style="margin-top:72px">
+          <h2 style="font-family:'PT Serif',Georgia,serif;font-weight:400;font-size:28px;margin:0 0 26px">{{ t.company.archTitle }}</h2>
+          <div class="bng-company-arch-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
+            <sc-for list="{{ archCells }}" as="a" hint-placeholder-count="3">
+              <div class="blueprint" style="padding:24px 22px;display:flex;flex-direction:column;gap:12px">
+                <h3 style="font-family:'PT Serif',Georgia,serif;font-weight:400;font-size:22px;margin:0">{{ a.name }}</h3>
+                <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6E747A">{{ a.count }}</div>
+                <p style="font-size:13.5px;line-height:1.55;color:#3C4247;margin:0">{{ a.body }}</p>
+                <div style="border-top:1px solid rgba(18,23,29,.14);padding-top:12px;font-size:12.5px;line-height:1.5;color:#12171D;margin-top:auto">{{ a.trade }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div class="bng-company-about" style="margin-top:76px;display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:56px;align-items:start">
           <h2 style="font-family:'PT Serif',Georgia,serif;font-weight:400;font-size:30px;line-height:1.15;margin:0">{{ t.company.aboutTitle }}</h2>
           <div style="display:flex;flex-direction:column;gap:18px">
             <sc-for list="{{ aboutParas }}" as="p" hint-placeholder-count="4">
@@ -24,7 +40,7 @@
           </div>
         </div>
 
-        <div style="margin-top:76px">
+        <div class="bng-company-contacts" style="margin-top:76px">
           <h2 style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#6E747A;font-family:'PT Sans',system-ui,sans-serif;margin:0 0 20px">{{ t.company.contactTitle }}</h2>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px">
             <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="4">
