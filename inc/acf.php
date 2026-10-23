@@ -357,3 +357,56 @@ add_action('admin_init', static function (): void {
         update_field($field_key, $rows, $post_id);
     }
 }, 60);
+
+/**
+ * Evidence RU/EN — one-time ACF import of every client-supplied text and row.
+ * Preserve existing editorial values. Empty legacy repeaters are repaired only
+ * if no editor values exist; a marker prevents refilling deliberate deletions.
+ */
+add_action('admin_init', static function (): void {
+    if (!current_user_can('edit_pages') || !function_exists('update_field')) return;
+    $post_id = bng_section_id('evidence');
+    if (!$post_id) return;
+    $source = bng_source()['copy'] ?? [];
+    foreach (['ru', 'en'] as $locale) {
+        $values = $source[$locale]['evidence'] ?? [];
+        if (!is_array($values)) continue;
+        foreach ($values as $slug => $default) {
+            $name = 'bng_' . $locale . '_evidence_' . $slug;
+            $key = 'field_bng_' . $locale . '_evidence_' . $slug;
+            if (!is_array($default)) {
+                if (!metadata_exists('post', $post_id, $name)) {
+                    update_field($key, (string) $default, $post_id);
+                }
+                continue;
+            }
+            $marker = '_bng_evidence_seeded_' . $locale . '_' . $slug;
+            if (get_post_meta($post_id, $marker, true)) continue;
+            $row_count = (int) get_post_meta($post_id, $name, true);
+            $has_content = false;
+            for ($i = 0; $i < max(count($default), $row_count); $i++) {
+                foreach (['c0', 'c1'] as $col) {
+                    $saved = get_post_meta($post_id, $name . '_' . $i . '_' . $col, true);
+                    if (is_scalar($saved) && trim((string) $saved) !== '') {
+                        $has_content = true;
+                        break 2;
+                    }
+                }
+            }
+            if ($has_content) {
+                update_post_meta($post_id, $marker, '1');
+                continue;
+            }
+            $rows = [];
+            foreach ($default as $item) {
+                $cells = is_array($item) ? array_values($item) : [(string) $item];
+                $row = [$key . '_0' => (string) ($cells[0] ?? '')];
+                if ($slug === 'earned') $row[$key . '_1'] = (string) ($cells[1] ?? '');
+                $rows[] = $row;
+            }
+            if (update_field($key, $rows, $post_id)) {
+                update_post_meta($post_id, $marker, '1');
+            }
+        }
+    }
+}, 70);
