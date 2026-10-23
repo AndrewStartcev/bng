@@ -164,12 +164,61 @@
       }
     },
     {
-      "key": "field_bng_en_gallery",
-      "name": "bng_gallery_en",
-      "label": "Фотографии (порядок слева направо)",
-      "type": "gallery",
-      "return_format": "id",
-      "preview_size": "medium"
+      "key": "field_bng_en_rock_map_cards",
+      "name": "bng_en_rock_map_cards",
+      "label": "Six information cards beneath the map",
+      "type": "repeater",
+      "layout": "block",
+      "min": 6,
+      "max": 6,
+      "button_label": "Добавить карточку",
+      "sub_fields": [
+        {
+          "key": "field_bng_en_rock_map_card_label",
+          "name": "label",
+          "label": "Kicker",
+          "type": "text",
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_bng_en_rock_map_card_title",
+          "name": "title",
+          "label": "Title",
+          "type": "text",
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_bng_en_rock_map_card_distance",
+          "name": "distance",
+          "label": "Distance",
+          "type": "text",
+          "wrapper": {
+            "width": "35"
+          }
+        },
+        {
+          "key": "field_bng_en_rock_map_card_note",
+          "name": "note",
+          "label": "Description",
+          "type": "textarea",
+          "rows": 3,
+          "wrapper": {
+            "width": "65"
+          }
+        }
+      ]
+    },
+    {
+      "key": "field_bng_en_rock_map_footnote",
+      "name": "bng_en_rock_map_footnote",
+      "label": "Map source note",
+      "type": "textarea",
+      "rows": 4,
+      "default_value": "Geometry: Natural Earth (public domain) via world-atlas 2.0.2. Lake Baikal outline, BAM alignment and deposit position are generalised for presentation; the regional inset is schematic at this scale. Squares mark export ports and the Zabaikalsk rail crossing."
     },
     {
       "key": "field_bng_tab_rock_en_photos",
@@ -277,5 +326,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1792760000
+  "modified": 1792810000
 }
