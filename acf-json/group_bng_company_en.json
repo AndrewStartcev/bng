@@ -47,12 +47,12 @@
       "label": "Принципы компании",
       "type": "repeater",
       "layout": "block",
-      "button_label": "Добавить строку",
+      "button_label": "Add item",
       "sub_fields": [
         {
           "key": "field_bng_en_company_pillars_0",
           "name": "c0",
-          "label": "Дата / номер",
+          "label": "Number",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -62,7 +62,7 @@
         {
           "key": "field_bng_en_company_pillars_1",
           "name": "c1",
-          "label": "Заголовок",
+          "label": "Title",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -72,21 +72,21 @@
         {
           "key": "field_bng_en_company_pillars_2",
           "name": "c2",
-          "label": "Описание",
-          "type": "text",
-          "rows": 0,
+          "label": "Description",
+          "type": "textarea",
+          "rows": 3,
           "wrapper": {
-            "width": "40"
+            "width": "100"
           }
         },
         {
           "key": "field_bng_en_company_pillars_3",
           "name": "c3",
-          "label": "Примечание",
-          "type": "text",
-          "rows": 0,
+          "label": "Evidence",
+          "type": "textarea",
+          "rows": 3,
           "wrapper": {
-            "width": "40"
+            "width": "100"
           }
         }
       ]
@@ -114,12 +114,12 @@
       "label": "Архитектура бренда",
       "type": "repeater",
       "layout": "block",
-      "button_label": "Добавить строку",
+      "button_label": "Add item",
       "sub_fields": [
         {
           "key": "field_bng_en_company_arch_0",
           "name": "c0",
-          "label": "Дата / номер",
+          "label": "Segment",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -129,7 +129,7 @@
         {
           "key": "field_bng_en_company_arch_1",
           "name": "c1",
-          "label": "Заголовок",
+          "label": "Count",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -139,21 +139,21 @@
         {
           "key": "field_bng_en_company_arch_2",
           "name": "c2",
-          "label": "Описание",
+          "label": "Description",
           "type": "textarea",
           "rows": 3,
           "wrapper": {
-            "width": "40"
+            "width": "100"
           }
         },
         {
           "key": "field_bng_en_company_arch_3",
           "name": "c3",
-          "label": "Примечание",
-          "type": "text",
-          "rows": 0,
+          "label": "Brand note",
+          "type": "textarea",
+          "rows": 3,
           "wrapper": {
-            "width": "40"
+            "width": "100"
           }
         }
       ]
@@ -180,13 +180,13 @@
       "name": "bng_en_company_about",
       "label": "Абзацы описания",
       "type": "repeater",
-      "layout": "row",
-      "button_label": "Добавить строку",
+      "layout": "block",
+      "button_label": "Add item",
       "sub_fields": [
         {
           "key": "field_bng_en_company_about_0",
           "name": "c0",
-          "label": "Текст",
+          "label": "Full paragraph",
           "type": "textarea",
           "rows": 3,
           "wrapper": {
@@ -218,12 +218,12 @@
       "label": "Контактные данные",
       "type": "repeater",
       "layout": "block",
-      "button_label": "Добавить строку",
+      "button_label": "Add item",
       "sub_fields": [
         {
           "key": "field_bng_en_company_contacts_0",
           "name": "c0",
-          "label": "Дата / номер",
+          "label": "Type",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -233,7 +233,7 @@
         {
           "key": "field_bng_en_company_contacts_1",
           "name": "c1",
-          "label": "Заголовок",
+          "label": "Email / value",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -243,11 +243,11 @@
         {
           "key": "field_bng_en_company_contacts_2",
           "name": "c2",
-          "label": "Описание",
-          "type": "text",
-          "rows": 0,
+          "label": "Address / details",
+          "type": "textarea",
+          "rows": 3,
           "wrapper": {
-            "width": "40"
+            "width": "100"
           }
         }
       ]
@@ -272,8 +272,8 @@
       "label": "Дополнительные PDF",
       "name": "bng_documents_en",
       "type": "repeater",
-      "layout": "row",
-      "button_label": "Добавить PDF",
+      "layout": "block",
+      "button_label": "Add item",
       "sub_fields": [
         {
           "key": "field_bng_en_doc_title",
@@ -316,5 +316,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1792700000
+  "modified": 1793022200
 }
