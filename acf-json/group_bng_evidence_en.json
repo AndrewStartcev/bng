@@ -5,13 +5,13 @@
     {
       "key": "field_bng_tab_evidence_en_0",
       "type": "tab",
-      "label": "Первый экран",
+      "label": "Introduction",
       "placement": "left"
     },
     {
       "key": "field_bng_en_evidence_title",
       "name": "bng_en_evidence_title",
-      "label": "Заголовок H1",
+      "label": "Page headline",
       "type": "text",
       "rows": 0,
       "default_value": "What we can claim today, and what we must earn",
@@ -22,7 +22,7 @@
     {
       "key": "field_bng_en_evidence_sub",
       "name": "bng_en_evidence_sub",
-      "label": "Описание",
+      "label": "Page introduction",
       "type": "textarea",
       "rows": 4,
       "default_value": "A production company is only as strong as the evidence behind each claim. Both blocks are published here so a buyer or an investor can see the current picture and status.",
@@ -33,7 +33,7 @@
     {
       "key": "field_bng_tab_evidence_en_3",
       "type": "tab",
-      "label": "Подтверждено",
+      "label": "Verified facts",
       "placement": "left"
     },
     {
@@ -81,7 +81,7 @@
     {
       "key": "field_bng_tab_evidence_en_7",
       "type": "tab",
-      "label": "Предстоит доказать",
+      "label": "Pending evidence",
       "placement": "left"
     },
     {
@@ -139,7 +139,7 @@
     {
       "key": "field_bng_tab_evidence_en_11",
       "type": "tab",
-      "label": "Техническое досье",
+      "label": "Technical dossier",
       "placement": "left"
     },
     {
@@ -177,13 +177,13 @@
     },
     {
       "key": "field_bng_tab_evidence_en_extra",
-      "label": "Дополнительно",
+      "label": "Additional content",
       "type": "tab",
       "placement": "left"
     },
     {
       "key": "field_bng_en_body",
-      "label": "Текст под блоками",
+      "label": "Additional text",
       "name": "bng_body_en",
       "type": "wysiwyg",
       "toolbar": "basic",
@@ -192,7 +192,7 @@
     },
     {
       "key": "field_bng_en_docs",
-      "label": "Дополнительные PDF",
+      "label": "Additional PDF documents",
       "name": "bng_documents_en",
       "type": "repeater",
       "layout": "row",
@@ -239,5 +239,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1793000000
+  "modified": 1793050000
 }
