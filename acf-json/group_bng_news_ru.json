@@ -64,12 +64,12 @@
       "label": "Публикации",
       "type": "repeater",
       "layout": "block",
-      "button_label": "Добавить строку",
+      "button_label": "Добавить запись",
       "sub_fields": [
         {
           "key": "field_bng_ru_news_items_0",
           "name": "c0",
-          "label": "Дата / номер",
+          "label": "Date",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -79,7 +79,7 @@
         {
           "key": "field_bng_ru_news_items_1",
           "name": "c1",
-          "label": "Заголовок",
+          "label": "Category",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -89,21 +89,21 @@
         {
           "key": "field_bng_ru_news_items_2",
           "name": "c2",
-          "label": "Описание",
-          "type": "text",
-          "rows": 0,
+          "label": "Headline",
+          "type": "textarea",
+          "rows": 3,
           "wrapper": {
-            "width": "40"
+            "width": "100"
           }
         },
         {
           "key": "field_bng_ru_news_items_3",
           "name": "c3",
-          "label": "Примечание",
+          "label": "Description",
           "type": "textarea",
           "rows": 3,
           "wrapper": {
-            "width": "40"
+            "width": "100"
           }
         }
       ]
@@ -141,13 +141,13 @@
       "name": "bng_ru_news_ahead",
       "label": "Будущие этапы",
       "type": "repeater",
-      "layout": "row",
-      "button_label": "Добавить строку",
+      "layout": "block",
+      "button_label": "Добавить запись",
       "sub_fields": [
         {
           "key": "field_bng_ru_news_ahead_0",
           "name": "c0",
-          "label": "Дата / номер",
+          "label": "Date",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -157,11 +157,21 @@
         {
           "key": "field_bng_ru_news_ahead_1",
           "name": "c1",
-          "label": "Заголовок",
+          "label": "Event",
           "type": "text",
           "rows": 0,
           "wrapper": {
             "width": "35"
+          }
+        },
+        {
+          "key": "field_bng_ru_news_ahead_2",
+          "name": "c2",
+          "label": "Description",
+          "type": "textarea",
+          "rows": 3,
+          "wrapper": {
+            "width": "100"
           }
         }
       ]
@@ -187,8 +197,8 @@
       "key": "field_bng_ru_news_mediaBody",
       "name": "bng_ru_news_mediaBody",
       "label": "Media Body",
-      "type": "text",
-      "rows": 0,
+      "type": "textarea",
+      "rows": 4,
       "default_value": "Каждое внешнее заявление согласует один человек. Цифры с сайта перед публикацией следует сверять с техническим досье.",
       "wrapper": {
         "width": "50"
@@ -225,8 +235,8 @@
       "label": "Дополнительные PDF",
       "name": "bng_documents_ru",
       "type": "repeater",
-      "layout": "row",
-      "button_label": "Добавить PDF",
+      "layout": "block",
+      "button_label": "Добавить запись",
       "sub_fields": [
         {
           "key": "field_bng_ru_doc_title",
@@ -269,5 +279,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1792700000
+  "modified": 1793022200
 }
