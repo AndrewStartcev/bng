@@ -39,7 +39,7 @@
     {
       "key": "field_bng_ru_flowsheet_pick",
       "name": "bng_ru_flowsheet_pick",
-      "label": "Pick",
+      "label": "Название переключателя потоков",
       "type": "text",
       "rows": 0,
       "default_value": "Поток",
@@ -50,7 +50,7 @@
     {
       "key": "field_bng_ru_flowsheet_feedKicker",
       "name": "bng_ru_flowsheet_feedKicker",
-      "label": "Feed Kicker",
+      "label": "Надпись над сырьём",
       "type": "text",
       "rows": 0,
       "default_value": "Сырьё",
@@ -61,7 +61,7 @@
     {
       "key": "field_bng_ru_flowsheet_feed",
       "name": "bng_ru_flowsheet_feed",
-      "label": "Feed",
+      "label": "Название сырья",
       "type": "text",
       "rows": 0,
       "default_value": "Сыннырит",
@@ -72,18 +72,101 @@
     {
       "key": "field_bng_ru_flowsheet_feedNote",
       "name": "bng_ru_flowsheet_feedNote",
-      "label": "Feed Note",
-      "type": "text",
-      "rows": 0,
+      "label": "Описание исходного сырья",
+      "type": "textarea",
+      "rows": 3,
       "default_value": "Одно рудное тело, Калюмное. Серно-кислое разложение — не конверсия по Мангейму и не процесс Байера.",
       "wrapper": {
-        "width": "50"
+        "width": "100"
       }
+    },
+    {
+      "key": "field_bng_ru_flowsheet_streams",
+      "name": "bng_ru_flowsheet_streams",
+      "label": "4 потока: элементы, продукты и покупатели",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Добавить поток",
+      "sub_fields": [
+        {
+          "key": "field_bng_ru_flowsheet_stream_symbol",
+          "name": "symbol",
+          "label": "Символ элемента",
+          "type": "text",
+          "wrapper": {
+            "width": "20"
+          }
+        },
+        {
+          "key": "field_bng_ru_flowsheet_stream_atomic",
+          "name": "atomic",
+          "label": "Атомный номер",
+          "type": "text",
+          "wrapper": {
+            "width": "20"
+          }
+        },
+        {
+          "key": "field_bng_ru_flowsheet_stream_name",
+          "name": "name",
+          "label": "Название потока",
+          "type": "text",
+          "wrapper": {
+            "width": "30"
+          }
+        },
+        {
+          "key": "field_bng_ru_flowsheet_stream_count",
+          "name": "count",
+          "label": "Количество продуктов, подпись",
+          "type": "text",
+          "wrapper": {
+            "width": "30"
+          }
+        },
+        {
+          "key": "field_bng_ru_flowsheet_stream_buyers",
+          "name": "buyers",
+          "label": "Покупатели",
+          "type": "textarea",
+          "wrapper": {
+            "width": "100"
+          }
+        },
+        {
+          "key": "field_bng_ru_flowsheet_stream_products",
+          "name": "products",
+          "label": "Товары потока",
+          "type": "repeater",
+          "layout": "row",
+          "button_label": "Добавить продукт",
+          "sub_fields": [
+            {
+              "key": "field_bng_ru_flowsheet_stream_product_formula",
+              "name": "formula",
+              "label": "Формула",
+              "type": "text",
+              "wrapper": {
+                "width": "30"
+              }
+            },
+            {
+              "key": "field_bng_ru_flowsheet_stream_product_name",
+              "name": "name",
+              "label": "Название товара",
+              "type": "text",
+              "wrapper": {
+                "width": "70"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "field_bng_ru_flowsheet_all",
       "name": "bng_ru_flowsheet_all",
-      "label": "All",
+      "label": "Кнопка «Все четыре»",
       "type": "text",
       "rows": 0,
       "default_value": "Все четыре",
@@ -100,18 +183,18 @@
     {
       "key": "field_bng_ru_flowsheet_routesTitle",
       "name": "bng_ru_flowsheet_routesTitle",
-      "label": "Routes Title",
-      "type": "text",
-      "rows": 0,
+      "label": "Заголовок технологических схем",
+      "type": "textarea",
+      "rows": 3,
       "default_value": "С 2018 года исследованы три схемы. Ни одна не оказалась оптимальной. Четвёртая, итоговая схема разработана в 2026 году",
       "wrapper": {
-        "width": "50"
+        "width": "100"
       }
     },
     {
       "key": "field_bng_ru_flowsheet_routesRec",
       "name": "bng_ru_flowsheet_routesRec",
-      "label": "Routes Rec",
+      "label": "Подпись рекомендованной схемы",
       "type": "text",
       "rows": 0,
       "default_value": "Рекомендована",
@@ -122,12 +205,12 @@
     {
       "key": "field_bng_ru_flowsheet_routesSelected",
       "name": "bng_ru_flowsheet_routesSelected",
-      "label": "Routes Selected",
-      "type": "text",
-      "rows": 0,
+      "label": "Текст о выбранной схеме",
+      "type": "textarea",
+      "rows": 3,
       "default_value": "По итогам этих работ в 2026 году в качестве четвёртой, итоговой схемы выбрано серно-кислое разложение.",
       "wrapper": {
-        "width": "50"
+        "width": "100"
       }
     },
     {
@@ -141,7 +224,7 @@
         {
           "key": "field_bng_ru_flowsheet_routes_0",
           "name": "c0",
-          "label": "Дата / номер",
+          "label": "Номер",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -151,7 +234,7 @@
         {
           "key": "field_bng_ru_flowsheet_routes_1",
           "name": "c1",
-          "label": "Заголовок",
+          "label": "Название схемы",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -161,7 +244,7 @@
         {
           "key": "field_bng_ru_flowsheet_routes_2",
           "name": "c2",
-          "label": "Описание",
+          "label": "Полное описание",
           "type": "textarea",
           "rows": 3,
           "wrapper": {
@@ -171,7 +254,7 @@
         {
           "key": "field_bng_ru_flowsheet_routes_3",
           "name": "c3",
-          "label": "Примечание",
+          "label": "Результаты / показатели",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -183,9 +266,9 @@
     {
       "key": "field_bng_ru_flowsheet_routesNote",
       "name": "bng_ru_flowsheet_routesNote",
-      "label": "Routes Note",
+      "label": "Дополнительное описание схемы",
       "type": "textarea",
-      "rows": 4,
+      "rows": 3,
       "default_value": "Почему щелочная схема: любую соль калия можно получить кислотной нейтрализацией поташного раствора после второй стадии карбонизации, так что линейка следует за рынком; щелочные потоки не требуют дорогого кислотостойкого оборудования; капзатраты в 1,5–2,0 раза ниже по сравнению с традиционной подземной добычей калия; технология глубоко проработана на нефелинах; рудные тела известняка — в 5 и 20 км, а пылеугольное топливо позволяет разместить производство на месторождении; гидроксид алюминия — полуфабрикат с своим рынком сбыта.",
       "wrapper": {
         "width": "100"
@@ -200,7 +283,7 @@
     {
       "key": "field_bng_ru_flowsheet_givesTitle",
       "name": "bng_ru_flowsheet_givesTitle",
-      "label": "Gives Title",
+      "label": "Заголовок преимуществ",
       "type": "text",
       "rows": 0,
       "default_value": "Что даёт связанность",
@@ -213,15 +296,15 @@
       "name": "bng_ru_flowsheet_gives",
       "label": "Преимущества процесса",
       "type": "repeater",
-      "layout": "row",
+      "layout": "block",
       "button_label": "Добавить строку",
       "sub_fields": [
         {
           "key": "field_bng_ru_flowsheet_gives_0",
           "name": "c0",
-          "label": "Текст",
-          "type": "text",
-          "rows": 0,
+          "label": "Полный текст",
+          "type": "textarea",
+          "rows": 3,
           "wrapper": {
             "width": "100"
           }
@@ -231,7 +314,7 @@
     {
       "key": "field_bng_ru_flowsheet_costsTitle",
       "name": "bng_ru_flowsheet_costsTitle",
-      "label": "Costs Title",
+      "label": "Заголовок ограничений",
       "type": "text",
       "rows": 0,
       "default_value": "Чего она требует",
@@ -244,15 +327,15 @@
       "name": "bng_ru_flowsheet_costs",
       "label": "Ограничения",
       "type": "repeater",
-      "layout": "row",
+      "layout": "block",
       "button_label": "Добавить строку",
       "sub_fields": [
         {
           "key": "field_bng_ru_flowsheet_costs_0",
           "name": "c0",
-          "label": "Текст",
-          "type": "text",
-          "rows": 0,
+          "label": "Полный текст",
+          "type": "textarea",
+          "rows": 3,
           "wrapper": {
             "width": "100"
           }
@@ -323,5 +406,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1792700000
+  "modified": 1793010101
 }
