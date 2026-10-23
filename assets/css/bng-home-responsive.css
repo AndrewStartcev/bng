@@ -201,3 +201,23 @@
   .bng-original .bng-rock-gallery figure{aspect-ratio:16/10;min-height:190px}
   .bng-original .bng-rock-map{height:360px!important}
 }
+
+/* Evidence: original 2-column composition with safe responsive stacking. */
+.bng-original .bng-evidence,.bng-original .bng-evidence > div{min-width:0}
+@media(max-width:1024px){
+  .bng-original .bng-evidence-intro{gap:32px!important}
+  .bng-original .bng-evidence-columns{gap:32px!important}
+  .bng-original .bng-evidence-dossier{padding:40px 36px!important;gap:32px!important}
+}
+@media(max-width:768px){
+  .bng-original .bng-evidence-intro{grid-template-columns:minmax(0,1fr)!important;gap:20px!important;margin-top:32px!important}
+  .bng-original .bng-evidence-columns{grid-template-columns:minmax(0,1fr)!important;gap:40px!important;margin-top:38px!important}
+  .bng-original .bng-evidence-dossier{grid-template-columns:minmax(0,1fr)!important;gap:18px!important;padding:34px 28px!important;margin-top:48px!important}
+  .bng-original .bng-evidence-dossier h2{font-size:27px!important}
+}
+@media(max-width:480px){
+  .bng-original .bng-evidence-pending-row{grid-template-columns:minmax(0,1fr)!important;gap:6px!important}
+  .bng-original .bng-evidence-pending-row > span:last-child{text-align:left!important}
+  .bng-original .bng-evidence-dossier{padding:28px 20px!important}
+  .bng-original .bng-evidence-dossier button{width:100%;text-align:center}
+}
