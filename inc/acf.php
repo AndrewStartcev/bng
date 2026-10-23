@@ -315,3 +315,45 @@ add_action('admin_init', static function (): void {
         }
     }
 }, 50);
+
+/**
+ * Seed ore composition values from the approved client source.
+ * Only an uninitialized or entirely blank legacy repeater is populated.
+ * Once any row has been edited it remains authoritative.
+ */
+add_action('admin_init', static function (): void {
+    if (!current_user_can('edit_pages') || !function_exists('update_field')) return;
+    $post_id = bng_section_id('rock');
+    if (!$post_id) return;
+    $path = get_template_directory() . '/data/rock-ore-content.json';
+    $source = is_readable($path) ? json_decode((string) file_get_contents($path), true) : null;
+    if (!is_array($source)) return;
+    foreach (['ru','en'] as $lang) {
+        $name = 'bng_' . $lang . '_rock_ore';
+        $field_key = 'field_bng_' . $lang . '_rock_ore';
+        $original = $source[$lang] ?? null;
+        if (!is_array($original) || !$original) continue;
+        $count = (int) get_post_meta($post_id, $name, true);
+        $has_value = false;
+        for ($i = 0; $i < max($count, count($original)); $i++) {
+            foreach (['formula','name','percentage','display'] as $part) {
+                $value = get_post_meta($post_id, $name . '_' . $i . '_' . $part, true);
+                if (is_scalar($value) && trim((string) $value) !== '') {
+                    $has_value = true;
+                    break 2;
+                }
+            }
+        }
+        if ($has_value) continue;
+        $rows = [];
+        foreach ($original as $entry) {
+            $rows[] = [
+                'field_bng_' . $lang . '_rock_ore_formula' => (string) ($entry['formula'] ?? ''),
+                'field_bng_' . $lang . '_rock_ore_name' => (string) ($entry['name'] ?? ''),
+                'field_bng_' . $lang . '_rock_ore_percentage' => (float) ($entry['percentage'] ?? 0),
+                'field_bng_' . $lang . '_rock_ore_display' => (string) ($entry['display'] ?? ''),
+            ];
+        }
+        update_field($field_key, $rows, $post_id);
+    }
+}, 60);
