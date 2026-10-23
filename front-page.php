@@ -40,9 +40,20 @@ foreach (['ru','en'] as $locale) {
         'poster' => $poster_id ? (string) wp_get_attachment_image_url($poster_id, 'full') : '',
     ];
 }
+// Three ordered rock photos per language; empty entries preserve original placeholders.
+$rock_media = [];
+$rock_post_id = bng_section_id('rock');
+foreach (['ru', 'en'] as $locale) {
+    $rock_media[$locale] = [];
+    foreach (['core', 'hand', 'plant'] as $slot) {
+        $id = $rock_post_id ? (int) bng_field('bng_' . $locale . '_rock_photo_' . $slot, 0, $rock_post_id) : 0;
+        $rock_media[$locale][$slot] = $id ? (string) wp_get_attachment_image_url($id, 'large') : '';
+    }
+}
 $json = wp_json_encode($copy, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
 $script = '<script>window.BNG_WP_COPY = ' . ($json ?: '{}') . ';';
 $script .= 'window.BNG_WP_MEDIA = ' . wp_json_encode($media, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
+$script .= 'window.BNG_ROCK_MEDIA = ' . wp_json_encode($rock_media, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_INITIAL_LANG = ' . wp_json_encode($is_en ? 'en' : 'ru') . ';';
 $resource_path = $original_dir . '/resources.json';
 $resources = is_readable($resource_path) ? json_decode(file_get_contents($resource_path), true) : [];
