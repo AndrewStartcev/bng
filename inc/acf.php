@@ -502,3 +502,102 @@ add_action('admin_init', static function (): void {
         update_post_meta($post_id, $marker, '1');
     }
 }, 80);
+
+/**
+ * Product catalogue: initialize every source product, grade, specification and
+ * measured parameter in ACF once, without overwriting content on subsequent visits.
+ * Source data is the exact RU/EN client bundle extracted in source-content.json.
+ */
+add_action('admin_init', static function (): void {
+    if (!current_user_can('edit_pages') || !function_exists('update_field')) return;
+    $post_id = bng_section_id('products');
+    if (!$post_id) return;
+    $source = bng_source();
+    foreach (['ru', 'en'] as $locale) {
+        $part = $source['copy'][$locale]['products'] ?? [];
+        foreach ($part as $suffix => $default) {
+            $key = 'field_bng_' . $locale . '_products_' . $suffix;
+            $meta = 'bng_' . $locale . '_products_' . $suffix;
+            if (is_string($default)) {
+                if (!metadata_exists('post', $post_id, $meta)) {
+                    update_field($key, $default, $post_id);
+                }
+                continue;
+            }
+            if (!is_array($default)) continue;
+            $marker = '_bng_products_seeded_' . $locale . '_' . $suffix;
+            if (metadata_exists('post', $post_id, $marker)) continue;
+            $existing = get_post_meta($post_id, $meta, true);
+            $count = is_numeric($existing) ? (int) $existing : 0;
+            $has_content = false;
+            for ($i = 0; $i < max($count, count($default)); $i++) {
+                for ($c = 0; $c < ($suffix === 'cards' ? 4 : 1); $c++) {
+                    $saved = get_post_meta($post_id, $meta . '_' . $i . '_c' . $c, true);
+                    if (is_scalar($saved) && trim((string) $saved) !== '') {
+                        $has_content = true;
+                        break 2;
+                    }
+                }
+            }
+            if (!$has_content) {
+                $rows = [];
+                foreach ($default as $item) {
+                    $cells = is_array($item) ? array_values($item) : [(string) $item];
+                    $row = [];
+                    foreach ($cells as $i => $cell) $row[$key . '_' . $i] = (string) $cell;
+                    $rows[] = $row;
+                }
+                update_field($key, $rows, $post_id);
+            }
+            update_post_meta($post_id, $marker, '1');
+        }
+        $meta = 'bng_' . $locale . '_products_catalog';
+        $marker = '_bng_products_catalog_seeded_' . $locale;
+        if (metadata_exists('post', $post_id, $marker)) continue;
+        $already = (int) get_post_meta($post_id, $meta, true);
+        $has_catalog = false;
+        for ($i = 0; $i < max(10, $already); $i++) {
+            $code = get_post_meta($post_id, $meta . '_' . $i . '_code', true);
+            if (is_scalar($code) && trim((string) $code) !== '') {
+                $has_catalog = true;
+                break;
+            }
+        }
+        if (!$has_catalog) {
+            $prefix = 'field_bng_' . $locale . '_product_';
+            $rows = [];
+            foreach (($source['products'] ?? []) as $product) {
+                $grade_rows = [];
+                foreach (($source['grades'][$product['code']] ?? []) as $grade) {
+                    $params = [];
+                    foreach (($grade['params'] ?? []) as $param) {
+                        $translated = $param[$locale] ?? [];
+                        $params[] = [
+                            $prefix . 'param_label' => (string) ($translated['k'] ?? ''),
+                            $prefix . 'param_value' => (string) ($translated['v'] ?? ''),
+                            $prefix . 'param_unit' => (string) ($translated['u'] ?? ''),
+                        ];
+                    }
+                    $grade_rows[] = [
+                        $prefix . 'grade_code' => (string) ($grade['code'] ?? ''),
+                        $prefix . 'grade_name' => (string) ($grade[$locale]['name'] ?? ''),
+                        $prefix . 'grade_source_file' => (string) ($grade['file'] ?? ''),
+                        $prefix . 'grade_params' => $params,
+                    ];
+                }
+                $rows[] = [
+                    $prefix . 'code' => (string) ($product['code'] ?? ''),
+                    $prefix . 'name' => (string) ($product[$locale]['name'] ?? ''),
+                    $prefix . 'formula' => (string) ($product['formula'] ?? ''),
+                    $prefix . 'segment' => (string) ($product['seg'] ?? ''),
+                    $prefix . 'stream' => (string) ($product['stream'] ?? ''),
+                    $prefix . 'buyer' => (string) ($product[$locale]['buyer'] ?? ''),
+                    $prefix . 'status' => (string) ($product[$locale]['status'] ?? ''),
+                    $prefix . 'grades' => $grade_rows,
+                ];
+            }
+            if ($rows) update_field($prefix . 'catalog', $rows, $post_id);
+        }
+        update_post_meta($post_id, $marker, '1');
+    }
+}, 90);
