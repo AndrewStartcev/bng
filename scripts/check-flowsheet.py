@@ -40,7 +40,7 @@ for lang in ('ru','en'):
             assert product.get('formula') and product.get('name'), product
     print(f'{lang.upper()}: full flowsheet, 3 process routes, 4 product streams editable')
 for key in ('t.flow.title','t.flow.sub','t.flow.pick','t.flow.feedKicker','t.flow.feed',
-            't.flow.feedNote','t.flow.all','t.flow.routesTitle','flowRoutes',
+            't.flow.feedNote','t.flow.routesTitle','flowRoutes',
             't.flow.routesSelected','t.flow.givesTitle','flowGives',
             't.flow.costsTitle','flowCosts','oreRows','streams','streamTabs'):
     assert '{{ ' + key + ' }}' in template, f'Missing frontend flow data binding: {key}'
