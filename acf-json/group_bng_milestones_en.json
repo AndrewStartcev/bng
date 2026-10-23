@@ -5,7 +5,7 @@
     {
       "key": "field_bng_tab_milestones_en_0",
       "type": "tab",
-      "label": "Первый экран",
+      "label": "Introduction",
       "placement": "left"
     },
     {
@@ -33,13 +33,13 @@
     {
       "key": "field_bng_tab_milestones_en_3",
       "type": "tab",
-      "label": "Выполнено",
+      "label": "Completed milestones",
       "placement": "left"
     },
     {
       "key": "field_bng_en_milestones_doneTitle",
       "name": "bng_en_milestones_doneTitle",
-      "label": "Done Title",
+      "label": "Completed legend label",
       "type": "text",
       "rows": 0,
       "default_value": "Completed",
@@ -50,15 +50,15 @@
     {
       "key": "field_bng_en_milestones_done",
       "name": "bng_en_milestones_done",
-      "label": "Завершённые этапы",
+      "label": "Completed milestones (chronological order)",
       "type": "repeater",
       "layout": "block",
-      "button_label": "Добавить строку",
+      "button_label": "Add milestone",
       "sub_fields": [
         {
           "key": "field_bng_en_milestones_done_0",
           "name": "c0",
-          "label": "Дата / номер",
+          "label": "Date or target period",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -68,21 +68,21 @@
         {
           "key": "field_bng_en_milestones_done_1",
           "name": "c1",
-          "label": "Заголовок",
+          "label": "Milestone title",
           "type": "text",
           "rows": 0,
           "wrapper": {
-            "width": "35"
+            "width": "75"
           }
         },
         {
           "key": "field_bng_en_milestones_done_2",
           "name": "c2",
-          "label": "Описание",
+          "label": "Full description",
           "type": "textarea",
           "rows": 3,
           "wrapper": {
-            "width": "40"
+            "width": "100"
           }
         }
       ]
@@ -90,13 +90,13 @@
     {
       "key": "field_bng_tab_milestones_en_6",
       "type": "tab",
-      "label": "Впереди",
+      "label": "Upcoming milestones",
       "placement": "left"
     },
     {
       "key": "field_bng_en_milestones_aheadTitle",
       "name": "bng_en_milestones_aheadTitle",
-      "label": "Ahead Title",
+      "label": "Upcoming legend label",
       "type": "text",
       "rows": 0,
       "default_value": "Ahead",
@@ -107,15 +107,15 @@
     {
       "key": "field_bng_en_milestones_ahead",
       "name": "bng_en_milestones_ahead",
-      "label": "Будущие этапы",
+      "label": "Upcoming milestones (chronological order)",
       "type": "repeater",
       "layout": "block",
-      "button_label": "Добавить строку",
+      "button_label": "Add milestone",
       "sub_fields": [
         {
           "key": "field_bng_en_milestones_ahead_0",
           "name": "c0",
-          "label": "Дата / номер",
+          "label": "Date or target period",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -125,28 +125,28 @@
         {
           "key": "field_bng_en_milestones_ahead_1",
           "name": "c1",
-          "label": "Заголовок",
+          "label": "Milestone title",
           "type": "text",
           "rows": 0,
           "wrapper": {
-            "width": "35"
+            "width": "75"
           }
         },
         {
           "key": "field_bng_en_milestones_ahead_2",
           "name": "c2",
-          "label": "Описание",
+          "label": "Full description",
           "type": "textarea",
           "rows": 3,
           "wrapper": {
-            "width": "40"
+            "width": "100"
           }
         }
       ]
     },
     {
       "key": "field_bng_tab_milestones_en_extra",
-      "label": "Дополнительно",
+      "label": "Additional content",
       "type": "tab",
       "placement": "left"
     },
@@ -208,5 +208,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1792700000
+  "modified": 1792761234
 }
