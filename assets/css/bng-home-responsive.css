@@ -83,3 +83,87 @@
   .bng-original .bng-mobile-toggle{flex-basis:36px;width:36px;height:36px;padding:8px}
   .bng-original .bng-section-rubric{gap:12px!important}
 }
+
+/* Full-height mobile site navigation with a single item per row. */
+.bng-original .bng-mobile-nav-footer{display:none}
+@media(max-width:768px){
+  .bng-original .bng-client-nav{
+    position:fixed!important;
+    inset:var(--bng-mobile-header-height,68px) 0 0!important;
+    top:var(--bng-mobile-header-height,68px)!important;
+    left:0!important;
+    right:0!important;
+    bottom:0!important;
+    width:100vw!important;
+    max-height:none!important;
+    height:calc(100dvh - var(--bng-mobile-header-height,68px))!important;
+    padding:18px 22px max(24px,env(safe-area-inset-bottom))!important;
+    background:#fff!important;
+    border-top:1px solid rgba(18,23,29,.14);
+    border-bottom:0!important;
+    box-shadow:none!important;
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    overscroll-behavior:contain;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    justify-content:flex-start!important;
+    gap:0!important;
+  }
+  .bng-original .bng-client-nav[data-open="true"]{display:flex!important}
+  .bng-original .bng-client-nav > a{
+    display:block!important;
+    flex:0 0 auto!important;
+    width:100%!important;
+    padding:17px 0!important;
+    margin:0!important;
+    font-size:13px!important;
+    letter-spacing:.13em!important;
+    line-height:1.45!important;
+    text-align:left!important;
+    border-bottom:1px solid rgba(18,23,29,.12)!important;
+    text-decoration:none!important;
+  }
+  .bng-original .bng-client-nav > a:hover,
+  .bng-original .bng-client-nav > a:focus-visible{
+    color:#7C5CBF!important;
+    background:transparent!important;
+  }
+  .bng-original .bng-mobile-nav-footer{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+    margin-top:auto;
+    padding:26px 0 0;
+    color:#12171D;
+  }
+  .bng-original .bng-mobile-nav-contact-label,
+  .bng-original .bng-mobile-nav-company-label{
+    color:#6E747A;
+    font-size:10px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+  }
+  .bng-original .bng-mobile-nav-email{
+    font-family:'PT Serif',Georgia,serif;
+    color:#12171D;
+    font-size:19px;
+    letter-spacing:normal;
+    overflow-wrap:anywhere;
+    text-decoration:underline;
+    text-decoration-color:rgba(18,23,29,.3);
+    text-underline-offset:4px;
+    margin:0 0 18px;
+  }
+  .bng-original .bng-mobile-nav-company{
+    font-family:'PT Serif',Georgia,serif;
+    font-size:16px;
+    line-height:1.45;
+    padding-bottom:4px;
+  }
+}
+@media(max-width:380px){
+  .bng-original .bng-client-nav{padding:12px 16px max(20px,env(safe-area-inset-bottom))!important}
+  .bng-original .bng-client-nav > a{padding:13px 0!important;font-size:12px!important}
+  .bng-original .bng-mobile-nav-footer{padding-top:18px}
+}
