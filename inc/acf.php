@@ -268,3 +268,50 @@ add_action('admin_init', static function (): void {
         }
     }
 }, 40);
+
+/**
+ * Fill the six approved client map cards (and source note) in the canonical
+ * "Rock" CPT once. Respect existing edited ACF rows; repair count-only,
+ * entirely blank repeaters left by earlier imports.
+ */
+add_action('admin_init', static function (): void {
+    if (!current_user_can('edit_pages') || !function_exists('update_field')) return;
+    $post_id = bng_section_id('rock');
+    if (!$post_id) return;
+    $path = get_template_directory() . '/data/rock-map-content.json';
+    $defaults = is_readable($path) ? json_decode((string) file_get_contents($path), true) : [];
+    if (!is_array($defaults)) return;
+    foreach (['ru','en'] as $lang) {
+        $source = $defaults[$lang] ?? [];
+        if (empty($source['cards']) || !is_array($source['cards'])) continue;
+        $key = 'field_bng_' . $lang . '_rock_map_cards';
+        $name = 'bng_' . $lang . '_rock_map_cards';
+        $count = (int) get_post_meta($post_id, $name, true);
+        $filled = false;
+        for ($i = 0; $i < max($count, count($source['cards'])); $i++) {
+            foreach (['label','title','distance','note'] as $subfield) {
+                $saved = get_post_meta($post_id, $name . '_' . $i . '_' . $subfield, true);
+                if (is_scalar($saved) && trim((string) $saved) !== '') {
+                    $filled = true;
+                    break 2;
+                }
+            }
+        }
+        if (!$filled) {
+            $rows = [];
+            foreach ($source['cards'] as $cells) {
+                $rows[] = [
+                    'field_bng_' . $lang . '_rock_map_card_label' => (string) ($cells[0] ?? ''),
+                    'field_bng_' . $lang . '_rock_map_card_title' => (string) ($cells[1] ?? ''),
+                    'field_bng_' . $lang . '_rock_map_card_distance' => (string) ($cells[2] ?? ''),
+                    'field_bng_' . $lang . '_rock_map_card_note' => (string) ($cells[3] ?? ''),
+                ];
+            }
+            update_field($key, $rows, $post_id);
+        }
+        $footnote = 'bng_' . $lang . '_rock_map_footnote';
+        if (!metadata_exists('post', $post_id, $footnote)) {
+            update_field('field_bng_' . $lang . '_rock_map_footnote', (string) ($source['footnote'] ?? ''), $post_id);
+        }
+    }
+}, 50);
