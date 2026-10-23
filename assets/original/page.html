@@ -1417,7 +1417,7 @@ class Component extends DCLogic {
       msDone: t.milestones.done.map((m) => ({ when: m[0], head: m[1], body: m[2] })),
       msAhead: t.milestones.ahead.map((m) => ({ when: m[0], what: m[1] })),
       newsItems: t.news.items.map((n) => ({ date: n[0], kicker: n[1], head: n[2], body: n[3] })),
-      newsAhead: t.news.ahead.map((n) => ({ when: n[0], what: n[1] })),
+      newsAhead: t.news.ahead.map((n) => ({ when: n[0], what: n[1], description: n[2] || '', hasDescription: !!n[2] })),
       navItems: navItems, streamsPlain: streamsPlain,
       menuOpen: !!this.state.menuOpen,
       mobileMenuLabel: lang === 'ru' ? 'Меню сайта' : 'Site menu',
