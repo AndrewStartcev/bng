@@ -1279,10 +1279,17 @@ class Component extends DCLogic {
           go: () => this.setState({ stream: o.key }) };
       });
 
-    const oreRows = ORE.map((o) => ({
-      formula: o.formula, name: o[lang], pct: o.pct, w: o.w,
-      tick: active === o.stream ? STREAM_COLOR[o.stream] : 'rgba(18,23,29,0.3)'
-    }));
+    const oreData = (window.BNG_ROCK_ORE && window.BNG_ROCK_ORE[lang]) || [];
+    const oreRows = oreData.map((o) => {
+      const percentage = Math.min(100, Math.max(0, Number(o.percentage) || 0));
+      const shown = String(o.display || '').trim() || (String(percentage) + '%');
+      return {
+        formula: String(o.formula || ''),
+        name: String(o.name || ''),
+        pct: shown,
+        w: percentage + '%'
+      };
+    });
 
     const homeMedia = (window.BNG_WP_MEDIA && window.BNG_WP_MEDIA[lang]) || {};
     const hv = homeMedia.video || '';
