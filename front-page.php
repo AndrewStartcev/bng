@@ -100,11 +100,40 @@ foreach (['ru', 'en'] as $locale) {
         ];
     }, $rows));
 }
+// Process stream data is editable per language and uses the exact original client values as fallback.
+$streams_path = get_template_directory() . '/data/flowsheet-streams.json';
+$streams_default = is_readable($streams_path) ? json_decode((string) file_get_contents($streams_path), true) : [];
+$flowsheet_streams = [];
+$flowsheet_id = bng_section_id('flowsheet');
+foreach (['ru','en'] as $locale) {
+    $rows = is_array($streams_default[$locale] ?? null) ? $streams_default[$locale] : [];
+    if ($flowsheet_id && function_exists('get_field')) {
+        $stored = get_field('bng_' . $locale . '_flowsheet_streams', $flowsheet_id);
+        if (is_array($stored) && $stored) {
+            $rows = array_map(static function ($item): array {
+                $products = is_array($item['products'] ?? null) ? $item['products'] : [];
+                return [
+                    'symbol' => (string) ($item['symbol'] ?? ''),
+                    'atomic' => (string) ($item['atomic'] ?? ''),
+                    'name' => (string) ($item['name'] ?? ''),
+                    'count' => (string) ($item['count'] ?? ''),
+                    'buyers' => (string) ($item['buyers'] ?? ''),
+                    'products' => array_map(static function ($product): array {
+                        return ['formula' => (string) ($product['formula'] ?? ''),
+                                'name' => (string) ($product['name'] ?? '')];
+                    }, $products),
+                ];
+            }, $stored);
+        }
+    }
+    $flowsheet_streams[$locale] = array_values($rows);
+}
 $json = wp_json_encode($copy, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
 $script = '<script>window.BNG_WP_COPY = ' . ($json ?: '{}') . ';';
 $script .= 'window.BNG_WP_MEDIA = ' . wp_json_encode($media, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_ROCK_MEDIA = ' . wp_json_encode($rock_media, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_ROCK_ORE = ' . wp_json_encode($ore_content, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
+$script .= 'window.BNG_FLOWSHEET_STREAMS = ' . wp_json_encode($flowsheet_streams, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_INITIAL_LANG = ' . wp_json_encode($is_en ? 'en' : 'ru') . ';';
 // Client map is an original self-contained HTML/SVG embed, not a WordPress page.
 $resources = [];
