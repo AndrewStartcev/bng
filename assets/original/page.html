@@ -609,7 +609,7 @@ textarea.input { min-height: 90px; resize: vertical; }
 <div style="--color-bg:#ffffff;--color-surface:#F4F4F5;--color-text:#12171D;--color-accent:#7C5CBF;--color-accent-100:#F1EDFA;--color-accent-600:#6B4BAE;--color-accent-700:#5A3D96;--color-accent-800:#3B2865;--color-divider:rgba(18,23,29,0.18);--font-heading:'PT Serif',Georgia,serif;--font-heading-weight:400;--font-body:'PT Sans',system-ui,sans-serif;background:#ffffff;color:#12171D;font-family:'PT Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;min-height:100vh;display:flex;flex-direction:column">
 
   <header style="position:sticky;top:0;z-index:20;background:#ffffff;border-bottom:1px solid rgba(18,23,29,0.14)">
-    <div style="max-width:1180px;margin:0 auto;padding:26px 32px 16px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+    <div class="bng-client-header-inner" style="max-width:1180px;margin:0 auto;padding:26px 32px 16px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
       <a href="#" sc-camel-on-click="{{ goHome }}" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#12171D;margin-right:auto">
         <img src="__BNG_THEME_URI__/assets/original/9f8dff93-28d0-4962-90bd-b69f2fd5a6fa.svg" alt="BNG Elements" width="34" height="34" style="display:block;width:34px;height:34px">
         <span style="display:flex;flex-direction:column;line-height:1">
@@ -617,7 +617,7 @@ textarea.input { min-height: 90px; resize: vertical; }
           <span style="font-size:9.5px;letter-spacing:0.3em;color:#6E747A;margin-top:4px">{{ t.descriptor }}</span>
         </span>
       </a>
-      <nav style="display:flex;align-items:center;gap:26px;flex-wrap:wrap">
+      <nav class="bng-client-nav" style="display:flex;align-items:center;gap:26px;flex-wrap:wrap">
         <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
           <a href="#" sc-camel-on-click="{{ n.go }}" style="text-decoration:none;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding-bottom:3px;color:{{ n.color }};border-bottom:2px solid {{ n.mark }}">{{ n.label }}</a>
         </sc-for>
@@ -630,7 +630,7 @@ textarea.input { min-height: 90px; resize: vertical; }
     </div>
   </header>
 
-  <main style="flex:1;max-width:1180px;width:100%;margin:0 auto;padding:0 32px 110px">
+  <main class="bng-client-main" style="flex:1;max-width:1180px;width:100%;margin:0 auto;padding:0 32px 110px">
     <div style="display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid rgba(18,23,29,0.14);font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#6E747A">
       <span>{{ runHeadLeft }}</span>
       <span>{{ runHeadRight }}</span>
