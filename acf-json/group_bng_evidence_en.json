@@ -39,7 +39,7 @@
     {
       "key": "field_bng_en_evidence_nowTitle",
       "name": "bng_en_evidence_nowTitle",
-      "label": "Now Title",
+      "label": "Verified facts heading",
       "type": "text",
       "rows": 0,
       "default_value": "Provable now",
@@ -50,7 +50,7 @@
     {
       "key": "field_bng_en_evidence_nowNote",
       "name": "bng_en_evidence_nowNote",
-      "label": "Now Note",
+      "label": "Verified facts description",
       "type": "text",
       "rows": 0,
       "default_value": "Documented, approved or independently defended.",
@@ -61,17 +61,17 @@
     {
       "key": "field_bng_en_evidence_provable",
       "name": "bng_en_evidence_provable",
-      "label": "Подтверждённые факты",
+      "label": "Verified facts (automatic numbering)",
       "type": "repeater",
-      "layout": "row",
+      "layout": "block",
       "button_label": "Добавить строку",
       "sub_fields": [
         {
           "key": "field_bng_en_evidence_provable_0",
           "name": "c0",
-          "label": "Текст",
-          "type": "text",
-          "rows": 0,
+          "label": "Full fact text",
+          "type": "textarea",
+          "rows": 3,
           "wrapper": {
             "width": "100"
           }
@@ -87,7 +87,7 @@
     {
       "key": "field_bng_en_evidence_earnTitle",
       "name": "bng_en_evidence_earnTitle",
-      "label": "Earn Title",
+      "label": "Pending evidence heading",
       "type": "text",
       "rows": 0,
       "default_value": "Must be earned before claiming",
@@ -98,7 +98,7 @@
     {
       "key": "field_bng_en_evidence_earnNote",
       "name": "bng_en_evidence_earnNote",
-      "label": "Earn Note",
+      "label": "Pending evidence description",
       "type": "text",
       "rows": 0,
       "default_value": "Stated with the date the evidence arrives.",
@@ -109,29 +109,29 @@
     {
       "key": "field_bng_en_evidence_earned",
       "name": "bng_en_evidence_earned",
-      "label": "Требуют подтверждения",
+      "label": "Claims awaiting evidence",
       "type": "repeater",
-      "layout": "row",
+      "layout": "block",
       "button_label": "Добавить строку",
       "sub_fields": [
         {
           "key": "field_bng_en_evidence_earned_0",
           "name": "c0",
-          "label": "Дата / номер",
+          "label": "Claim / required evidence",
           "type": "textarea",
           "rows": 3,
           "wrapper": {
-            "width": "25"
+            "width": "75"
           }
         },
         {
           "key": "field_bng_en_evidence_earned_1",
           "name": "c1",
-          "label": "Заголовок",
+          "label": "Expected date / milestone",
           "type": "text",
           "rows": 0,
           "wrapper": {
-            "width": "35"
+            "width": "25"
           }
         }
       ]
@@ -145,7 +145,7 @@
     {
       "key": "field_bng_en_evidence_dossierTitle",
       "name": "bng_en_evidence_dossierTitle",
-      "label": "Dossier Title",
+      "label": "Technical dossier heading",
       "type": "text",
       "rows": 0,
       "default_value": "The technical dossier carries the numbers.",
@@ -156,18 +156,18 @@
     {
       "key": "field_bng_en_evidence_dossierBody",
       "name": "bng_en_evidence_dossierBody",
-      "label": "Dossier Body",
-      "type": "text",
-      "rows": 0,
+      "label": "Technical dossier description",
+      "type": "textarea",
+      "rows": 3,
       "default_value": "Ore body, flowsheet and product slate in a more detailed technical format. Issued as numbered copies to named counterparties.",
       "wrapper": {
-        "width": "50"
+        "width": "100"
       }
     },
     {
       "key": "field_bng_en_evidence_dossierCta",
       "name": "bng_en_evidence_dossierCta",
-      "label": "Dossier Cta",
+      "label": "Request button text",
       "type": "text",
       "rows": 0,
       "default_value": "Request a copy",
@@ -239,5 +239,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1792700000
+  "modified": 1793000000
 }
