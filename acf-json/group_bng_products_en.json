@@ -186,6 +186,178 @@
       }
     },
     {
+      "key": "field_bng_en_product_catalog",
+      "name": "bng_en_products_catalog",
+      "label": "Каталог — 10 продуктов, марки и характеристики",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Добавить продукт",
+      "sub_fields": [
+        {
+          "key": "field_bng_en_product_code",
+          "name": "code",
+          "label": "Код продукта",
+          "type": "text",
+          "wrapper": {
+            "width": "20"
+          }
+        },
+        {
+          "key": "field_bng_en_product_name",
+          "name": "name",
+          "label": "Название",
+          "type": "text",
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_bng_en_product_formula",
+          "name": "formula",
+          "label": "Формула",
+          "type": "text",
+          "wrapper": {
+            "width": "30"
+          }
+        },
+        {
+          "key": "field_bng_en_product_segment",
+          "name": "segment",
+          "label": "Сегмент",
+          "type": "select",
+          "wrapper": {
+            "width": "50"
+          },
+          "choices": {
+            "agro": "Сельское хозяйство",
+            "chemicals": "Промышленная химия",
+            "metals": "Металлы"
+          },
+          "ui": 1
+        },
+        {
+          "key": "field_bng_en_product_stream",
+          "name": "stream",
+          "label": "Элементный поток",
+          "type": "select",
+          "wrapper": {
+            "width": "50"
+          },
+          "choices": {
+            "K": "K",
+            "Al": "Al",
+            "Si": "Si",
+            "Fe": "Fe"
+          },
+          "ui": 1
+        },
+        {
+          "key": "field_bng_en_product_buyer",
+          "name": "buyer",
+          "label": "Покупатель",
+          "type": "textarea",
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_bng_en_product_status",
+          "name": "status",
+          "label": "Статус",
+          "type": "text",
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_bng_en_product_grades",
+          "name": "grades",
+          "label": "Марки и спецификации",
+          "type": "repeater",
+          "layout": "block",
+          "button_label": "Добавить марку",
+          "sub_fields": [
+            {
+              "key": "field_bng_en_product_grade_code",
+              "name": "code",
+              "label": "Код марки",
+              "type": "text",
+              "wrapper": {
+                "width": "35"
+              }
+            },
+            {
+              "key": "field_bng_en_product_grade_name",
+              "name": "name",
+              "label": "Название марки",
+              "type": "text",
+              "wrapper": {
+                "width": "65"
+              }
+            },
+            {
+              "key": "field_bng_en_product_grade_source_file",
+              "name": "source_file",
+              "label": "Исходный файл (путь в теме)",
+              "type": "text",
+              "wrapper": {
+                "width": "65"
+              }
+            },
+            {
+              "key": "field_bng_en_product_grade_attachment",
+              "name": "attachment",
+              "label": "Загруженный файл (заменяет исходный)",
+              "type": "file",
+              "wrapper": {
+                "width": "35"
+              },
+              "return_format": "id",
+              "library": "all",
+              "mime_types": "pdf,doc,docx"
+            },
+            {
+              "key": "field_bng_en_product_grade_params",
+              "name": "params",
+              "label": "Характеристики марки",
+              "type": "repeater",
+              "layout": "row",
+              "button_label": "Добавить характеристику",
+              "sub_fields": [
+                {
+                  "key": "field_bng_en_product_param_label",
+                  "name": "label",
+                  "label": "Показатель",
+                  "type": "text",
+                  "wrapper": {
+                    "width": "45"
+                  }
+                },
+                {
+                  "key": "field_bng_en_product_param_value",
+                  "name": "value",
+                  "label": "Значение",
+                  "type": "text",
+                  "wrapper": {
+                    "width": "30"
+                  }
+                },
+                {
+                  "key": "field_bng_en_product_param_unit",
+                  "name": "unit",
+                  "label": "Единица",
+                  "type": "text",
+                  "wrapper": {
+                    "width": "25"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "key": "field_bng_en_specs",
       "name": "bng_specifications_en",
       "label": "PDF по коду марки",
@@ -337,5 +509,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1792700000
+  "modified": 1793020000
 }
