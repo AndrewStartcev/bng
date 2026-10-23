@@ -128,12 +128,91 @@ foreach (['ru','en'] as $locale) {
     }
     $flowsheet_streams[$locale] = array_values($rows);
 }
+// Products: all ten rows, grades, technical parameters and downloadable documents
+// come from ACF, with original source-content.json as read-only fallback.
+$products_source = bng_source();
+$catalog_id = bng_section_id('products');
+$catalog = [];
+foreach (['ru', 'en'] as $locale) {
+    $records = [];
+    $saved = ($catalog_id && function_exists('get_field'))
+        ? get_field('bng_' . $locale . '_products_catalog', $catalog_id) : false;
+    if (is_array($saved) && $saved) {
+        foreach ($saved as $entry) {
+            if (!is_array($entry)) continue;
+            $grades = [];
+            foreach (($entry['grades'] ?? []) as $grade) {
+                if (!is_array($grade)) continue;
+                $params = [];
+                foreach (($grade['params'] ?? []) as $param) {
+                    if (!is_array($param)) continue;
+                    $params[] = [
+                        'k' => sanitize_text_field((string) ($param['label'] ?? '')),
+                        'v' => sanitize_text_field((string) ($param['value'] ?? '')),
+                        'u' => sanitize_text_field((string) ($param['unit'] ?? '')),
+                    ];
+                }
+                $attachment = (int) ($grade['attachment'] ?? 0);
+                $grades[] = [
+                    'code' => sanitize_text_field((string) ($grade['code'] ?? '')),
+                    'name' => sanitize_text_field((string) ($grade['name'] ?? '')),
+                    'file' => $attachment ? (string) wp_get_attachment_url($attachment) : '',
+                    'sourceFile' => sanitize_text_field((string) ($grade['source_file'] ?? '')),
+                    'params' => $params,
+                ];
+            }
+            $records[] = [
+                'code' => sanitize_text_field((string) ($entry['code'] ?? '')),
+                'name' => sanitize_text_field((string) ($entry['name'] ?? '')),
+                'formula' => sanitize_text_field((string) ($entry['formula'] ?? '')),
+                'seg' => sanitize_key((string) ($entry['segment'] ?? '')),
+                'stream' => sanitize_key((string) ($entry['stream'] ?? '')),
+                'buyer' => sanitize_textarea_field((string) ($entry['buyer'] ?? '')),
+                'status' => sanitize_text_field((string) ($entry['status'] ?? '')),
+                'grades' => $grades,
+            ];
+        }
+    } else {
+        foreach (($products_source['products'] ?? []) as $product) {
+            $grades = [];
+            foreach (($products_source['grades'][$product['code']] ?? []) as $grade) {
+                $params = [];
+                foreach (($grade['params'] ?? []) as $param) {
+                    $params[] = [
+                        'k' => (string) ($param[$locale]['k'] ?? ''),
+                        'v' => (string) ($param[$locale]['v'] ?? ''),
+                        'u' => (string) ($param[$locale]['u'] ?? ''),
+                    ];
+                }
+                $grades[] = [
+                    'code' => (string) ($grade['code'] ?? ''),
+                    'name' => (string) ($grade[$locale]['name'] ?? ''),
+                    'sourceFile' => (string) ($grade['file'] ?? ''),
+                    'file' => '',
+                    'params' => $params,
+                ];
+            }
+            $records[] = [
+                'code' => (string) ($product['code'] ?? ''),
+                'name' => (string) ($product[$locale]['name'] ?? ''),
+                'formula' => (string) ($product['formula'] ?? ''),
+                'seg' => (string) ($product['seg'] ?? ''),
+                'stream' => (string) ($product['stream'] ?? ''),
+                'buyer' => (string) ($product[$locale]['buyer'] ?? ''),
+                'status' => (string) ($product[$locale]['status'] ?? ''),
+                'grades' => $grades,
+            ];
+        }
+    }
+    $catalog[$locale] = $records;
+}
 $json = wp_json_encode($copy, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
 $script = '<script>window.BNG_WP_COPY = ' . ($json ?: '{}') . ';';
 $script .= 'window.BNG_WP_MEDIA = ' . wp_json_encode($media, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_ROCK_MEDIA = ' . wp_json_encode($rock_media, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_ROCK_ORE = ' . wp_json_encode($ore_content, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_FLOWSHEET_STREAMS = ' . wp_json_encode($flowsheet_streams, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
+$script .= 'window.BNG_PRODUCTS_DATA = ' . wp_json_encode($catalog, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_INITIAL_LANG = ' . wp_json_encode($is_en ? 'en' : 'ru') . ';';
 // Client map is an original self-contained HTML/SVG embed, not a WordPress page.
 $resources = [];
