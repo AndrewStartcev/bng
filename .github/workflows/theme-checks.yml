@@ -16,6 +16,8 @@ jobs:
         run: find . -type f -name '*.php' -not -path './resourse/*' -print0 | xargs -0 -n1 php -l
       - name: JavaScript syntax and RU EN switch regression
         run: python3 scripts/check-client-js.py
+      - name: News and Company full bilingual ACF completeness
+        run: python3 scripts/check-news-company.py
       - name: Milestones RU EN ACF and source integrity
         run: python3 scripts/check-milestones.py
       - name: Products ACF RU EN catalog regression
