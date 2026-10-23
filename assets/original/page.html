@@ -1289,7 +1289,44 @@ class Component extends DCLogic {
     const heroPoster = homeMedia.poster || '';
     return {
       t: t, accent: accent, mapSrc: (window.BNG_MAP_URLS && window.BNG_MAP_URLS[lang]) || (window.__resources && window.__resources.depositMap) || '',
-      fitMap: (e) => { try { const fr = e.target; const h = fr.contentDocument.body.scrollHeight; if (h > 100) fr.style.height = h + 'px'; } catch (err) {} },
+      fitMap: (e) => {
+        // The approved map SVG lives in its original standalone HTML.
+        // Only .fact labels/distances/notes and .src are populated from ACF.
+        try {
+          const frame = e.target;
+          const doc = frame.contentDocument;
+          if (!doc) return;
+          const locale = this.state.lang;
+          const settings = (window.BNG_MAP_CONTENT && window.BNG_MAP_CONTENT[locale]) || {};
+          const update = () => {
+            const factNodes = doc.querySelectorAll('.facts .fact');
+            if (factNodes.length !== 6 || !Array.isArray(settings.cards) || settings.cards.length !== 6) return;
+            const names = ['.k', '.v', '.d', '.n'];
+            factNodes.forEach((node, i) => {
+              names.forEach((selector, j) => {
+                const el = node.querySelector(selector);
+                const value = String(settings.cards[i][j] ?? '');
+                if (el && el.textContent !== value) el.textContent = value;
+              });
+            });
+            const note = doc.querySelector('p.src');
+            if (note && typeof settings.footnote === 'string' && note.textContent !== settings.footnote) {
+              note.textContent = settings.footnote;
+            }
+            if (doc.body) {
+              const height = doc.body.scrollHeight;
+              if (height > 100 && Math.abs(frame.offsetHeight - height) > 2) frame.style.height = height + 'px';
+            }
+          };
+          update();
+          if (frame.__bngMapObserver) frame.__bngMapObserver.disconnect();
+          const observer = new MutationObserver(update);
+          observer.observe(doc, { childList: true, subtree: true });
+          frame.__bngMapObserver = observer;
+        } catch (error) {
+          // Keep the original map visible if the embed disallows document access.
+        }
+      },
       playVideoLabel: lang === 'ru' ? 'Смотреть видео' : 'Watch video',
       playHomeVideo: (event) => {
         if (event && event.preventDefault) event.preventDefault();
