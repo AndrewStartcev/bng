@@ -39,7 +39,7 @@
     {
       "key": "field_bng_en_flowsheet_pick",
       "name": "bng_en_flowsheet_pick",
-      "label": "Pick",
+      "label": "Stream selector label",
       "type": "text",
       "rows": 0,
       "default_value": "Follow a stream",
@@ -50,7 +50,7 @@
     {
       "key": "field_bng_en_flowsheet_feedKicker",
       "name": "bng_en_flowsheet_feedKicker",
-      "label": "Feed Kicker",
+      "label": "Feed eyebrow",
       "type": "text",
       "rows": 0,
       "default_value": "Feed",
@@ -61,7 +61,7 @@
     {
       "key": "field_bng_en_flowsheet_feed",
       "name": "bng_en_flowsheet_feed",
-      "label": "Feed",
+      "label": "Feed name",
       "type": "text",
       "rows": 0,
       "default_value": "Synnyrite",
@@ -72,18 +72,101 @@
     {
       "key": "field_bng_en_flowsheet_feedNote",
       "name": "bng_en_flowsheet_feedNote",
-      "label": "Feed Note",
-      "type": "text",
-      "rows": 0,
+      "label": "Feed description",
+      "type": "textarea",
+      "rows": 3,
       "default_value": "One ore body, Kalyumnoye. Sulphuric-acid decomposition — not a Mannheim conversion, not a Bayer refinery.",
       "wrapper": {
-        "width": "50"
+        "width": "100"
       }
+    },
+    {
+      "key": "field_bng_en_flowsheet_streams",
+      "name": "bng_en_flowsheet_streams",
+      "label": "Four streams: elements, products and buyers",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Add stream",
+      "sub_fields": [
+        {
+          "key": "field_bng_en_flowsheet_stream_symbol",
+          "name": "symbol",
+          "label": "Element symbol",
+          "type": "text",
+          "wrapper": {
+            "width": "20"
+          }
+        },
+        {
+          "key": "field_bng_en_flowsheet_stream_atomic",
+          "name": "atomic",
+          "label": "Atomic number",
+          "type": "text",
+          "wrapper": {
+            "width": "20"
+          }
+        },
+        {
+          "key": "field_bng_en_flowsheet_stream_name",
+          "name": "name",
+          "label": "Stream title",
+          "type": "text",
+          "wrapper": {
+            "width": "30"
+          }
+        },
+        {
+          "key": "field_bng_en_flowsheet_stream_count",
+          "name": "count",
+          "label": "Product count label",
+          "type": "text",
+          "wrapper": {
+            "width": "30"
+          }
+        },
+        {
+          "key": "field_bng_en_flowsheet_stream_buyers",
+          "name": "buyers",
+          "label": "Buyers",
+          "type": "textarea",
+          "wrapper": {
+            "width": "100"
+          }
+        },
+        {
+          "key": "field_bng_en_flowsheet_stream_products",
+          "name": "products",
+          "label": "Stream products",
+          "type": "repeater",
+          "layout": "row",
+          "button_label": "Add product",
+          "sub_fields": [
+            {
+              "key": "field_bng_en_flowsheet_stream_product_formula",
+              "name": "formula",
+              "label": "Formula",
+              "type": "text",
+              "wrapper": {
+                "width": "30"
+              }
+            },
+            {
+              "key": "field_bng_en_flowsheet_stream_product_name",
+              "name": "name",
+              "label": "Product name",
+              "type": "text",
+              "wrapper": {
+                "width": "70"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "field_bng_en_flowsheet_all",
       "name": "bng_en_flowsheet_all",
-      "label": "All",
+      "label": "All streams button",
       "type": "text",
       "rows": 0,
       "default_value": "All four",
@@ -100,18 +183,18 @@
     {
       "key": "field_bng_en_flowsheet_routesTitle",
       "name": "bng_en_flowsheet_routesTitle",
-      "label": "Routes Title",
-      "type": "text",
-      "rows": 0,
+      "label": "Process routes heading",
+      "type": "textarea",
+      "rows": 3,
       "default_value": "Three routes tested since 2018. None was optimal. Fourth and final route developed in 2026",
       "wrapper": {
-        "width": "50"
+        "width": "100"
       }
     },
     {
       "key": "field_bng_en_flowsheet_routesRec",
       "name": "bng_en_flowsheet_routesRec",
-      "label": "Routes Rec",
+      "label": "Recommended route label",
       "type": "text",
       "rows": 0,
       "default_value": "Recommended",
@@ -122,12 +205,12 @@
     {
       "key": "field_bng_en_flowsheet_routesSelected",
       "name": "bng_en_flowsheet_routesSelected",
-      "label": "Routes Selected",
-      "type": "text",
-      "rows": 0,
+      "label": "Selected route description",
+      "type": "textarea",
+      "rows": 3,
       "default_value": "On the basis of this work a sulphuric-acid decomposition route was selected as the fourth and final process route in 2026.",
       "wrapper": {
-        "width": "50"
+        "width": "100"
       }
     },
     {
@@ -136,12 +219,12 @@
       "label": "Технологические схемы",
       "type": "repeater",
       "layout": "block",
-      "button_label": "Добавить строку",
+      "button_label": "Add row",
       "sub_fields": [
         {
           "key": "field_bng_en_flowsheet_routes_0",
           "name": "c0",
-          "label": "Дата / номер",
+          "label": "Number",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -151,7 +234,7 @@
         {
           "key": "field_bng_en_flowsheet_routes_1",
           "name": "c1",
-          "label": "Заголовок",
+          "label": "Route title",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -161,7 +244,7 @@
         {
           "key": "field_bng_en_flowsheet_routes_2",
           "name": "c2",
-          "label": "Описание",
+          "label": "Full description",
           "type": "textarea",
           "rows": 3,
           "wrapper": {
@@ -171,7 +254,7 @@
         {
           "key": "field_bng_en_flowsheet_routes_3",
           "name": "c3",
-          "label": "Примечание",
+          "label": "Outcomes / results",
           "type": "text",
           "rows": 0,
           "wrapper": {
@@ -183,9 +266,9 @@
     {
       "key": "field_bng_en_flowsheet_routesNote",
       "name": "bng_en_flowsheet_routesNote",
-      "label": "Routes Note",
+      "label": "Detailed route rationale",
       "type": "textarea",
-      "rows": 4,
+      "rows": 3,
       "default_value": "Why the alkaline route won, in the company’s own terms: any potassium salt can be made by acid neutralisation of the potash solution after the second carbonation stage, so the slate follows the market; alkaline streams need no acid-resistant equipment; capex is 1.5–2.0× lower vs conventional underground potassium mining; the same chemistry is deeply worked out on nepheline; limestone bodies sit 5 km and 20 km away and pulverised-coal firing lets the plant stand on the deposit; and aluminium hydroxide, an intermediate, has a market of its own.",
       "wrapper": {
         "width": "100"
@@ -200,7 +283,7 @@
     {
       "key": "field_bng_en_flowsheet_givesTitle",
       "name": "bng_en_flowsheet_givesTitle",
-      "label": "Gives Title",
+      "label": "Benefits heading",
       "type": "text",
       "rows": 0,
       "default_value": "What coupling gives",
@@ -213,15 +296,15 @@
       "name": "bng_en_flowsheet_gives",
       "label": "Преимущества процесса",
       "type": "repeater",
-      "layout": "row",
-      "button_label": "Добавить строку",
+      "layout": "block",
+      "button_label": "Add row",
       "sub_fields": [
         {
           "key": "field_bng_en_flowsheet_gives_0",
           "name": "c0",
-          "label": "Текст",
-          "type": "text",
-          "rows": 0,
+          "label": "Full text",
+          "type": "textarea",
+          "rows": 3,
           "wrapper": {
             "width": "100"
           }
@@ -231,7 +314,7 @@
     {
       "key": "field_bng_en_flowsheet_costsTitle",
       "name": "bng_en_flowsheet_costsTitle",
-      "label": "Costs Title",
+      "label": "Constraints heading",
       "type": "text",
       "rows": 0,
       "default_value": "What coupling costs",
@@ -244,13 +327,13 @@
       "name": "bng_en_flowsheet_costs",
       "label": "Ограничения",
       "type": "repeater",
-      "layout": "row",
-      "button_label": "Добавить строку",
+      "layout": "block",
+      "button_label": "Add row",
       "sub_fields": [
         {
           "key": "field_bng_en_flowsheet_costs_0",
           "name": "c0",
-          "label": "Текст",
+          "label": "Full text",
           "type": "textarea",
           "rows": 3,
           "wrapper": {
@@ -323,5 +406,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1792700000
+  "modified": 1793010101
 }
