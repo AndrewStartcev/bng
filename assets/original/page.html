@@ -621,6 +621,12 @@ textarea.input { min-height: 90px; resize: vertical; }
         <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
           <a href="#" sc-camel-on-click="{{ n.go }}" style="text-decoration:none;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding-bottom:3px;color:{{ n.color }};border-bottom:2px solid {{ n.mark }}">{{ n.label }}</a>
         </sc-for>
+        <div class="bng-mobile-nav-footer">
+          <div class="bng-mobile-nav-contact-label">{{ mobileGeneralLabel }}</div>
+          <a class="bng-mobile-nav-email" href="{{ mobileGeneralMailHref }}">{{ mobileGeneralMail }}</a>
+          <div class="bng-mobile-nav-company-label">{{ mobileCompanyLabel }}</div>
+          <div class="bng-mobile-nav-company">{{ mobileCompanyName }}</div>
+        </div>
       </nav>
       <div class="bng-client-language" role="group" aria-label="Language / Язык" style="display:flex;align-items:center;gap:8px;font-family:'PT Sans',system-ui,sans-serif;font-size:12px;letter-spacing:0.12em;margin-left:auto;white-space:nowrap">
         <button type="button" sc-camel-on-click="{{ setRussian }}" aria-label="Русская версия" aria-pressed="{{ isRussian }}" style="cursor:pointer;border:0;border-bottom:2px solid {{ ruLanguageBorder }};padding:3px 0;background:transparent;font:inherit;color:{{ ruLanguageColor }}">RU</button>
@@ -1350,6 +1356,11 @@ class Component extends DCLogic {
       navItems: navItems, streamsPlain: streamsPlain,
       menuOpen: !!this.state.menuOpen,
       mobileMenuLabel: lang === 'ru' ? 'Меню сайта' : 'Site menu',
+      mobileGeneralLabel: lang === 'ru' ? 'Общие вопросы' : 'General enquiries',
+      mobileGeneralMail: (t.company.contacts && t.company.contacts[0] && t.company.contacts[0][1]) || 'info@bng-elements.ru',
+      mobileGeneralMailHref: 'mailto:' + ((t.company.contacts && t.company.contacts[0] && t.company.contacts[0][1]) || 'info@bng-elements.ru'),
+      mobileCompanyLabel: lang === 'ru' ? 'Компания' : 'Company',
+      mobileCompanyName: (t.company.contacts && t.company.contacts[3] && t.company.contacts[3][1]) || (lang === 'ru' ? 'БНГ Элементс · ООО «Байкал Недра Гео»' : 'BNG Elements'),
       toggleMenu: (event) => {
         if (event && event.preventDefault) event.preventDefault();
         this.setState({ menuOpen: !this.state.menuOpen });
