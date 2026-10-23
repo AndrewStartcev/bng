@@ -78,6 +78,57 @@
       }
     },
     {
+      "key": "field_bng_ru_rock_ore",
+      "name": "bng_ru_rock_ore",
+      "label": "Химический состав руды — названия, формулы, значения и полосы",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Добавить компонент",
+      "min": 1,
+      "sub_fields": [
+        {
+          "key": "field_bng_ru_rock_ore_formula",
+          "name": "formula",
+          "label": "Химическая формула",
+          "type": "text",
+          "wrapper": {
+            "width": "25"
+          }
+        },
+        {
+          "key": "field_bng_ru_rock_ore_name",
+          "name": "name",
+          "label": "Название элемента",
+          "type": "text",
+          "wrapper": {
+            "width": "25"
+          }
+        },
+        {
+          "key": "field_bng_ru_rock_ore_percentage",
+          "name": "percentage",
+          "label": "Содержание в процентах (0–100)",
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "step": 0.01,
+          "wrapper": {
+            "width": "25"
+          }
+        },
+        {
+          "key": "field_bng_ru_rock_ore_display",
+          "name": "display",
+          "label": "Подпись процента (необязательно)",
+          "type": "text",
+          "instructions": "Если пусто, формируется из значения процента",
+          "wrapper": {
+            "width": "25"
+          }
+        }
+      ]
+    },
+    {
       "key": "field_bng_ru_rock_compNote",
       "name": "bng_ru_rock_compNote",
       "label": "Пояснение к составу",
@@ -326,5 +377,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1792810000
+  "modified": 1792900000
 }
