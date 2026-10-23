@@ -79,10 +79,32 @@ foreach (['ru','en'] as $locale) {
     }
     $map_content[$locale] = ['cards' => $cards, 'footnote' => $footnote];
 }
+// The Rock chemistry is editorial content, not fixed code in the client JS.
+$ore_seed_path = get_template_directory() . '/data/rock-ore-content.json';
+$ore_seed = is_readable($ore_seed_path) ? json_decode((string) file_get_contents($ore_seed_path), true) : [];
+$ore_content = [];
+foreach (['ru', 'en'] as $locale) {
+    $rows = is_array($ore_seed[$locale] ?? null) ? $ore_seed[$locale] : [];
+    if ($rock_post_id && function_exists('get_field')) {
+        $saved_rows = get_field('bng_' . $locale . '_rock_ore', $rock_post_id);
+        if (is_array($saved_rows) && $saved_rows) $rows = $saved_rows;
+    }
+    $ore_content[$locale] = array_values(array_map(static function ($item): array {
+        $pct = is_array($item) ? (float) ($item['percentage'] ?? 0) : 0;
+        $pct = max(0, min(100, $pct));
+        return [
+            'formula' => sanitize_text_field((string) ($item['formula'] ?? '')),
+            'name' => sanitize_text_field((string) ($item['name'] ?? '')),
+            'percentage' => $pct,
+            'display' => sanitize_text_field((string) ($item['display'] ?? '')),
+        ];
+    }, $rows));
+}
 $json = wp_json_encode($copy, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
 $script = '<script>window.BNG_WP_COPY = ' . ($json ?: '{}') . ';';
 $script .= 'window.BNG_WP_MEDIA = ' . wp_json_encode($media, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_ROCK_MEDIA = ' . wp_json_encode($rock_media, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
+$script .= 'window.BNG_ROCK_ORE = ' . wp_json_encode($ore_content, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_INITIAL_LANG = ' . wp_json_encode($is_en ? 'en' : 'ru') . ';';
 // Client map is an original self-contained HTML/SVG embed, not a WordPress page.
 $resources = [];
