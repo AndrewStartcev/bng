@@ -1246,30 +1246,37 @@ class Component extends DCLogic {
     });
 
     const active = this.state.stream;
-    const streams = STREAM_ORDER.map((k) => {
+    const editableStreams = (window.BNG_FLOWSHEET_STREAMS && window.BNG_FLOWSHEET_STREAMS[lang]) || [];
+    const streams = editableStreams.map((source) => {
+      const k = String(source.symbol || '');
       const on = active === k;
       const dim = active && !on;
       return {
-        sym: k, n: ATOMIC[k], name: t.element[k], buyers: BUYERS[k][lang],
-        count: PRODUCTS.filter((p) => p.stream === k).length + (lang === 'ru' ? ' \u0432 \u043f\u043e\u0442\u043e\u043a\u0435' : ' in stream'),
-        products: PRODUCTS.filter((p) => p.stream === k).map((p) => ({ formula: p.formula, name: p.code === 'PS-Si02' ? 'Сельскохозяйственное применение' : p[lang].name })),
-        frame: on ? STREAM_COLOR[k] : 'rgba(18,23,29,0.18)',
-        frame2: on ? STREAM_COLOR[k] : '#12171D',
-        ink: '#12171D',
-        line: on ? STREAM_COLOR[k] : 'rgba(18,23,29,0.25)',
+        sym: k, n: String(source.atomic || ''), name: String(source.name || ''),
+        buyers: String(source.buyers || ''), count: String(source.count || ''),
+        products: Array.isArray(source.products) ? source.products.map((p) => ({
+          formula: String(p.formula || ''), name: String(p.name || '')
+        })) : [],
+        frame: on ? (STREAM_COLOR[k] || '#7C5CBF') : 'rgba(18,23,29,0.18)',
+        frame2: on ? (STREAM_COLOR[k] || '#7C5CBF') : '#12171D',
+        ink: '#12171D', line: on ? (STREAM_COLOR[k] || '#7C5CBF') : 'rgba(18,23,29,0.25)',
         panel: on ? 'rgba(18,23,29,0.02)' : 'transparent',
         op: dim ? '0.62' : '1',
         go: () => this.setState({ stream: on ? null : k })
       };
     });
-
-    const streamTabs = [{ key: null, label: t.flow.all }].concat(STREAM_ORDER.map((k) => ({ key: k, label: k + ' \u00b7 ' + t.element[k] })))
-      .map((o) => {
+    const streamTabs = [{ key: null, label: t.flow.all }]
+      .concat(editableStreams.map((s) => ({
+        key: String(s.symbol || ''), label: String(s.symbol || '') + ' · ' + String(s.name || '')
+      }))).map((o) => {
         const on = active === o.key;
-        const c = o.key ? STREAM_COLOR[o.key] : '#12171D';
-        return { label: o.label, bg: on ? '#12171D' : 'transparent', fg: on ? '#ffffff' : '#3C4247',
-          border: on ? '#12171D' : 'rgba(18,23,29,0.22)', rule: c,
-          go: () => this.setState({ stream: o.key }) };
+        const color = o.key ? (STREAM_COLOR[o.key] || '#7C5CBF') : '#12171D';
+        return {
+          label: o.label, bg: on ? '#12171D' : 'transparent',
+          fg: on ? '#ffffff' : '#3C4247',
+          border: on ? '#12171D' : 'rgba(18,23,29,0.22)',
+          rule: color, go: () => this.setState({ stream: o.key })
+        };
       });
 
     const oreData = (window.BNG_ROCK_ORE && window.BNG_ROCK_ORE[lang]) || [];
