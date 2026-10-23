@@ -1,6 +1,6 @@
 <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
-      <section>
-        <div style="background:#12171D;color:#ffffff;padding:80px 64px;margin-top:40px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:56px;align-items:end">
+      <section class="bng-home">
+        <div class="bng-home-hero" style="background:#12171D;color:#ffffff;padding:80px 64px;margin-top:40px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:56px;align-items:end">
           <div>
             <p style="margin:0 0 28px;font-size:10.5px;letter-spacing:0.24em;text-transform:uppercase;color:#9AA0A6">{{ t.home.kicker }}</p>
             <h1 style="font-family:'PT Serif',Georgia,serif;font-weight:400;font-size:clamp(38px,4.6vw,64px);line-height:1.08;letter-spacing:-0.01em;margin:0">{{ t.home.title }}</h1>
@@ -14,9 +14,10 @@
           </div>
         </div>
 
-        <figure class="blueprint" style="margin:56px 0 0;padding:0;height:420px;position:relative">
+        <figure class="blueprint bng-home-video-frame" style="margin:56px 0 0;padding:0;height:420px;position:relative">
           <sc-if value="{{ heroIsFile }}" hint-placeholder-val="{{ false }}">
-            <video src="{{ heroVideo }}" sc-camel-poster="{{ heroPoster }}" controls playsinline preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;background:#12171D"></video>
+            <video class="bng-home-video" src="{{ heroVideo }}" sc-camel-poster="{{ heroPoster }}" controls playsinline preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;background:#12171D"></video>
+            <button type="button" class="bng-home-play" sc-camel-on-click="{{ playHomeVideo }}" aria-label="{{ playVideoLabel }}"><span class="bng-home-play-icon" aria-hidden="true"></span><span class="bng-home-play-text">{{ playVideoLabel }}</span></button>
           </sc-if>
           <sc-if value="{{ heroHasPoster }}" hint-placeholder-val="{{ false }}">
             <img src="{{ heroPoster }}" alt="BNG Elements" style="display:block;width:100%;height:100%;object-fit:cover;background:#12171D">
@@ -26,7 +27,7 @@
           </sc-if>
         </figure>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:28px;margin-top:72px">
+        <div class="bng-home-streams" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:28px;margin-top:72px">
           <sc-for list="{{ streamsPlain }}" as="s" hint-placeholder-count="4">
             <a href="#" sc-camel-on-click="{{ s.go }}" style="text-decoration:none;color:#12171D;display:flex;gap:18px;align-items:stretch;padding-top:22px;border-top:1px solid rgba(18,23,29,0.18)" style-hover="color:#5A3D96">
               <span style="flex:none;width:64px;min-height:64px;border:2px solid #12171D;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1">
@@ -42,7 +43,7 @@
           </sc-for>
         </div>
 
-        <div style="margin-top:80px;display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:56px;align-items:start">
+        <div class="bng-home-positioning" style="margin-top:80px;display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:56px;align-items:start">
           <h2 style="font-family:'PT Serif',Georgia,serif;font-weight:400;font-size:30px;line-height:1.15;margin:0">{{ t.home.posTitle }}</h2>
           <div>
             <p style="font-size:19px;line-height:1.6;margin:0 0 28px;text-wrap:pretty">{{ t.home.posBody }}</p>
