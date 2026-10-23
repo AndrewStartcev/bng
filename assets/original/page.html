@@ -1228,20 +1228,40 @@ class Component extends DCLogic {
         border: on ? '#12171D' : 'rgba(18,23,29,0.22)', line: SEG_COLOR[k], go: () => this.setState({ seg: k }) };
     });
 
-    const visible = PRODUCTS.filter((p) => this.state.seg === 'all' || p.seg === this.state.seg);
+    const editableCatalog = (window.BNG_PRODUCTS_DATA && window.BNG_PRODUCTS_DATA[lang]) || [];
+    const visible = editableCatalog.filter((p) => this.state.seg === 'all' || p.seg === this.state.seg);
     const gradeWord = (n) => lang === 'ru' ? (n === 1 ? '1 марка' : n < 5 ? n + ' марки' : n + ' марок') : (n === 1 ? '1 grade' : n + ' grades');
     const rows = visible.map((p) => {
-      const gl = GRADES[p.code] || [];
+      const grades = Array.isArray(p.grades) ? p.grades : [];
       const open = this.state.openProduct === p.code;
       return {
-        name: p[lang].name, buyer: p[lang].buyer, status: p[lang].status,
-        formula: p.formula, code: p.code, stream: p.stream, color: STREAM_COLOR[p.stream],
-        segLabel: t.seg[p.seg],
-        open: open, hasGrades: gl.length > 0, noGrades: gl.length === 0, note: GRADE_NOTE[lang],
-        gradesLabel: gl.length ? gradeWord(gl.length) : (lang === 'ru' ? 'готовится' : 'in preparation'),
+        name: String(p.name || ''), buyer: String(p.buyer || ''), status: String(p.status || ''),
+        formula: String(p.formula || ''), code: String(p.code || ''),
+        stream: String(p.stream || ''), color: STREAM_COLOR[p.stream] || '#7C5CBF',
+        segLabel: t.seg[p.seg] || String(p.seg || ''),
+        open: open, hasGrades: grades.length > 0, noGrades: grades.length === 0,
+        note: GRADE_NOTE[lang],
+        gradesLabel: grades.length ? gradeWord(grades.length) : (lang === 'ru' ? 'готовится' : 'in preparation'),
         chev: open ? '▲' : '▼', bg: open ? '#F7F7F8' : 'transparent',
         toggle: () => this.setState({ openProduct: open ? null : p.code }),
-        grades: gl.map((x) => { const has = !!x.file; return { code: x.code, file: has ? ((window.__resources && window.__resources[SPEC_RES[x.file]]) || x.file) : '#', dl: has ? x.file.split('/').pop() : '', name: x[lang].name, params: x.params.slice(0, 4).map((pm) => pm[lang]), btnBorder: has ? '#7C5CBF' : 'rgba(18,23,29,0.22)', btnBg: has ? '#7C5CBF' : 'transparent', btnFg: has ? '#ffffff' : '#8A8F94', btnHover: has ? '#6B4BAE' : 'transparent', btnPe: has ? 'auto' : 'none', btnLabel: has ? t.products.download : (lang === 'ru' ? 'Спецификация готовится' : 'Spec sheet in preparation') }; })
+        grades: grades.map((g) => {
+          const assetKey = g.sourceFile && SPEC_RES[g.sourceFile];
+          const sourceLink = assetKey && window.__resources && window.__resources[assetKey];
+          const file = g.file || sourceLink || '';
+          const has = !!file;
+          return {
+            code: String(g.code || ''), file: has ? file : '#',
+            dl: has ? (String(file).split('/').pop().split('?')[0]) : '',
+            name: String(g.name || ''),
+            params: Array.isArray(g.params) ? g.params.map((param) => ({
+              k: String(param.k || ''), v: String(param.v || ''), u: String(param.u || '')
+            })) : [],
+            btnBorder: has ? '#7C5CBF' : 'rgba(18,23,29,0.22)',
+            btnBg: has ? '#7C5CBF' : 'transparent', btnFg: has ? '#ffffff' : '#8A8F94',
+            btnHover: has ? '#6B4BAE' : 'transparent', btnPe: has ? 'auto' : 'none',
+            btnLabel: has ? t.products.download : (lang === 'ru' ? 'Спецификация готовится' : 'Spec sheet in preparation')
+          };
+        })
       };
     });
 
@@ -1427,7 +1447,7 @@ class Component extends DCLogic {
       posCells: t.home.cells.map((c) => ({ k: c[0], v: c[1] })),
       segFilters: segFilters, rows: rows,
       statusItems: t.products.statusBody.split(/(?<=\.)\s+(?=[A-Z\u0410-\u042f\u0401])/),
-      productCount: rows.length + ' / 10 ' + t.products.countLabel,
+      productCount: rows.length + ' / ' + editableCatalog.length + ' ' + t.products.countLabel,
       segmentCards: t.products.cards.map((c, i) => ({ title: c[0], count: c[1], body: c[2], list: c[3],
         color: [STREAM_COLOR.K, STREAM_COLOR.Si, STREAM_COLOR.Al][i] })),
       rockPhotoCore: (window.BNG_ROCK_MEDIA && window.BNG_ROCK_MEDIA[lang] && window.BNG_ROCK_MEDIA[lang].core) || '',
