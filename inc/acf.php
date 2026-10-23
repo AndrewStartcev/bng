@@ -221,3 +221,50 @@ add_action('admin_init', static function (): void {
         update_field('field_bng_' . $locale . '_home_cells', $rows, $post_id);
     }
 }, 30);
+
+/**
+ * Seed the approved client copy for the Rock section only.
+ * Runs when an editor opens wp-admin after the canonical CPT record exists.
+ * Existing saved text (including intentionally empty strings) is never overwritten.
+ * Repeaters whose row counters were saved but whose cells are all blank are repaired.
+ */
+add_action('admin_init', static function (): void {
+    if (!current_user_can('edit_pages') || !function_exists('update_field')) return;
+    $post_id = bng_section_id('rock');
+    if (!$post_id) return;
+    foreach (['ru', 'en'] as $lang) {
+        $source = bng_source()['copy'][$lang]['rock'] ?? [];
+        if (!is_array($source)) continue;
+        foreach ($source as $name => $value) {
+            $meta = 'bng_' . $lang . '_rock_' . $name;
+            $key = 'field_bng_' . $lang . '_rock_' . $name;
+            if (!is_array($value)) {
+                if (!metadata_exists('post', $post_id, $meta)) {
+                    update_field($key, (string) $value, $post_id);
+                }
+                continue;
+            }
+            $row_count = (int) get_post_meta($post_id, $meta, true);
+            $nonempty = false;
+            foreach (range(0, max(count($value), $row_count) - 1) as $i) {
+                foreach (['c0', 'c1'] as $col) {
+                    $cell = get_post_meta($post_id, $meta . '_' . $i . '_' . $col, true);
+                    if (is_scalar($cell) && trim((string) $cell) !== '') {
+                        $nonempty = true;
+                        break 2;
+                    }
+                }
+            }
+            if ($nonempty) continue;
+            $rows = [];
+            foreach ($value as $item) {
+                $parts = is_array($item) ? array_values($item) : [(string) $item];
+                $rows[] = [
+                    $key . '_0' => (string) ($parts[0] ?? ''),
+                    $key . '_1' => (string) ($parts[1] ?? ''),
+                ];
+            }
+            update_field($key, $rows, $post_id);
+        }
+    }
+}, 40);
