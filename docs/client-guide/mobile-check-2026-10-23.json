@@ -1,0 +1,98 @@
+[
+  {
+    "section": "home",
+    "lang": "ru",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "rock",
+    "lang": "ru",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "evidence",
+    "lang": "ru",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "flowsheet",
+    "lang": "ru",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "products",
+    "lang": "ru",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "milestones",
+    "lang": "ru",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "news",
+    "lang": "ru",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "company",
+    "lang": "ru",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "home",
+    "lang": "en",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "rock",
+    "lang": "en",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "evidence",
+    "lang": "en",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "flowsheet",
+    "lang": "en",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "products",
+    "lang": "en",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "milestones",
+    "lang": "en",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "news",
+    "lang": "en",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "section": "company",
+    "lang": "en",
+    "scrollWidth": 390,
+    "width": 390
+  }
+]
