@@ -1,26 +1,26 @@
 <sc-if value="{{ isMilestones }}" hint-placeholder-val="{{ false }}">
-      <section>
-        <div style="margin-top:44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:end">
+      <section class="bng-milestones">
+        <div class="bng-milestones-intro" style="margin-top:44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:end">
           <h1 style="font-family:'PT Serif',Georgia,serif;font-weight:400;font-size:clamp(32px,3.4vw,46px);line-height:1.12;margin:0">{{ t.milestones.title }}</h1>
           <p style="font-size:16px;line-height:1.6;color:#3C4247;margin:0;text-wrap:pretty">{{ t.milestones.sub }}</p>
         </div>
 
-        <div style="margin-top:56px">
-          <div style="display:flex;gap:28px;justify-content:flex-end;flex-wrap:wrap;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#6E747A;margin-bottom:32px">
+        <div class="bng-milestones-timeline" style="margin-top:56px">
+          <div class="bng-milestones-legend" style="display:flex;gap:28px;justify-content:flex-end;flex-wrap:wrap;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#6E747A;margin-bottom:32px">
             <span style="display:flex;align-items:center;gap:10px"><span style="width:12px;height:12px;border-radius:50%;background:#12171D;display:inline-block"></span>{{ t.milestones.doneTitle }}</span>
             <span style="display:flex;align-items:center;gap:10px"><span style="width:12px;height:12px;border-radius:50%;border:2px solid #7C5CBF;box-sizing:border-box;display:inline-block"></span>{{ t.milestones.aheadTitle }}</span>
           </div>
           <sc-for list="{{ snakeRows }}" as="r" hint-placeholder-count="3">
-            <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));direction:{{ r.dir }};padding-bottom:48px">
+            <div class="bng-milestones-snake-row" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));direction:{{ r.dir }};padding-bottom:48px">
               <sc-for list="{{ r.cells }}" as="m" hint-placeholder-count="5">
-                <div style="position:relative;direction:ltr;padding:0 10px;text-align:center">
-                  <div style="position:absolute;left:0;right:50%;top:13px;border-top:{{ m.leftLine }}"></div>
-                  <div style="position:absolute;left:50%;right:0;top:13px;border-top:{{ m.rightLine }}"></div>
-                  <div style="position:absolute;left:{{ m.dropX }};top:13px;bottom:-62px;margin-left:-1px;border-left:{{ m.drop }}"></div>
-                  <span style="position:relative;z-index:1;display:block;width:28px;height:28px;margin:0 auto;border-radius:50%;box-sizing:border-box;background:{{ m.fill }};border:2px solid {{ m.ring }}"></span>
-                  <div style="font-family:'PT Serif',Georgia,serif;font-size:16px;margin-top:14px;color:#12171D">{{ m.when }}</div>
-                  <div style="font-family:'PT Serif',Georgia,serif;font-size:15px;line-height:1.3;margin-top:6px;color:#12171D;text-wrap:pretty">{{ m.head }}</div>
-                  <div style="font-size:12.5px;line-height:1.5;color:#6E747A;margin-top:8px;text-wrap:pretty">{{ m.body }}</div>
+                <div class="bng-milestones-snake-cell" style="position:relative;direction:ltr;padding:0 10px;text-align:center">
+                  <div class="bng-milestone-line" style="position:absolute;left:0;right:50%;top:13px;border-top:{{ m.leftLine }}"></div>
+                  <div class="bng-milestone-line" style="position:absolute;left:50%;right:0;top:13px;border-top:{{ m.rightLine }}"></div>
+                  <div class="bng-milestone-line" style="position:absolute;left:{{ m.dropX }};top:13px;bottom:-62px;margin-left:-1px;border-left:{{ m.drop }}"></div>
+                  <span class="bng-milestone-dot" style="position:relative;z-index:1;display:block;width:28px;height:28px;margin:0 auto;border-radius:50%;box-sizing:border-box;background:{{ m.fill }};border:2px solid {{ m.ring }}"></span>
+                  <div class="bng-milestone-date" style="font-family:'PT Serif',Georgia,serif;font-size:16px;margin-top:14px;color:#12171D">{{ m.when }}</div>
+                  <div class="bng-milestone-head" style="font-family:'PT Serif',Georgia,serif;font-size:15px;line-height:1.3;margin-top:6px;color:#12171D;text-wrap:pretty">{{ m.head }}</div>
+                  <div class="bng-milestone-body" style="font-size:12.5px;line-height:1.5;color:#6E747A;margin-top:8px;text-wrap:pretty">{{ m.body }}</div>
                 </div>
               </sc-for>
             </div>
