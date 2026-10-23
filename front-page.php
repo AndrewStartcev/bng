@@ -25,6 +25,27 @@ foreach (['ru','en'] as $locale) {
         $copy[$locale][$key] = bng_copy($section, $locale);
     }
 }
+// Product filter labels and in-progress specification messages are editorial.
+$segment_keys = ['segAll','segAgro','segChemicals','segMetals'];
+$segment_map = ['segAll'=>'all','segAgro'=>'agro','segChemicals'=>'chemicals','segMetals'=>'metals'];
+$pending = [
+    'ru' => ['pendingLabel'=>'готовится','gradeNoFile'=>'Спецификация готовится','noGradesNote'=>'Спецификация готовится — полевые испытания с 1 кв. 2028 года.'],
+    'en' => ['pendingLabel'=>'in preparation','gradeNoFile'=>'Spec sheet in preparation','noGradesNote'=>'Specification sheet in preparation — field trials from Q1 2028.'],
+];
+$product_id = bng_section_id('products');
+foreach (['ru','en'] as $locale) {
+    $segment_source = (array) (bng_source()['copy'][$locale]['seg'] ?? []);
+    foreach ($segment_map as $acf_key => $segment) {
+        $copy[$locale]['products'][$acf_key] = $product_id
+            ? bng_field('bng_' . $locale . '_products_' . $acf_key, (string) ($segment_source[$segment] ?? ''), $product_id)
+            : (string) ($segment_source[$segment] ?? '');
+    }
+    foreach ($pending[$locale] as $acf_key => $default) {
+        $copy[$locale]['products'][$acf_key] = $product_id
+            ? bng_field('bng_' . $locale . '_products_' . $acf_key, $default, $product_id)
+            : $default;
+    }
+}
 $media = [];
 $front_id = (int) get_option('page_on_front');
 foreach (['ru','en'] as $locale) {
