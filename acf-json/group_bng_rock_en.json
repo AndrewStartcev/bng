@@ -78,6 +78,57 @@
       }
     },
     {
+      "key": "field_bng_en_rock_ore",
+      "name": "bng_en_rock_ore",
+      "label": "Ore composition — formula, element, percentage and bar",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Add component",
+      "min": 1,
+      "sub_fields": [
+        {
+          "key": "field_bng_en_rock_ore_formula",
+          "name": "formula",
+          "label": "Chemical formula",
+          "type": "text",
+          "wrapper": {
+            "width": "25"
+          }
+        },
+        {
+          "key": "field_bng_en_rock_ore_name",
+          "name": "name",
+          "label": "Element name",
+          "type": "text",
+          "wrapper": {
+            "width": "25"
+          }
+        },
+        {
+          "key": "field_bng_en_rock_ore_percentage",
+          "name": "percentage",
+          "label": "Content percentage (0–100)",
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "step": 0.01,
+          "wrapper": {
+            "width": "25"
+          }
+        },
+        {
+          "key": "field_bng_en_rock_ore_display",
+          "name": "display",
+          "label": "Percentage label (optional)",
+          "type": "text",
+          "instructions": "Derived from percentage if empty",
+          "wrapper": {
+            "width": "25"
+          }
+        }
+      ]
+    },
+    {
       "key": "field_bng_en_rock_compNote",
       "name": "bng_en_rock_compNote",
       "label": "Пояснение к составу",
@@ -326,5 +377,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1792810000
+  "modified": 1792900000
 }
