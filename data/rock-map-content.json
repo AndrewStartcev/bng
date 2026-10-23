@@ -1,0 +1,84 @@
+{
+  "ru": {
+    "cards": [
+      [
+        "Ближайший посёлок",
+        "Нижнеангарск",
+        "~110 км",
+        "Вахтовая база и станция БАМ, по дороге"
+      ],
+      [
+        "Ближайшая ж/д станция",
+        "Новый Уоян",
+        "~90 км",
+        "Байкало-Амурская магистраль, по технологическому проезду"
+      ],
+      [
+        "До Тихого океана",
+        "Ванино / Сов. Гавань",
+        "~3 000 км",
+        "По БАМу от Нового Уояна до тихоокеанского побережья"
+      ],
+      [
+        "До Чёрного моря",
+        "Новороссийск / Тамань",
+        "~6 900 км",
+        "По железной дороге через Тайшет и Транссиб"
+      ],
+      [
+        "До Балтики",
+        "Усть-Луга / Санкт-Петербург",
+        "~6 400 км",
+        "По железной дороге через Тайшет и Транссиб"
+      ],
+      [
+        "До границы с Китаем",
+        "Переход Забайкальск",
+        "~1 900 км",
+        "По железной дороге через Тайшет и Транссиб до пограничного перехода"
+      ]
+    ],
+    "footnote": "Геометрия: Natural Earth (общественное достояние), world-atlas 2.0.2. Контур Байкала, трасса БАМа и положение месторождения обобщены для презентации; региональная врезка схематична. Квадратами отмечены экспортные порты и ж/д переход Забайкальск."
+  },
+  "en": {
+    "cards": [
+      [
+        "Nearest town",
+        "Nizhneangarsk",
+        "~110 km",
+        "Shift base and BAM station, by road"
+      ],
+      [
+        "Nearest rail station",
+        "Novy Uoyan",
+        "~90 km",
+        "Baikal–Amur Mainline, by access road from the deposit"
+      ],
+      [
+        "To Pacific",
+        "Vanino / Sov. Gavan",
+        "~3 000 km",
+        "By rail along the BAM from Novy Uoyan to the Pacific coast"
+      ],
+      [
+        "To Black Sea",
+        "Novo / Taman",
+        "~6 900 km",
+        "By rail west via Taishet and the Trans-Siberian"
+      ],
+      [
+        "To Baltic",
+        "Ust-Luga / St Pete",
+        "~6 400 km",
+        "By rail west via Taishet and the Trans-Siberian"
+      ],
+      [
+        "To China border",
+        "Zabaikalsk crossing",
+        "~1 900 km",
+        "By rail via Taishet and the Trans-Siberian to the Manchuria gateway"
+      ]
+    ],
+    "footnote": "Geometry: Natural Earth (public domain) via world-atlas 2.0.2. Lake Baikal outline, BAM alignment and deposit position are generalised for presentation; the regional inset is schematic at this scale. Squares mark export ports and the Zabaikalsk rail crossing."
+  }
+}
