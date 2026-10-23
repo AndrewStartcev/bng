@@ -5,7 +5,7 @@
     {
       "key": "field_bng_tab_products_en_0",
       "type": "tab",
-      "label": "Первый экран",
+      "label": "Introduction",
       "placement": "left"
     },
     {
@@ -33,7 +33,7 @@
     {
       "key": "field_bng_tab_products_en_3",
       "type": "tab",
-      "label": "Статус продукции",
+      "label": "Product status",
       "placement": "left"
     },
     {
@@ -61,7 +61,7 @@
     {
       "key": "field_bng_tab_products_en_6",
       "type": "tab",
-      "label": "Таблица",
+      "label": "Product catalog",
       "placement": "left"
     },
     {
@@ -188,7 +188,7 @@
     {
       "key": "field_bng_en_product_catalog",
       "name": "bng_en_products_catalog",
-      "label": "Каталог — 10 продуктов, марки и характеристики",
+      "label": "Products, grades and technical specifications",
       "type": "repeater",
       "layout": "block",
       "button_label": "Добавить продукт",
@@ -196,7 +196,7 @@
         {
           "key": "field_bng_en_product_code",
           "name": "code",
-          "label": "Код продукта",
+          "label": "Product code",
           "type": "text",
           "wrapper": {
             "width": "20"
@@ -205,7 +205,7 @@
         {
           "key": "field_bng_en_product_name",
           "name": "name",
-          "label": "Название",
+          "label": "Product name",
           "type": "text",
           "wrapper": {
             "width": "50"
@@ -214,7 +214,7 @@
         {
           "key": "field_bng_en_product_formula",
           "name": "formula",
-          "label": "Формула",
+          "label": "Chemical formula",
           "type": "text",
           "wrapper": {
             "width": "30"
@@ -223,7 +223,7 @@
         {
           "key": "field_bng_en_product_segment",
           "name": "segment",
-          "label": "Сегмент",
+          "label": "Market segment",
           "type": "select",
           "wrapper": {
             "width": "50"
@@ -238,7 +238,7 @@
         {
           "key": "field_bng_en_product_stream",
           "name": "stream",
-          "label": "Элементный поток",
+          "label": "Element stream",
           "type": "select",
           "wrapper": {
             "width": "50"
@@ -254,7 +254,7 @@
         {
           "key": "field_bng_en_product_buyer",
           "name": "buyer",
-          "label": "Покупатель",
+          "label": "Buyer group",
           "type": "textarea",
           "wrapper": {
             "width": "50"
@@ -263,7 +263,7 @@
         {
           "key": "field_bng_en_product_status",
           "name": "status",
-          "label": "Статус",
+          "label": "Product status",
           "type": "text",
           "wrapper": {
             "width": "50"
@@ -272,7 +272,7 @@
         {
           "key": "field_bng_en_product_grades",
           "name": "grades",
-          "label": "Марки и спецификации",
+          "label": "Grades and specifications",
           "type": "repeater",
           "layout": "block",
           "button_label": "Добавить марку",
@@ -280,7 +280,7 @@
             {
               "key": "field_bng_en_product_grade_code",
               "name": "code",
-              "label": "Код марки",
+              "label": "Product code",
               "type": "text",
               "wrapper": {
                 "width": "35"
@@ -289,7 +289,7 @@
             {
               "key": "field_bng_en_product_grade_name",
               "name": "name",
-              "label": "Название марки",
+              "label": "Product name",
               "type": "text",
               "wrapper": {
                 "width": "65"
@@ -298,7 +298,7 @@
             {
               "key": "field_bng_en_product_grade_source_file",
               "name": "source_file",
-              "label": "Исходный файл (путь в теме)",
+              "label": "Original document path",
               "type": "text",
               "wrapper": {
                 "width": "65"
@@ -307,7 +307,7 @@
             {
               "key": "field_bng_en_product_grade_attachment",
               "name": "attachment",
-              "label": "Загруженный файл (заменяет исходный)",
+              "label": "Uploaded file (replaces original)",
               "type": "file",
               "wrapper": {
                 "width": "35"
@@ -319,7 +319,7 @@
             {
               "key": "field_bng_en_product_grade_params",
               "name": "params",
-              "label": "Характеристики марки",
+              "label": "Grade parameters",
               "type": "repeater",
               "layout": "row",
               "button_label": "Добавить характеристику",
@@ -327,7 +327,7 @@
                 {
                   "key": "field_bng_en_product_param_label",
                   "name": "label",
-                  "label": "Показатель",
+                  "label": "Parameter",
                   "type": "text",
                   "wrapper": {
                     "width": "45"
@@ -336,7 +336,7 @@
                 {
                   "key": "field_bng_en_product_param_value",
                   "name": "value",
-                  "label": "Значение",
+                  "label": "Value",
                   "type": "text",
                   "wrapper": {
                     "width": "30"
@@ -345,7 +345,7 @@
                 {
                   "key": "field_bng_en_product_param_unit",
                   "name": "unit",
-                  "label": "Единица",
+                  "label": "Unit",
                   "type": "text",
                   "wrapper": {
                     "width": "25"
@@ -368,7 +368,7 @@
         {
           "key": "field_bng_en_spec_code",
           "name": "code",
-          "label": "Код марки",
+          "label": "Product code",
           "type": "text",
           "required": 1,
           "wrapper": {
@@ -392,7 +392,7 @@
     {
       "key": "field_bng_tab_products_en_19",
       "type": "tab",
-      "label": "Направления",
+      "label": "Market sectors",
       "placement": "left"
     },
     {
@@ -447,7 +447,7 @@
     },
     {
       "key": "field_bng_tab_products_en_extra",
-      "label": "Дополнительно",
+      "label": "Additional content",
       "type": "tab",
       "placement": "left"
     },
@@ -509,5 +509,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1793020000
+  "modified": 1793090000
 }
