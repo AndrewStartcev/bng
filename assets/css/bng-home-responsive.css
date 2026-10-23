@@ -280,3 +280,34 @@
   .bng-original .bng-products-filters button{font-size:10px!important;letter-spacing:.05em!important}
   .bng-original .bng-products-status{padding:16px!important}
 }
+
+/* Milestones: desktop retains the approved five-column snake timeline.
+   On small screens chronological order becomes a readable vertical timeline. */
+.bng-original .bng-milestones,.bng-original .bng-milestones > div{min-width:0}
+.bng-original .bng-milestones-snake-cell{min-width:0}
+@media(max-width:1024px){
+  .bng-original .bng-milestones-intro{gap:32px!important}
+  .bng-original .bng-milestones-snake-cell{padding-left:6px!important;padding-right:6px!important}
+  .bng-original .bng-milestone-head{font-size:14px!important}
+  .bng-original .bng-milestone-body{font-size:12px!important}
+}
+@media(max-width:768px){
+  .bng-original .bng-milestones-intro{grid-template-columns:minmax(0,1fr)!important;gap:18px!important;margin-top:32px!important}
+  .bng-original .bng-milestones-timeline{margin-top:32px!important}
+  .bng-original .bng-milestones-legend{justify-content:flex-start!important;gap:12px 22px!important;margin-bottom:30px!important;font-size:10px!important}
+  .bng-original .bng-milestones-snake-row{grid-template-columns:minmax(0,1fr)!important;direction:ltr!important;padding-bottom:0!important}
+  .bng-original .bng-milestones-snake-cell{direction:ltr!important;text-align:left!important;padding:0 0 32px 52px!important;min-height:106px}
+  .bng-original .bng-milestones-snake-cell::before{content:"";position:absolute;left:13px;top:28px;bottom:0;border-left:2px solid rgba(18,23,29,.15)}
+  .bng-original .bng-milestones-snake-row:last-child .bng-milestones-snake-cell:last-child::before{display:none}
+  .bng-original .bng-milestone-line{display:none!important}
+  .bng-original .bng-milestone-dot{position:absolute!important;top:0;left:0;margin:0!important;width:28px!important;height:28px!important}
+  .bng-original .bng-milestone-date{margin-top:0!important;font-size:16px!important}
+  .bng-original .bng-milestone-head{font-size:17px!important;margin-top:6px!important;line-height:1.35!important}
+  .bng-original .bng-milestone-body{font-size:13px!important;margin-top:7px!important;line-height:1.6!important;max-width:65ch}
+}
+@media(max-width:480px){
+  .bng-original .bng-milestones-legend{gap:12px!important}
+  .bng-original .bng-milestones-snake-cell{padding-left:42px!important}
+  .bng-original .bng-milestone-head{font-size:16px!important}
+  .bng-original .bng-milestone-body{overflow-wrap:anywhere}
+}
