@@ -167,3 +167,37 @@
   .bng-original .bng-client-nav > a{padding:13px 0!important;font-size:12px!important}
   .bng-original .bng-mobile-nav-footer{padding-top:18px}
 }
+
+/* The Rock: keep approved client layout on desktop; only constrain smaller viewports. */
+.bng-original .bng-rock,
+.bng-original .bng-rock > div{min-width:0}
+.bng-original .bng-rock-gallery img{max-width:100%}
+@media(max-width:1024px){
+  .bng-original .bng-rock-intro,
+  .bng-original .bng-rock-details,
+  .bng-original .bng-rock-map-intro{gap:32px!important}
+  .bng-original .bng-rock-facts{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .bng-original .bng-rock-benefit{grid-template-columns:minmax(100px,165px) minmax(0,1fr)!important}
+  .bng-original .bng-rock-gallery{gap:18px!important}
+}
+@media(max-width:768px){
+  .bng-original .bng-rock-intro,
+  .bng-original .bng-rock-details,
+  .bng-original .bng-rock-map-intro{grid-template-columns:minmax(0,1fr)!important;gap:20px!important}
+  .bng-original .bng-rock-intro{margin-top:32px!important}
+  .bng-original .bng-rock-facts{grid-template-columns:repeat(2,minmax(0,1fr))!important;margin-top:28px!important}
+  .bng-original .bng-rock-details,.bng-original .bng-rock-map-intro{margin-top:42px!important}
+  .bng-original .bng-rock-gallery{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important;margin-top:36px!important}
+  .bng-original .bng-rock-gallery figure{height:auto!important;min-height:200px;aspect-ratio:4/3}
+  .bng-original .bng-rock-map{height:450px!important}
+}
+@media(max-width:480px){
+  .bng-original .bng-rock-facts{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;column-gap:14px!important}
+  .bng-original .bng-rock-facts > div{padding:16px 5px 16px 0!important}
+  .bng-original .bng-rock-facts > div > div:first-child{font-size:clamp(18px,6vw,25px)!important;white-space:normal!important}
+  .bng-original .bng-rock-benefit{grid-template-columns:minmax(0,1fr)!important;gap:8px!important}
+  .bng-original .bng-rock-benefit > div:first-child{white-space:normal!important}
+  .bng-original .bng-rock-gallery{grid-template-columns:minmax(0,1fr)!important}
+  .bng-original .bng-rock-gallery figure{aspect-ratio:16/10;min-height:190px}
+  .bng-original .bng-rock-map{height:360px!important}
+}
