@@ -1,0 +1,158 @@
+{
+  "ru": [
+    {
+      "symbol": "K",
+      "atomic": "19",
+      "name": "Калий",
+      "buyers": "Аграрии и тукосмесители; стекло, мыло, аккумуляторы",
+      "count": "6 в потоке",
+      "products": [
+        {
+          "formula": "K₂SO₄",
+          "name": "Сульфат калия"
+        },
+        {
+          "formula": "KNO₃",
+          "name": "Нитрат калия"
+        },
+        {
+          "formula": "K₂SO₄–MgSO₄",
+          "name": "Калимагнезия"
+        },
+        {
+          "formula": "K₂SiO₃",
+          "name": "Силикат калия"
+        },
+        {
+          "formula": "K₂CO₃",
+          "name": "Карбонат калия"
+        },
+        {
+          "formula": "KOH",
+          "name": "Гидроксид калия"
+        }
+      ]
+    },
+    {
+      "symbol": "Al",
+      "atomic": "13",
+      "name": "Глинозём",
+      "buyers": "Алюминиевые заводы — в России и в мире",
+      "count": "1 в потоке",
+      "products": [
+        {
+          "formula": "Al₂O₃",
+          "name": "Глинозём"
+        }
+      ]
+    },
+    {
+      "symbol": "Si",
+      "atomic": "14",
+      "name": "Кремний",
+      "buyers": "Шинные и специальные рецептуры; аграрии — кремниевое питание",
+      "count": "2 в потоке",
+      "products": [
+        {
+          "formula": "SiO₂",
+          "name": "Сельскохозяйственное применение"
+        },
+        {
+          "formula": "SiO₂",
+          "name": "Осаждённый кремнезём с регулируемой удельной поверхностью"
+        }
+      ]
+    },
+    {
+      "symbol": "Fe",
+      "atomic": "26",
+      "name": "Железо",
+      "buyers": "Бетон, покрытия и пластмассы — цвет квалифицирует покупатель",
+      "count": "1 в потоке",
+      "products": [
+        {
+          "formula": "Fe₂O₃",
+          "name": "Железоокислый пигмент"
+        }
+      ]
+    }
+  ],
+  "en": [
+    {
+      "symbol": "K",
+      "atomic": "19",
+      "name": "Potassium",
+      "buyers": "Growers and blenders; glass, soap and battery makers",
+      "count": "6 in stream",
+      "products": [
+        {
+          "formula": "K₂SO₄",
+          "name": "Potassium sulphate"
+        },
+        {
+          "formula": "KNO₃",
+          "name": "Potassium nitrate"
+        },
+        {
+          "formula": "K₂SO₄–MgSO₄",
+          "name": "Potassium magnesium sulphate"
+        },
+        {
+          "formula": "K₂SiO₃",
+          "name": "Potassium silicate"
+        },
+        {
+          "formula": "K₂CO₃",
+          "name": "Potassium carbonate"
+        },
+        {
+          "formula": "KOH",
+          "name": "Potassium hydroxide"
+        }
+      ]
+    },
+    {
+      "symbol": "Al",
+      "atomic": "13",
+      "name": "Alumina",
+      "buyers": "Aluminium smelters - domestic and global",
+      "count": "1 in stream",
+      "products": [
+        {
+          "formula": "Al₂O₃",
+          "name": "Alumina"
+        }
+      ]
+    },
+    {
+      "symbol": "Si",
+      "atomic": "14",
+      "name": "Silicon",
+      "buyers": "Tyre and specialty formulators; growers, for silicon nutrition",
+      "count": "2 in stream",
+      "products": [
+        {
+          "formula": "SiO₂",
+          "name": "Сельскохозяйственное применение"
+        },
+        {
+          "formula": "SiO₂",
+          "name": "Precipitated silica with controlled total accessible surface area"
+        }
+      ]
+    },
+    {
+      "symbol": "Fe",
+      "atomic": "26",
+      "name": "Iron",
+      "buyers": "Concrete, coatings and plastics makers — colour qualified in the buyer’s laboratory",
+      "count": "1 in stream",
+      "products": [
+        {
+          "formula": "Fe₂O₃",
+          "name": "Iron oxide pigment"
+        }
+      ]
+    }
+  ]
+}
