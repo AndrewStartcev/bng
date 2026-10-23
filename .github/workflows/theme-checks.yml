@@ -14,6 +14,8 @@ jobs:
           tools: none
       - name: PHP syntax
         run: find . -type f -name '*.php' -not -path './resourse/*' -print0 | xargs -0 -n1 php -l
+      - name: JavaScript syntax and RU EN switch regression
+        run: python3 scripts/check-client-js.py
       - name: Client data validation
         run: |
           php -r '
