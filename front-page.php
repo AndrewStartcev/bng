@@ -10,6 +10,7 @@ if (!is_readable($source)) {
     wp_die(esc_html__('BNG original client template is missing. Build source assets first.', 'bng'));
 }
 $document = file_get_contents($source);
+$document = str_replace('<html>', '<html lang="' . ($is_en ? 'en' : 'ru') . '">', $document);
 foreach (['home','products','rock','flowsheet','evidence','milestones','news','company'] as $part) {
     $path = get_template_directory() . '/template-parts/original/' . $part . '.html';
     if (is_readable($path)) {

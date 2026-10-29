@@ -1364,35 +1364,6 @@ class Component extends DCLogic {
           // Keep the original map visible if the embed disallows document access.
         }
       },
-      playVideoLabel: lang === 'ru' ? 'Смотреть видео' : 'Watch video',
-      playHomeVideo: (event) => {
-        if (event && event.preventDefault) event.preventDefault();
-        const button = event && (event.currentTarget || event.target);
-        const frame = button && button.closest('.bng-home-video-frame');
-        const video = frame && frame.querySelector('video');
-        if (video) {
-          video.controls = true;
-          const label = frame.querySelector('.bng-home-play-text');
-          const playText = lang === 'ru' ? 'Смотреть видео' : 'Play video';
-          const pauseText = lang === 'ru' ? 'Пауза' : 'Pause';
-          if (!video.paused) {
-            video.pause();
-            frame.classList.remove('is-playing');
-            if (button) button.setAttribute('aria-label', playText);
-            if (label) label.textContent = playText;
-          } else {
-            const pending = video.play();
-            frame.classList.add('is-playing');
-            if (button) button.setAttribute('aria-label', pauseText);
-            if (label) label.textContent = pauseText;
-            if (pending && typeof pending.catch === 'function') pending.catch(() => {
-              frame.classList.remove('is-playing');
-              if (button) button.setAttribute('aria-label', playText);
-              if (label) label.textContent = playText;
-            });
-          }
-        }
-      },
       emptyVideoText: lang === 'ru' ? 'Видео загружается через ACF на главной странице' : 'Upload a video in the homepage ACF fields',
       heroVideo: hv, heroPoster: heroPoster, heroControls: false,
       heroIsEmbed: false, heroIsFile: !!hv, heroIsEmpty: !hv && !heroPoster, heroHasPoster: !!heroPoster && !hv,

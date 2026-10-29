@@ -39,3 +39,8 @@ jobs:
             }
             echo "RU/EN sections and 10 products OK\n";
           '
+
+      - name: Domain routing and client language switching
+        run: |
+          php scripts/check-domain-routing.php
+          node scripts/check-domain-client.js
