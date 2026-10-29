@@ -1,8 +1,26 @@
 <?php
 defined('ABSPATH') || exit;
 function bng_sections(): array {return ['home','products','rock','flowsheet','evidence','milestones','news','company'];}
-function bng_language(): string {return 'ru';}
-function bng_url(string $section='home',?string $lang=null): string {return home_url('/');}
+/** Only these explicitly configured hosts enable domain language routing. */
+function bng_domain_urls(): array {
+    $host = strtolower(explode(':', (string) ($_SERVER['HTTP_HOST'] ?? ''))[0]);
+    return in_array($host, ['bng-elements.ru','www.bng-elements.ru','bng-elements.com','www.bng-elements.com'], true)
+        ? ['ru'=>'https://bng-elements.ru/', 'en'=>'https://bng-elements.com/'] : [];
+}
+function bng_language(): string {
+    if (bng_domain_urls()) {
+        $host = strtolower(explode(':', (string) ($_SERVER['HTTP_HOST'] ?? ''))[0]);
+        return in_array($host, ['bng-elements.com','www.bng-elements.com'], true) ? 'en' : 'ru';
+    }
+    return isset($_GET['lang']) && sanitize_key(wp_unslash($_GET['lang'])) === 'en' ? 'en' : 'ru';
+}
+function bng_url(string $section='home',?string $lang=null): string {
+    $lang = in_array($lang, ['ru','en'], true) ? $lang : bng_language();
+    $urls = bng_domain_urls();
+    $url = $urls[$lang] ?? home_url('/');
+    if (!$urls && $lang === 'en') $url = add_query_arg('lang', 'en', $url);
+    return $url . ($section !== 'home' && in_array($section, bng_sections(), true) ? '#'.$section : '');
+}
 add_action('init',static function ():void {
     register_post_type('bng_section',[
         'labels'=>['name'=>'Разделы BNG','singular_name'=>'Раздел BNG','edit_item'=>'Редактировать раздел'],
