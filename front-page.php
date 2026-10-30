@@ -1,7 +1,7 @@
 <?php
 /** Approved BNG client HTML/CSS/JS, extracted into reusable source sections. */
 defined('ABSPATH') || exit;
-$is_en = isset($_GET['lang']) && sanitize_key(wp_unslash($_GET['lang'])) === 'en';
+$is_en = bng_language() === 'en';
 // The same client component contains RU and EN copy; JavaScript switches languages in-place.
 $original_dir = get_template_directory() . '/assets/original';
 $source = $original_dir . '/page.html';
@@ -10,6 +10,7 @@ if (!is_readable($source)) {
     wp_die(esc_html__('BNG original client template is missing. Build source assets first.', 'bng'));
 }
 $document = file_get_contents($source);
+$document = str_replace('<html>', '<html lang="' . ($is_en ? 'en' : 'ru') . '">', $document);
 foreach (['home','products','rock','flowsheet','evidence','milestones','news','company'] as $part) {
     $path = get_template_directory() . '/template-parts/original/' . $part . '.html';
     if (is_readable($path)) {
@@ -234,6 +235,7 @@ $script .= 'window.BNG_ROCK_MEDIA = ' . wp_json_encode($rock_media, JSON_HEX_TAG
 $script .= 'window.BNG_ROCK_ORE = ' . wp_json_encode($ore_content, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_FLOWSHEET_STREAMS = ' . wp_json_encode($flowsheet_streams, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_PRODUCTS_DATA = ' . wp_json_encode($catalog, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
+$script .= 'window.BNG_DOMAIN_URLS = ' . wp_json_encode(bng_domain_urls()) . ';';
 $script .= 'window.BNG_INITIAL_LANG = ' . wp_json_encode($is_en ? 'en' : 'ru') . ';';
 // Client map is an original self-contained HTML/SVG embed, not a WordPress page.
 $resources = [];

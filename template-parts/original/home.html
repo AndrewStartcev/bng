@@ -16,8 +16,7 @@
 
         <figure class="blueprint bng-home-video-frame" style="margin:56px 0 0;padding:0;height:420px;position:relative">
           <sc-if value="{{ heroIsFile }}" hint-placeholder-val="{{ false }}">
-            <video class="bng-home-video" src="{{ heroVideo }}" sc-camel-poster="{{ heroPoster }}" sc-camel-controls="{{ true }}" controls playsinline preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;background:#12171D"></video>
-            <button type="button" class="bng-home-play" sc-camel-on-click="{{ playHomeVideo }}" aria-label="{{ playVideoLabel }}"><span class="bng-home-play-icon" aria-hidden="true"></span><span class="bng-home-play-text">{{ playVideoLabel }}</span></button>
+            <video class="bng-home-video" src="{{ heroVideo }}" sc-camel-poster="{{ heroPoster }}" autoplay loop muted playsinline preload="auto" style="display:block;width:100%;height:100%;object-fit:cover;background:#12171D"></video>
           </sc-if>
           <sc-if value="{{ heroHasPoster }}" hint-placeholder-val="{{ false }}">
             <img src="{{ heroPoster }}" alt="BNG Elements" style="display:block;width:100%;height:100%;object-fit:cover;background:#12171D">

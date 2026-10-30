@@ -9,6 +9,7 @@ add_action('after_setup_theme', static function (): void {
 // Keep approved client CSS intact; apply only scoped homepage responsive/video fixes.
 add_action('wp_enqueue_scripts', static function (): void {
     if (!is_front_page()) return;
+    wp_enqueue_script('bng-home-video', get_template_directory_uri().'/assets/js/home-video.js', [], (string) filemtime(get_template_directory().'/assets/js/home-video.js'), true);
     $relative = '/assets/css/bng-home-responsive.css';
     wp_enqueue_style('bng-home-responsive', get_template_directory_uri() . $relative, [], (string) filemtime(get_template_directory() . $relative));
 });

@@ -1138,7 +1138,8 @@ const BUYERS = {
   Fe: { en: 'Concrete, coatings and plastics makers — colour qualified in the buyer’s laboratory', ru: 'Бетон, покрытия и пластмассы — цвет квалифицирует покупатель' }
 };
 
-const DOMAIN = { en: 'www.bngelements.com', ru: 'www.bngelements.ru' };
+const BNG_PAGES = ['home','rock','evidence','flowsheet','products','milestones','news','company'];
+const BNG_START_PAGE = window.location.hash.slice(1);
 
 if (window.BNG_WP_COPY) {
   for (const locale of ['ru', 'en']) {
@@ -1149,7 +1150,7 @@ if (window.BNG_WP_COPY) {
 }
 class Component extends DCLogic {
   state = {
-    page: this.props.startPage || 'home',
+    page: BNG_PAGES.includes(BNG_START_PAGE) ? BNG_START_PAGE : (this.props.startPage || 'home'),
     lang: window.BNG_INITIAL_LANG === 'en' ? 'en' : 'ru',
     seg: 'all',
     openProduct: null,
@@ -1181,16 +1182,24 @@ class Component extends DCLogic {
       }
       Object.keys(attrs).forEach((k) => el.setAttribute(k, attrs[k]));
     };
-    set('link[rel="canonical"]', { rel: 'canonical', href: window.location.origin + path });
-    set('link[rel="alternate"][hreflang="en"]', { rel: 'alternate', hreflang: 'en', href: window.location.origin + path });
-    set('link[rel="alternate"][hreflang="ru"]', { rel: 'alternate', hreflang: 'ru', href: window.location.origin + path });
-    set('link[rel="alternate"][hreflang="x-default"]', { rel: 'alternate', hreflang: 'x-default', href: window.location.origin + path });
+    const urls = window.BNG_DOMAIN_URLS || {};
+    set('link[rel="canonical"]', { rel: 'canonical', href: urls[lang] || window.location.origin + path });
+    if (urls.ru && urls.en) {
+      ['ru','en','x-default'].forEach((code) => set('link[rel="alternate"][hreflang="' + code + '"]', {
+        rel: 'alternate', hreflang: code, href: urls[code === 'x-default' ? 'ru' : code]
+      }));
+    }
   }
 
 
   switchLanguage(locale, event) {
     if (event && event.preventDefault) event.preventDefault();
     if (locale !== 'ru' && locale !== 'en') return;
+    const urls = window.BNG_DOMAIN_URLS || {};
+    if (urls[locale] && locale !== this.state.lang) {
+      window.location.assign(urls[locale] + (this.state.page === 'home' ? '' : '#' + this.state.page));
+      return;
+    }
     this.setState({ lang: locale });
   }
 
@@ -1355,37 +1364,8 @@ class Component extends DCLogic {
           // Keep the original map visible if the embed disallows document access.
         }
       },
-      playVideoLabel: lang === 'ru' ? 'Смотреть видео' : 'Watch video',
-      playHomeVideo: (event) => {
-        if (event && event.preventDefault) event.preventDefault();
-        const button = event && (event.currentTarget || event.target);
-        const frame = button && button.closest('.bng-home-video-frame');
-        const video = frame && frame.querySelector('video');
-        if (video) {
-          video.controls = true;
-          const label = frame.querySelector('.bng-home-play-text');
-          const playText = lang === 'ru' ? 'Смотреть видео' : 'Play video';
-          const pauseText = lang === 'ru' ? 'Пауза' : 'Pause';
-          if (!video.paused) {
-            video.pause();
-            frame.classList.remove('is-playing');
-            if (button) button.setAttribute('aria-label', playText);
-            if (label) label.textContent = playText;
-          } else {
-            const pending = video.play();
-            frame.classList.add('is-playing');
-            if (button) button.setAttribute('aria-label', pauseText);
-            if (label) label.textContent = pauseText;
-            if (pending && typeof pending.catch === 'function') pending.catch(() => {
-              frame.classList.remove('is-playing');
-              if (button) button.setAttribute('aria-label', playText);
-              if (label) label.textContent = playText;
-            });
-          }
-        }
-      },
       emptyVideoText: lang === 'ru' ? 'Видео загружается через ACF на главной странице' : 'Upload a video in the homepage ACF fields',
-      heroVideo: hv, heroPoster: heroPoster, heroControls: true,
+      heroVideo: hv, heroPoster: heroPoster, heroControls: false,
       heroIsEmbed: false, heroIsFile: !!hv, heroIsEmpty: !hv && !heroPoster, heroHasPoster: !!heroPoster && !hv,
 
       isHome: page === 'home', isProducts: page === 'products', isRock: page === 'rock',
