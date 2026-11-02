@@ -1,0 +1,156 @@
+{
+  "ru": {
+    "home": {
+      "cells": [
+        "Рудная база",
+        "2,03 млрд т запасов категорий C1+C2, утверждённых ГКЗ (протокол № 6746 от 21.09.2021), и 0,9 млрд т ресурсов P1+P2 — срок отработки месторождения более 100 лет. Запущена сертификация запасов по стандарту JORC."
+      ]
+    },
+    "rock": {
+      "compNote": "В сумме это около 97% породы; остальное — Na₂O (~1%) и следы CaO, MgO, TiO₂ и MnO, без хлоридов, сульфидов и тяжёлых металлов. Калий, алюминий, кремний и железо — не примеси в сынныритной руде, а то, из чего состоит руда; схема разделяет все четыре элемента за один проход.",
+      "mapSub": "Калюмное месторождение расположено в Сыннырском щелочном массиве, Северо-Байкальский район Республики Бурятия — примерно в 200 км к северо-востоку от северной оконечности Байкала и в 90 км от Байкало-Амурской магистрали; к участку ведёт круглогодичная технологическая дорога протяжённостью 120 км. Месторождение выгодно расположено по отношению к быстрорастущим рынкам Азиатско-тихоокеанского региона."
+    },
+    "evidence": {
+      "provable": "2,03 млрд т запасов C1+C2 — утверждены ФГБУ «ГКЗ», протокол № 6746 от 21.09.2021."
+    },
+    "flow": {
+      "routesTitle": "В 2021–2023 годах исследованы три схемы. Ни одна не оказалась оптимальной. Четвёртая, итоговая схема разработана в 2026 году",
+      "routesSelected": "По итогам этих работ в 2026 году в качестве четвёртой, итоговой схемы принята комбинированная кислотно-щелочная схема."
+    },
+    "flow_route_03": [
+      "03",
+      "Технология компании, 2021–2023",
+      "Собственная запатентованная схема (патенты РФ 2707335, 2753109, 2820256), испытанная в лабораторных и укрупнённо-лабораторных условиях с получением бесхлорных калийных удобрений и глинозёма.",
+      "K₂O 86% · Al₂O₃ 83%"
+    ],
+    "milestones_done": [
+      [
+        "2017",
+        "Получена лицензия",
+        "Лицензия УДЭ 01842 ТР на 41,11 км² — поиск, разведка и добыча сыннырита, действует до 02.02.2042."
+      ],
+      [
+        "2017–2019",
+        "Дорога и посёлок «Таборный»",
+        "Круглогодичная технологическая дорога 120 км: начата в 2017, открыта в 2018, полностью сдана в 2019 году. Вахтовый посёлок «Таборный» на 120 человек начат в 2018 и завершён в 2019 году вместе с цехом обработки керна и кернохранилищем."
+      ],
+      [
+        "2018",
+        "Первый полевой сезон",
+        "Начаты геологоразведочные работы на участке: канавы и бурение; построены головной офис, склады и производственные помещения в Нижнеангарске."
+      ],
+      [
+        "2019",
+        "Второй полевой сезон",
+        "Основной объём канав и бурения; аэромагнитная съёмка на 32 км², аэрофотосъёмка на 55 км², инструментальная топосъёмка 1:2000."
+      ],
+      [
+        "2020",
+        "Третий, заключительный полевой сезон",
+        "ГРР завершены: 55 скважин (21 488 п. м) и 38 канав (18 731 п. м); 10 116 керновых и бороздовых проб проанализированы в лаборатории ВИМС при сплошном XRF-каротаже."
+      ],
+      [
+        "2021",
+        "Запасы утверждены",
+        "Более 2 млрд т сынныритовой руды утверждены ГКЗ России; защищено ТЭО временных кондиций."
+      ],
+      [
+        "2022",
+        "Экспертное заключение",
+        "Получено дополнительное экспертное заключение по ТЭО."
+      ],
+      [
+        "2021–2023",
+        "Разработана технология переработки",
+        "Собственная технология испытана в лабораторных и укрупнённо-лабораторных условиях: извлечение 86% K₂O и 83% Al₂O₃; защищена тремя патентами РФ."
+      ],
+      [
+        "1 кв. 2026",
+        "Разработана четвёртая, итоговая схема",
+        "Серно-кислое разложение; результаты лабораторных испытаний задали целевые показатели линейки продуктов."
+      ],
+      [
+        "3 кв. 2026",
+        "Принят бренд БНГ Элементс",
+        "Компания позиционирована как минерально-перерабатывающая."
+      ]
+    ]
+  },
+  "en": {
+    "home": {
+      "cells": [
+        "Resource base",
+        "2.03 billion tonnes of C1+C2 reserves approved by GKZ (Protocol No. 6746 dated 21 September 2021), and 0.9 billion tonnes of P1+P2 resources — a mine life of over 100 years. JORC reserve certification is underway."
+      ]
+    },
+    "rock": {
+      "compNote": "Together these account for around 97% of the rock; the remainder is Na₂O (~1%) and traces of CaO, MgO, TiO₂ and MnO, with no chlorides, sulphides or heavy metals. Potassium, aluminium, silicon and iron are not impurities in synnyrite ore: they are what the ore is made of, and the flowsheet separates all four elements in a single pass.",
+      "mapSub": "The Kalyumnoye deposit lies in the Synnyr alkaline massif, North-Baikal district of the Republic of Buryatia — about 200 km north-east of the northern tip of Lake Baikal and 90 km from the Baikal–Amur Mainline; a 120 km all-season access road leads to the site. The deposit is well placed for the fast-growing markets of the Asia-Pacific region."
+    },
+    "evidence": {
+      "provable": "2.03 billion tonnes of C1+C2 reserves approved by FGBU GKZ, Protocol No. 6746 dated 21 September 2021."
+    },
+    "flow": {
+      "routesTitle": "Three process routes were studied in 2021–2023. None proved optimal. The fourth and final flowsheet was developed in 2026",
+      "routesSelected": "Following this work, a combined acid–alkaline flowsheet was adopted in 2026 as the fourth and final process route."
+    },
+    "flow_route_03": [
+      "03",
+      "Company technology, 2021–2023",
+      "A proprietary patented flowsheet (Russian patents 2707335, 2753109 and 2820256), tested at laboratory and bench scale to produce chlorine-free potassium fertilisers and alumina.",
+      "K₂O 86% · Al₂O₃ 83%"
+    ],
+    "milestones_done": [
+      [
+        "2017",
+        "Licence granted",
+        "Licence УДЭ 01842 ТР over 41.11 km² — search, exploration and production of synnyrite, valid to 02.02.2042."
+      ],
+      [
+        "2017–2019",
+        "Road and Taborny camp",
+        "Construction of the 120 km all-season access road began in 2017; it opened in 2018 and was fully commissioned in 2019. Work on the 120-person Taborny camp began in 2018 and was completed in 2019, together with the core processing facility and core storage."
+      ],
+      [
+        "2018",
+        "First field season",
+        "Exploration began at the site, including trenches and drilling; a head office, warehouses and production facilities were built in Nizhneangarsk."
+      ],
+      [
+        "2019",
+        "Second field season",
+        "Main trenching and drilling campaign; aeromagnetic survey over 32 km², aerial photography over 55 km² and an instrumental topographic survey at 1:2000 scale."
+      ],
+      [
+        "2020",
+        "Third and final field season",
+        "Exploration completed: 55 boreholes (21,488 linear metres) and 38 trenches (18,731 linear metres); 10,116 core and channel samples analysed at the VIMS laboratory, with continuous XRF logging."
+      ],
+      [
+        "2021",
+        "Reserves approved",
+        "2 bn t+ of synnyrite ore approved by the Russian State Commission of National Mineral Reserves; feasibility study (temporary conditions) defended."
+      ],
+      [
+        "2022",
+        "Expert opinion",
+        "An additional expert opinion on the feasibility study was obtained."
+      ],
+      [
+        "2021–2023",
+        "Processing technology developed",
+        "The proprietary technology was tested at laboratory and bench scale: 86% K₂O and 83% Al₂O₃ recovery; protected by three Russian patents."
+      ],
+      [
+        "Q1 2026",
+        "Fourth and final route developed",
+        "Sulphuric-acid decomposition route; lab testing results set the design targets behind the product slate."
+      ],
+      [
+        "Q3 2026",
+        "BNG Elements brand adopted",
+        "The company positioned as a mineral refinery."
+      ]
+    ]
+  }
+}

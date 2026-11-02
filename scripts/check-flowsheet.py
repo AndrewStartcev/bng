@@ -42,8 +42,10 @@ for lang in ('ru','en'):
 for key in ('t.flow.title','t.flow.sub','t.flow.pick','t.flow.feedKicker','t.flow.feed',
             't.flow.feedNote','t.flow.routesTitle','flowRoutes',
             't.flow.routesSelected','t.flow.givesTitle','flowGives',
-            't.flow.costsTitle','flowCosts','oreRows','streams','streamTabs'):
+            'oreRows','streams','streamTabs'):
     assert '{{ ' + key + ' }}' in template, f'Missing frontend flow data binding: {key}'
+for key in ('t.flow.costsTitle', 'flowCosts'):
+    assert '{{ ' + key + ' }}' not in template, f'Removed constraints block returned: {key}'
 assert 'window.BNG_FLOWSHEET_STREAMS' in frontend and 'window.BNG_FLOWSHEET_STREAMS' in bridge
 assert 'bng_\' . $locale . \'_flowsheet_streams' in bridge
 print('Flowsheet source and frontend bindings: OK')
