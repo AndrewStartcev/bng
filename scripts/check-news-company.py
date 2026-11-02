@@ -32,9 +32,13 @@ for section, required in {
    assert len(part['about'])==5
   print(f'{locale.upper()} {section}: source and all ACF fields present')
  if section=='news':
-  bindings=('t.news.title','t.news.sub','t.news.mediaTitle','t.news.mediaBody','t.news.mediaCta','t.news.logTitle','t.news.logNote','newsItems','t.news.aheadTitle','t.news.aheadNote','newsAhead')
+  bindings=('t.news.title','t.news.mediaTitle','t.news.mediaCta','t.news.logTitle','t.news.logNote','newsItems')
+  removed=('t.news.sub','t.news.mediaBody','t.news.aheadTitle','t.news.aheadNote','newsAhead')
  else:
-  bindings=('t.company.title','t.company.sub','t.company.proof','t.company.aboutTitle','t.company.archTitle','t.company.contactTitle','pillars','archCells','aboutParas','contacts')
+  bindings=('t.company.title','t.company.aboutTitle','t.company.contactTitle','pillars','aboutParas','contacts')
+  removed=('t.company.sub','t.company.proof','p.proof','t.company.archTitle','archCells')
  for token in bindings:
   assert '{{ '+token+' }}' in markup, f'Missing displayed text {section}: {token}'
-print('RU/EN News and Company: all client text mapped to editable fields and markup')
+ for token in removed:
+  assert '{{ '+token+' }}' not in markup, f'Removed client block returned: {section}: {token}'
+print('RU/EN News and Company: active bindings present; client removals retained; ACF source preserved')
