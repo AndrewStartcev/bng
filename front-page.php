@@ -2,7 +2,7 @@
 /** Approved BNG client HTML/CSS/JS, extracted into reusable source sections. */
 defined('ABSPATH') || exit;
 $is_en = bng_language() === 'en';
-// The same client component contains RU and EN copy; JavaScript switches languages in-place.
+// The same client component contains RU and EN copy; the domain determines the displayed language.
 $original_dir = get_template_directory() . '/assets/original';
 $source = $original_dir . '/page.html';
 if (!is_readable($source)) {
@@ -235,7 +235,7 @@ $script .= 'window.BNG_ROCK_MEDIA = ' . wp_json_encode($rock_media, JSON_HEX_TAG
 $script .= 'window.BNG_ROCK_ORE = ' . wp_json_encode($ore_content, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_FLOWSHEET_STREAMS = ' . wp_json_encode($flowsheet_streams, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
 $script .= 'window.BNG_PRODUCTS_DATA = ' . wp_json_encode($catalog, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';';
-$script .= 'window.BNG_DOMAIN_URLS = ' . wp_json_encode(bng_domain_urls()) . ';';
+$script .= 'window.BNG_DOMAIN_URLS = ' . wp_json_encode(array_intersect_key(bng_domain_urls(), [($is_en ? 'en' : 'ru') => true])) . ';';
 $script .= 'window.BNG_INITIAL_LANG = ' . wp_json_encode($is_en ? 'en' : 'ru') . ';';
 // Client map is an original self-contained HTML/SVG embed, not a WordPress page.
 $resources = [];

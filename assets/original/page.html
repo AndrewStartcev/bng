@@ -628,11 +628,6 @@ textarea.input { min-height: 90px; resize: vertical; }
           <div class="bng-mobile-nav-company">{{ mobileCompanyName }}</div>
         </div>
       </nav>
-      <div class="bng-client-language" role="group" aria-label="Language / Язык" style="display:flex;align-items:center;gap:8px;font-family:'PT Sans',system-ui,sans-serif;font-size:12px;letter-spacing:0.12em;margin-left:auto;white-space:nowrap">
-        <button type="button" sc-camel-on-click="{{ setRussian }}" aria-label="Русская версия" aria-pressed="{{ isRussian }}" style="cursor:pointer;border:0;border-bottom:2px solid {{ ruLanguageBorder }};padding:3px 0;background:transparent;font:inherit;color:{{ ruLanguageColor }}">RU</button>
-        <span style="color:#9AA0A6" aria-hidden="true">/</span>
-        <button type="button" sc-camel-on-click="{{ setEnglish }}" aria-label="English version" aria-pressed="{{ isEnglish }}" style="cursor:pointer;border:0;border-bottom:2px solid {{ enLanguageBorder }};padding:3px 0;background:transparent;font:inherit;color:{{ enLanguageColor }}">EN</button>
-      </div>
       <button type="button" class="bng-mobile-toggle" sc-camel-on-click="{{ toggleMenu }}" aria-controls="bng-primary-navigation" aria-expanded="{{ menuOpen }}" aria-label="{{ mobileMenuLabel }}">
         <span class="bng-mobile-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
@@ -1166,7 +1161,7 @@ class Component extends DCLogic {
     this.syncHead();
   }
 
-  // Per-language <html lang>, title, canonical and hreflang pair — so each
+  // Per-language <html lang>, title, self-canonical URL — so each
   // domain is canonical in one language rather than a duplicate of the other.
   syncHead() {
     if (typeof document === 'undefined') return;
@@ -1184,24 +1179,8 @@ class Component extends DCLogic {
     };
     const urls = window.BNG_DOMAIN_URLS || {};
     set('link[rel="canonical"]', { rel: 'canonical', href: urls[lang] || window.location.origin + path });
-    if (urls.ru && urls.en) {
-      ['ru','en','x-default'].forEach((code) => set('link[rel="alternate"][hreflang="' + code + '"]', {
-        rel: 'alternate', hreflang: code, href: urls[code === 'x-default' ? 'ru' : code]
-      }));
-    }
   }
 
-
-  switchLanguage(locale, event) {
-    if (event && event.preventDefault) event.preventDefault();
-    if (locale !== 'ru' && locale !== 'en') return;
-    const urls = window.BNG_DOMAIN_URLS || {};
-    if (urls[locale] && locale !== this.state.lang) {
-      window.location.assign(urls[locale] + (this.state.page === 'home' ? '' : '#' + this.state.page));
-      return;
-    }
-    this.setState({ lang: locale });
-  }
 
   nav(page) {
     return (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ page: page, menuOpen: false }); if (typeof window !== 'undefined') window.scrollTo(0, 0); };
@@ -1221,7 +1200,7 @@ class Component extends DCLogic {
     });
 
     const streamsPlain = STREAM_ORDER.map((k) => ({
-      sym: k, n: ATOMIC[k], name: k === 'Al' ? '\u0413\u043b\u0438\u043d\u043e\u0437\u0451\u043c' : t.element[k],
+      sym: k, n: ATOMIC[k], name: t.element[k],
       label: (() => { const np = PRODUCTS.filter((p) => p.stream === k).length; const ng = PRODUCTS.filter((p) => p.stream === k).reduce((a, p) => a + Math.max(1, (GRADES[p.code] || []).length), 0);
         const pw = lang === 'ru' ? (np === 1 ? 'продукт' : np < 5 ? 'продукта' : 'продуктов') : (np === 1 ? 'product' : 'products');
         const gw = lang === 'ru' ? (ng === 1 ? 'марка' : ng < 5 ? 'марки' : 'марок') : (ng === 1 ? 'grade' : 'grades');
@@ -1417,8 +1396,6 @@ class Component extends DCLogic {
         }
         this.setState({ menuOpen: !this.state.menuOpen });
       },
-      setRussian: (event) => this.switchLanguage('ru', event),
-      setEnglish: (event) => this.switchLanguage('en', event),
       isRussian: lang === 'ru', isEnglish: lang === 'en',
       ruLanguageColor: lang === 'ru' ? '#12171D' : '#6E747A',
       enLanguageColor: lang === 'en' ? '#12171D' : '#6E747A',
